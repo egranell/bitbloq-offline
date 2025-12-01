@@ -1,0 +1,38 @@
+{
+  "type": "statement-input",
+  "name": "public",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-public",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-public"
+      }
+    ]
+  ],
+  "code": "public : {STATEMENTS}",
+  "arduino": {
+    "code": "public : {STATEMENTS}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"public\" no preparado para generar código python"
+      }
+    ]
+  }
+}

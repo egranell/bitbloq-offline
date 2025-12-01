@@ -1,0 +1,90 @@
+{
+  "type": "statement",
+  "name": "zowiComponentSerialSend",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "number",
+        "selectVariable"
+      ],
+      "name": "5b87d748-9fbe-42af-bfd4-02aa99a04ad9"
+    }
+  ],
+  "bloqClass": "bloq-zowicomponent-serial-send",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowicomponent-serial-send"
+      },
+      {
+        "bloqInputId": "DATA",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "number",
+          "selectVariable"
+        ],
+        "name": "5b87d748-9fbe-42af-bfd4-02aa99a04ad9"
+      },
+      {
+        "id": "LN",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-serial-send-println",
+            "value": "true"
+          },
+          {
+            "label": "bloq-serial-send-print",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.serialSend({DATA}, {LN});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiComponentSerialSend\" no preparado para generar código python"
+      }
+    ]
+  }
+}

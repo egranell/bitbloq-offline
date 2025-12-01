@@ -1,0 +1,46 @@
+{
+  "type": "statement",
+  "name": "stopBuzzer",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-buzzer",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-stop-buzzer"
+      },
+      {
+        "id": "BUZZER",
+        "alias": "dynamicDropdown",
+        "options": "buzzers"
+      }
+    ]
+  ],
+  "code": "noTone({BUZZER});",
+  "arduino": {
+    "needInstanceOf": [
+      {
+        "name": "{BUZZER}",
+        "type": "const int",
+        "equals": "º[{BUZZER}.pin.s]"
+      }
+    ],
+    "code": "noTone({BUZZER});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"stopBuzzer\" no preparado para generar código python"
+      }
+    ]
+  }
+}

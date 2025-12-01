@@ -1,0 +1,96 @@
+{
+  "type": "output",
+  "name": "logicOperations",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable",
+        "equalityOperations",
+        "logicOperations"
+      ],
+      "name": "b1adf4df-2c91-431c-9e1b-c6dc1f337585"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable",
+        "equalityOperations",
+        "logicOperations"
+      ],
+      "name": "f2b0eee8-929f-403d-a5a1-ed4e11519e3c"
+    }
+  ],
+  "bloqClass": "bloq-logic-operations",
+  "content": [
+    [
+      {
+        "bloqInputId": "ARG1",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable",
+          "equalityOperations",
+          "logicOperations"
+        ],
+        "name": "b1adf4df-2c91-431c-9e1b-c6dc1f337585"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-logic-operations-and",
+            "value": "&&"
+          },
+          {
+            "label": "bloq-logic-operations-or",
+            "value": "||"
+          }
+        ]
+      },
+      {
+        "bloqInputId": "ARG2",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable",
+          "equalityOperations",
+          "logicOperations"
+        ],
+        "name": "f2b0eee8-929f-403d-a5a1-ed4e11519e3c"
+      }
+    ]
+  ],
+  "code": "({ARG1} {OPERATOR} {ARG2})",
+  "returnType": {
+    "type": "simple",
+    "value": "bool"
+  },
+  "arduino": {
+    "code": "({ARG1} {OPERATOR} {ARG2})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"logicOperations\" no preparado para generar código python"
+      }
+    ]
+  }
+}

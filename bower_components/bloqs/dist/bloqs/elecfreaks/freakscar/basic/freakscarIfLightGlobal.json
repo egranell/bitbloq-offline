@@ -1,0 +1,64 @@
+{
+  "type": "statement-input",
+  "name": "freakscarIfLightGlobal",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-freakscar-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-freakscar-if-light"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-logic-operations-more",
+            "value": "robot.readLDRRight() > robot.readLDRLeft()"
+          },
+          {
+            "label": "bloq-logic-operations-less",
+            "value": "robot.readLDRRight() < robot.readLDRLeft()"
+          },
+          {
+            "label": "bloq-logic-operations-equals",
+            "value": "robot.readLDRRight() == robot.readLDRLeft()"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-freakscar-if-light-secondly"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "if({OPERATOR}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarIfLightGlobal\" no preparado para generar código python"
+      }
+    ]
+  }
+}

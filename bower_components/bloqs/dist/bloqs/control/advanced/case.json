@@ -1,0 +1,73 @@
+{
+  "type": "statement-input",
+  "name": "caseAdvanced-v1",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom",
+      "acceptedAliases": [
+        "switchChildren",
+        "case"
+      ]
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "case"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "string"
+      ],
+      "name": "c8c53971-8862-4e79-a462-987d353de247"
+    }
+  ],
+  "bloqClass": "bloq-case",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-case-ifSameTo"
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "string"
+        ],
+        "name": "c8c53971-8862-4e79-a462-987d353de247"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-case-exec"
+      }
+    ]
+  ],
+  "code": "case {VALUE}:{STATEMENTS}break;",
+  "arduino": {
+    "code": "case {VALUE}:{STATEMENTS}break;"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"caseAdvanced-v1\" no preparado para generar código python"
+      }
+    ]
+  }
+}

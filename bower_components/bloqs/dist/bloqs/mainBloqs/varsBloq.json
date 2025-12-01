@@ -1,0 +1,31 @@
+{
+  "name": "varsBloq",
+  "type": "group",
+  "connectors": [
+    {
+      "type": "connector--empty"
+    },
+    {
+      "type": "connector--empty"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-vars",
+  "headerText": "bloq-var-header",
+  "descriptionText": "bloq-var-description",
+  "content": [],
+  "code": "{STATEMENTS}",
+  "arduino": {
+    "code": "{STATEMENTS}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"varsBloq\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "statement-input",
+  "name": "remoteButtonPushedCaseDefault",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom",
+      "acceptedAliases": [
+        "switchChildren",
+        "case"
+      ]
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-remote-switch-default"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "default:{STATEMENTS}break;"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"remoteButtonPushedCaseDefault\" no preparado para generar código python"
+      }
+    ]
+  }
+}

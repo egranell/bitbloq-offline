@@ -1,0 +1,74 @@
+{
+  "type": "statement",
+  "name": "mBotShowFaceByNumber",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-showfacebynumber",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Mostrar la cara número "
+      },
+      {
+        "id": "FACE",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "en la pantalla conectada en el "
+      },
+      {
+        "id": "PORT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "puerto 1",
+            "value": "1"
+          },
+          {
+            "label": "puerto 2",
+            "value": "2"
+          },
+          {
+            "label": "puerto 3",
+            "value": "3"
+          },
+          {
+            "label": "puerto 4",
+            "value": "4"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "includes": [
+      "mBot.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "mBot",
+        "type": "MBot"
+      }
+    ],
+    "code": "mBot.showFaceByNumber({PORT},{FACE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotShowFaceByNumber\" no preparado para generar código python"
+      }
+    ]
+  }
+}

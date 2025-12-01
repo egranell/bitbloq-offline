@@ -1,0 +1,160 @@
+$invalid-connector-color: transparent;
+$valid-connector-color: transparent;
+$available-connector-color: #f1cb33;
+// $invalid-connector-color: #DD5A0A;
+// $valid-connector-color: #5DDC21;
+@mixin inputCircle($color) {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: -10px;
+    background-color: $color;
+    border-radius: 100%;
+    top: 12px;
+    border: 1px solid $color;
+    z-index: 2;
+}
+
+@mixin drawConnector($color) {
+    content: '';
+    width: 100%;
+    border-top: 3px solid $color;
+    z-index: 1;
+    position: absolute;
+    max-width: 200px;
+}
+
+.bloq {
+    .connector--offline {
+        border-radius: 3px;
+        width: 100%;
+        height: 3%;
+        position: absolute;
+        left: 0;
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .connector--root {
+        top: 36px;
+        height: 4px;
+        left: 21px;
+        width: calc(100% - 20px);
+        &.invalid {
+            &:after {
+                @include drawConnector($invalid-connector-color);
+                bottom: -2px;
+            }
+        }
+        &.valid {
+            &:after {
+                @include drawConnector($valid-connector-color);
+                bottom: -2px;
+            }
+        }
+        &.available {
+            &:after {
+                @include drawConnector($available-connector-color);
+                bottom: -2px;
+            }
+        }
+    }
+    .connector--bottom {
+        bottom: 0;
+        &.invalid {
+            &:after {
+                @include drawConnector($invalid-connector-color);
+                bottom: 0;
+            }
+        }
+        &.valid {
+            &:after {
+                @include drawConnector($valid-connector-color);
+                bottom: 0;
+            }
+        }
+        &.available {
+            &:after {
+                @include drawConnector($available-connector-color);
+                bottom: 0;
+            }
+        }
+    }
+    .connector--top {
+        top: 0;
+        &.invalid {
+            &:after {
+                @include drawConnector($invalid-connector-color);
+            }
+        }
+        &.valid {
+            &:after {
+                @include drawConnector($valid-connector-color);
+            }
+        }
+        &.available {
+            &:after {
+                @include drawConnector($available-connector-color);
+            }
+        }
+    }
+    .connector--input {
+        &.invalid:after {
+            @include inputCircle($invalid-connector-color);
+        }
+        &.valid:after {
+            @include inputCircle($valid-connector-color);
+        }
+        &.available:after {
+            @include inputCircle($available-connector-color);
+        }
+    }
+    &:not(.disabled) {
+        .connector--input {
+            &:hover {
+                background-image: url($bulb) !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+                background-size: 13px 13px !important;
+                background-color: rgba(0, 0, 0, 0.3) !important;
+                &:before {
+                    background-color: rgba(0, 0, 0, 0.3) !important;
+                }
+            }
+        }
+    }
+    .connector--output {
+        width: 1px;
+        height: 12px;
+        margin-top: 14px;
+    }
+    &.bloq--group {
+        .connector--root--group {
+            top: 94px;
+            height: 60px;
+            width: 415px;
+            max-width: 415px;
+            left: 0;
+            &.available {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+        &.with--content {
+            .connector--root--group {
+                top: 55px;
+                left: 18px;
+                height: 5px;
+                width: 381px;
+            }
+        }
+    }
+    &.bloq-invoke-function {
+        .connector--bottom {
+            width: 100%;
+            left: 0;
+        }
+    }   
+}

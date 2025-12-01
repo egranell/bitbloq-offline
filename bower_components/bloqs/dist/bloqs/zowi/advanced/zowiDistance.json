@@ -1,0 +1,50 @@
+{
+  "type": "output",
+  "name": "zowiDistance",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-zowi-distance",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowi-distance-v1"
+      }
+    ]
+  ],
+  "code": "zowi.getDistance()",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.getDistance()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiDistance\" no preparado para generar código python"
+      }
+    ]
+  }
+}

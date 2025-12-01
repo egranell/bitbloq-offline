@@ -1,0 +1,124 @@
+{
+  "type": "statement",
+  "name": "botbloqManipulatorMoveOnSpaceAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "4c165204-db69-4f05-b1cb-45ffc7c43324"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "cb5dcd3c-b6a9-405a-8a79-580ea150b9e3"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "2ebca5bd-ee85-447e-8aeb-510dc36ebf92"
+    }
+  ],
+  "bloqClass": "bloq-botbloq-manipulator-moveonspace",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "move-to"
+      },
+      {
+        "alias": "text",
+        "value": "x:"
+      },
+      {
+        "bloqInputId": "X",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "4c165204-db69-4f05-b1cb-45ffc7c43324"
+      },
+      {
+        "alias": "text",
+        "value": "y:"
+      },
+      {
+        "bloqInputId": "Y",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "cb5dcd3c-b6a9-405a-8a79-580ea150b9e3"
+      },
+      {
+        "alias": "text",
+        "value": "z:"
+      },
+      {
+        "bloqInputId": "Z",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "2ebca5bd-ee85-447e-8aeb-510dc36ebf92"
+      }
+    ]
+  ],
+  "code": "",
+  "python": {
+    "libraries": [
+      "BotbloqManipulator"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "manipulator",
+        "type": "BotbloqManipulator"
+      }
+    ],
+    "codeLines": [
+      {
+        "code": "manipulator.move({X}, {Y}, {Z})"
+      }
+    ]
+  }
+}

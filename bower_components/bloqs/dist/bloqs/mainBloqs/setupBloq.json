@@ -1,0 +1,31 @@
+{
+  "name": "setupBloq",
+  "type": "group",
+  "connectors": [
+    {
+      "type": "connector--empty"
+    },
+    {
+      "type": "connector--empty"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-setup",
+  "headerText": "bloq-setup-header",
+  "descriptionText": "bloq-setup-description",
+  "content": [],
+  "code": "void setup(){{STATEMENTS}}",
+  "arduino": {
+    "code": "void setup(){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"setupBloq\" no preparado para generar código python"
+      }
+    ]
+  }
+}

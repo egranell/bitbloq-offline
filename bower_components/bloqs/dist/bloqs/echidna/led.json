@@ -1,0 +1,65 @@
+{
+  "type": "statement",
+  "name": "echidnaLeds",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "id": "ACTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-led-turnon",
+            "value": "HIGH"
+          },
+          {
+            "label": "bloq-led-turnoff",
+            "value": "LOW"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-led-theLED"
+      },
+      {
+        "id": "COLOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-rgbLed-simple-red",
+            "value": "2"
+          },
+          {
+            "label": "amber",
+            "value": "1"
+          },
+          {
+            "label": "bloq-rgbLed-simple-green",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  ],
+  "arduino": {
+    "code": "echidna.setLed({COLOR},{ACTION});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"echidnaLeds\" no preparado para generar código python"
+      }
+    ]
+  }
+}

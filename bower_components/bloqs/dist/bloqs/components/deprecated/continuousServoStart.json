@@ -1,0 +1,69 @@
+{
+  "type": "statement",
+  "name": "continuousServoStartAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-continuous-servo-start-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-continuous-servo-start-advanced-turn"
+      },
+      {
+        "continuousServoStartAdvancedInputId": "SERVO",
+        "alias": "continuousServoStartAdvancedInput",
+        "acceptType": [
+          "all"
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-continuous-servo-start-advanced-direction"
+      },
+      {
+        "id": "DIRECTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-continuous-servo-start-advanced-clockwise",
+            "value": "0"
+          },
+          {
+            "label": "bloq-continuous-servo-start-advanced-counterclockwise",
+            "value": "180"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "{SERVO}.write({DIRECTION});",
+  "arduino": {
+    "includes": [
+      "Servo.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "{SERVO}",
+        "type": "Servo"
+      }
+    ],
+    "setupExtraCode": "{SERVO}.attach(º[{SERVO}.pin.s]);",
+    "code": "{SERVO}.write({DIRECTION});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"continuousServoStartAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

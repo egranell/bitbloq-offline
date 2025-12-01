@@ -1,0 +1,76 @@
+{
+  "type": "statement-input",
+  "name": "mBotIfThereIsALotOfLight",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-ifthereisalotoflight",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "if"
+      },
+      {
+        "id": "OPERATION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-alot",
+            "value": "+"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-low",
+            "value": "-"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-operation-nodetect",
+            "value": "*"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "with-the"
+      },
+      {
+        "id": "LIGHTSENSOR",
+        "alias": "dynamicDropdown",
+        "options": "mkb_lightsensor"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "conditional": {
+      "aliasId": "OPERATION",
+      "code": {
+        "+": "if(¬{LIGHTSENSOR.readSensor} > 200){{STATEMENTS}}",
+        "-": "if((¬{LIGHTSENSOR.readSensor} > 0) && (¬{LIGHTSENSOR.readSensor} <= 200)){{STATEMENTS}}",
+        "*": "if(¬{LIGHTSENSOR.readSensor} <= 0){{STATEMENTS}}"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotIfThereIsALotOfLight\" no preparado para generar código python"
+      }
+    ]
+  }
+}

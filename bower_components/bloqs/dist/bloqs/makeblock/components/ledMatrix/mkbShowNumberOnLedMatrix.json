@@ -1,0 +1,48 @@
+{
+  "type": "statement",
+  "name": "mBotShowNumberOnLedMatrix",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-ledmatrix-writeNumber"
+      },
+      {
+        "id": "NUMBER",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.showNum({NUMBER});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotShowNumberOnLedMatrix\" no preparado para generar código python"
+      }
+    ]
+  }
+}

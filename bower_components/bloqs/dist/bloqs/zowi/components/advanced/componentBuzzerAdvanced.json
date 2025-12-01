@@ -1,0 +1,110 @@
+{
+  "type": "statement",
+  "name": "zowiComponentBuzzerAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "75f280f2-4108-4673-86a5-9dbeb7dd4b5d"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "4691eebf-38b3-4039-a0c3-4b7df98aa600"
+    }
+  ],
+  "bloqClass": "bloq-zowicomponent-buzzer-advance",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-sound"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-note"
+      },
+      {
+        "bloqInputId": "NOTE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "75f280f2-4108-4673-86a5-9dbeb7dd4b5d"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-for"
+      },
+      {
+        "bloqInputId": "SECONDS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "4691eebf-38b3-4039-a0c3-4b7df98aa600"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-ms"
+      }
+    ]
+  ],
+  "code": "tone({BUZZER},{NOTE},{SECONDS});\ndelay({SECONDS});",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi._tone({NOTE}, {SECONDS}, 0);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiComponentBuzzerAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

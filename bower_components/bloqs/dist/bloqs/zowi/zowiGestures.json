@@ -1,0 +1,100 @@
+{
+  "type": "statement",
+  "name": "zowiGestures",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-zowi-gestures",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowi-gestures-v1"
+      },
+      {
+        "id": "GESTURE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-zowi-gestures-ZowiHappy-v1",
+            "value": "ZowiHappy"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiSuperHappy-v1",
+            "value": "ZowiSuperHappy"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiSad-v1",
+            "value": "ZowiSad"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiSleeping-v1",
+            "value": "ZowiSleeping"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiFart-v1",
+            "value": "ZowiFart"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiConfused-v1",
+            "value": "ZowiConfused"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiLove-v1",
+            "value": "ZowiLove"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiAngry-v1",
+            "value": "ZowiAngry"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiFretful-v1",
+            "value": "ZowiFretful"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiVictory-v1",
+            "value": "ZowiVictory"
+          },
+          {
+            "label": "bloq-zowi-gestures-ZowiFail-v1",
+            "value": "ZowiFail"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "zowi.playGesture({GESTURE});",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.playGesture({GESTURE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiGestures\" no preparado para generar código python"
+      }
+    ]
+  }
+}

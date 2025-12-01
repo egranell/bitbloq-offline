@@ -1,0 +1,39 @@
+{
+  "type": "statement",
+  "name": "mBotClearLedMatrix",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-ledmatrix-clear"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.clearScreen();"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotClearLedMatrix\" no preparado para generar código python"
+      }
+    ]
+  }
+}

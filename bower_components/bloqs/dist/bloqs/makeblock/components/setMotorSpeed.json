@@ -1,0 +1,61 @@
+{
+  "type": "statement",
+  "name": "robotSetMotorSpeed",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-shield-DCmotor-spin"
+      },
+      {
+        "id": "DIRECTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "right-male",
+            "value": "Right"
+          },
+          {
+            "label": "left-male",
+            "value": "Left"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-move-speed"
+      },
+      {
+        "id": "SPEED",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "(-200,200)"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "robot.set{DIRECTION}MotorSpeed({SPEED});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"robotSetMotorSpeed\" no preparado para generar código python"
+      }
+    ]
+  }
+}

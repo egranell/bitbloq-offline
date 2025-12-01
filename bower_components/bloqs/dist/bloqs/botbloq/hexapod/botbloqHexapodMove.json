@@ -1,0 +1,67 @@
+{
+  "type": "statement",
+  "name": "botbloqHexapodMove",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-botbloq-hexapod-move",
+  "content": [
+    [
+      {
+        "id": "MOVEMENT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "forward",
+            "value": "FORWARD"
+          },
+          {
+            "label": "backward",
+            "value": "BACKWARD"
+          },
+          {
+            "label": "turn-right",
+            "value": "TURN_RIGHT"
+          },
+          {
+            "label": "turn-left",
+            "value": "TURN_LEFT"
+          }
+        ]
+      },
+      {
+        "id": "STEPS",
+        "alias": "numberInput",
+        "value": 3
+      },
+      {
+        "alias": "text",
+        "value": "steps"
+      }
+    ]
+  ],
+  "code": "",
+  "python": {
+    "libraries": [
+      "BotbloqHexapod"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "hexapod",
+        "type": "BotbloqHexapod"
+      }
+    ],
+    "codeLines": [
+      {
+        "code": "hexapod.move(\"{MOVEMENT}\", {STEPS})"
+      }
+    ]
+  }
+}

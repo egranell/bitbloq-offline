@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bloqs Simple Web</title>
+    <!--Add bloqs css-->
+    <link rel="stylesheet" href="./../../dist/bloqs.css" />
+    <style type="text/css">
+    body {
+        margin: 0;
+    }
+    
+    #code--field {
+        width: 100%;
+        height: 500px;
+    }
+    
+    #bloqs--field {
+        overflow-y: auto;
+        background-color: #EBEBEB;
+        width: 1500px;
+        height: 650px;
+    }
+    
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: black;
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        direction: ltr;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        line-height: 1.3;
+        tab-size: 4;
+        hyphens: none;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+    
+    code[class*="language-"]::-moz-selection,
+    pre[class*="language-"]::-moz-selection {
+        color: #000;
+        background-color: #fefefe;
+    }
+    
+    code[class*="language-"]::selection,
+    pre[class*="language-"]::selection {
+        color: #000;
+        background-color: #fefefe;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">bloqs demo</h1>
+    <!-- begin demo markup -->
+    <div id="bloqs--field" class="theme-colors"></div>
+    <button id="getcodebutton">getCode()</button>
+    <button id="getStructure">getStructure()</button>
+    <button id="showtree">showTree()</button>
+    <code id="code--field" class="language-"></code>
+    <!-- end demo markup -->
+    <p>See the <a href="http://bq.github.io/bloqs">project homepage</a>.</p>
+    <p>Check out the <a href="https://github.com/bq/bloqs">project repo</a>.</p>
+    <p>BQ 2015</p>
+    <script src="http://localhost:9000/livereload.js"></script>
+    <!--Load Scripts-->
+    <script src="./../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./../../bower_components/lodash/lodash.min.js"></script>
+    <script src="./../../bower_components/autogrow/autogrow.min.js"></script>
+    <script src="./../../bower_components/jquery-auto-grow-input/jquery.auto-grow-input.min.js"></script>
+    <!--Add bloqs js compiled-->
+    <!--<script src="./../../dist/bloqs.min.js"></script>-->
+    <!--Or add bloqs js without compile-->
+    <script src="beautify.js"></script>
+    <script src="./../../src/scripts/bloqs-languages.js"></script>
+    <script src="./../../src/scripts/bloqs-utils.js"></script>
+    <script src="./../../src/scripts/bloqs-tooltip.js"></script>
+    <script src="./../../src/scripts/python-generation.js"></script>
+    <script src="./../../src/scripts/bloqs-suggested.js"></script>
+    <script src="./../../src/scripts/arduino-generation.js"></script>
+    <script src="./../../src/scripts/bloqs.js"></script>
+    <script>
+    console.log(window.bloqs);
+    console.log(window.bloqsLanguages);
+    console.log(window.bloqsUtils);
+    console.log(window.pythonGeneration);
+    /**
+     * Set options like the offset from the field.
+     */
+
+
+
+    //load Bloqs
+    $.getJSON('./../../dist/bloqsmap.json', function(bloqSchemas) {
+        window.bloqs.setOptions({
+            fieldOffsetLeft: 0,
+            //fieldOffsetTopSource: ['header'],
+            fieldOffsetTopForced: 0,
+            bloqSchemas: bloqSchemas,
+            suggestionWindowParent: document.getElementById('bloqs--field')
+        });
+
+        /**
+         * Listener
+         */
+        window.addEventListener('bloqs:connect', function() {
+            console.log('bloqs:connect');
+        });
+
+        window.addEventListener('bloqs:dragend', function() {
+            console.log('bloqs:dragend');
+        });
+
+        window.addEventListener('bloqs:bloqremoved', function() {
+            console.log('bloqs:bloqremoved');
+        });
+
+        window.addEventListener('bloqs:change', function() {
+            console.log('bloqs:change');
+        });
+
+        /**
+         * Components array its the hardware elements
+         * {
+            leds: [],
+            rgbs: [],
+            sensors: [],
+            buzzers: [],
+            servos: [],
+            continuousServos: [],
+            oscillators: [],
+            lcds: [],
+            serialElements: [],
+            clocks: [],
+            hts221: [],
+            robot: []
+        };
+         */
+        var componentsArray = window.bloqsUtils.getEmptyComponentsArray(),
+            arduinoMainBloqs = {
+                varsBloq: null,
+                setupBloq: null,
+                loopBloq: null
+            };
+
+        window.bloqs.componentsArray = componentsArray;
+
+
+
+        var $field = $('#bloqs--field');
+        // Create the main arduino bloqs
+        //firsttime set componentsArray and field
+        arduinoMainBloqs.varsBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['varsBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(arduinoMainBloqs.varsBloq.$bloq);
+        arduinoMainBloqs.varsBloq.enable(true);
+        arduinoMainBloqs.varsBloq.doConnectable();
+
+        arduinoMainBloqs.setupBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['setupBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(arduinoMainBloqs.setupBloq.$bloq);
+        arduinoMainBloqs.setupBloq.enable(true);
+        arduinoMainBloqs.setupBloq.doConnectable();
+
+
+        arduinoMainBloqs.loopBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['loopBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(arduinoMainBloqs.loopBloq.$bloq);
+        arduinoMainBloqs.loopBloq.enable(true);
+        arduinoMainBloqs.loopBloq.doConnectable();
+
+        $('#getcodebutton').click(function() {
+            //old way
+            /*$('#code--field').text(js_beautify(window.bloqsUtils.getCode(componentsArray, arduinoMainBloqs)));*/
+            //new way
+            $('#code--field').text(js_beautify(window.arduinoGeneration.getCode({
+                varsBloq: arduinoMainBloqs.varsBloq.getBloqsStructure(true),
+                setupBloq: arduinoMainBloqs.setupBloq.getBloqsStructure(true),
+                loopBloq: arduinoMainBloqs.loopBloq.getBloqsStructure(true)
+            }, hardwareSchema)));
+        });
+        $('#getStructure').click(function() {
+            var actualProjectSoftware = {
+                vars: arduinoMainBloqs.varsBloq.getBloqsStructure(true),
+                setup: arduinoMainBloqs.setupBloq.getBloqsStructure(true),
+                loop: arduinoMainBloqs.loopBloq.getBloqsStructure(true)
+            };
+            //now you can store that project and load in another moment.
+            console.log(JSON.stringify(actualProjectSoftware));
+        });
+        $('#showtree').click(function() {
+            window.bloqsUtils.drawTree(bloqs.bloqs, bloqs.connectors);
+        });
+        //start build bloqs!
+        var createBloq = function(name) {
+            //Create a if bloq from the bloqsSchemas loaded
+            var bloq = new bloqs.Bloq({
+                bloqData: bloqSchemas[name],
+                componentsArray: componentsArray,
+                $field: $field
+            });
+            //append it to the field
+            $field.append(bloq.$bloq);
+            //enable if you want
+            bloq.enable(true);
+            //do connectable to allow anothers bloqs to connect to them
+            bloq.doConnectable();
+
+            bloq.$bloq.keyup(function(event) {
+                if (event.keyCode == 46) {
+                    if (document.activeElement.attributes['data-bloq-id']) {
+                        event.preventDefault();
+                        bloq = window.bloqs.bloqs[document.activeElement.attributes['data-bloq-id'].value];
+                        if (bloq.bloqData.type !== 'group' && window.bloqs.bloqs[bloq.uuid].isConnectable()) {
+                            window.bloqs.removeBloq(bloq.uuid, true, true);
+                        }
+                    }
+                }
+            });
+        };
+
+
+        var testSet = ['while', 'declareVariable'];
+
+        for (var i = 0; i < testSet.length; i++) {
+            createBloq(testSet[i]);
+        }
+
+        var hardwareSchema = {
+            "components": []
+        };
+
+    });
+    </script>
+</body>
+
+</html>

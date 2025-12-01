@@ -1,0 +1,90 @@
+{
+  "type": "statement",
+  "name": "zumjuniorPlayBuzzAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "5bf1a39b-5040-4dcb-b227-e6a3048b0373"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "8ed04cd0-5a76-443e-8e0b-49135f1584d4"
+    }
+  ],
+  "bloqClass": "bloq-zumjunior-play-buzz-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-play-buzz"
+      },
+      {
+        "bloqInputId": "NOTE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "5bf1a39b-5040-4dcb-b227-e6a3048b0373"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-play-for"
+      },
+      {
+        "bloqInputId": "TIME",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "8ed04cd0-5a76-443e-8e0b-49135f1584d4"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-play-ms"
+      }
+    ]
+  ],
+  "code": "zumJunior.playTone({NOTE},{TIME});delay({TIME});",
+  "arduino": {
+    "code": "zumJunior.playTone({NOTE},{TIME});delay({TIME});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zumjuniorPlayBuzzAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

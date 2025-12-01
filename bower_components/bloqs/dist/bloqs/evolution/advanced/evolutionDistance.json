@@ -1,0 +1,47 @@
+{
+  "type": "output",
+  "name": "evolutionDistance",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-evolution-distance",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-distance"
+      }
+    ]
+  ],
+  "code": "evolution.getDistance()",
+  "arduino": {
+    "includes": [
+      "BitbloqEvolution.h",
+      "BitbloqUS.h",
+      "Servo.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "evolution",
+        "type": "Evolution"
+      }
+    ],
+    "setupExtraCode": "evolution.init();",
+    "code": "evolution.getDistance()"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"evolutionDistance\" no preparado para generar código python"
+      }
+    ]
+  }
+}

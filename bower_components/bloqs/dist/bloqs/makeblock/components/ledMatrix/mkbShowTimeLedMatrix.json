@@ -1,0 +1,57 @@
+{
+  "type": "statement",
+  "name": "mBotShowTimeOnLedMatrix",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-ledmatrix-writeTime"
+      },
+      {
+        "id": "HOUR",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": ":"
+      },
+      {
+        "id": "MINUTES",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.showClock({HOUR},{MINUTES},1);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotShowTimeOnLedMatrix\" no preparado para generar código python"
+      }
+    ]
+  }
+}

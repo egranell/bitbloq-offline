@@ -1,0 +1,67 @@
+{
+  "type": "statement",
+  "name": "mBotShowStringOnLedMatrixAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "selectVariable"
+      ],
+      "name": "38ed47ef-5408-4990-9b56-346756d2ff08"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-ledmatrix-write"
+      },
+      {
+        "bloqInputId": "TEXT",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "selectVariable"
+        ],
+        "name": "38ed47ef-5408-4990-9b56-346756d2ff08"
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.drawStr(0,7,{TEXT});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotShowStringOnLedMatrixAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

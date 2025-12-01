@@ -1,0 +1,75 @@
+{
+  "type": "statement",
+  "name": "invokeFunctionWithArguments",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "string",
+        "selectVariable",
+        "arguments"
+      ],
+      "name": "92f28033-474d-4e74-bbb7-86e767484d42"
+    }
+  ],
+  "bloqClass": "bloq-invoke-function-with-arguments",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-invoke-function-exec"
+      },
+      {
+        "id": "FUNCTION",
+        "alias": "dynamicDropdown",
+        "options": "voidFunctions"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-invoke-function-args"
+      },
+      {
+        "bloqInputId": "ARGS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "string",
+          "selectVariable",
+          "arguments"
+        ],
+        "name": "92f28033-474d-4e74-bbb7-86e767484d42"
+      }
+    ]
+  ],
+  "code": "{FUNCTION}({ARGS});",
+  "dynamicDropdown": {
+    "idDropdown": "FUNCTION",
+    "options": "voidFunctions"
+  },
+  "arduino": {
+    "code": "{FUNCTION}({ARGS});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"invokeFunctionWithArguments\" no preparado para generar código python"
+      }
+    ]
+  }
+}

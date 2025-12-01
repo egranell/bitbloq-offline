@@ -1,0 +1,99 @@
+{
+  "type": "statement-input",
+  "name": "evolutionIfLight",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-evolution-if-light",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-light"
+      },
+      {
+        "id": "RANGELEFT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-if-light-high",
+            "value": "HIGH_LIGHT"
+          },
+          {
+            "label": "bloq-evolution-if-light-medium",
+            "value": "MEDIUM_LIGHT"
+          },
+          {
+            "label": "bloq-evolution-if-light-low",
+            "value": "LOW_LIGHT"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-light-and"
+      },
+      {
+        "id": "RANGERIGHT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-if-light-high",
+            "value": "HIGH_LIGHT"
+          },
+          {
+            "label": "bloq-evolution-if-light-medium",
+            "value": "MEDIUM_LIGHT"
+          },
+          {
+            "label": "bloq-evolution-if-light-low",
+            "value": "LOW_LIGHT"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-light-then"
+      }
+    ]
+  ],
+  "code": "if(evolution.getLightRange(LEFT,{RANGELEFT}) && evolution.getLightRange(RIGHT,{RANGERIGHT})){{STATEMENTS}}",
+  "arduino": {
+    "includes": [
+      "BitbloqEvolution.h",
+      "BitbloqUS.h",
+      "Servo.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "evolution",
+        "type": "Evolution"
+      }
+    ],
+    "setupExtraCode": "evolution.init();",
+    "code": "if(evolution.getLightRange(LEFT,{RANGELEFT}) && evolution.getLightRange(RIGHT,{RANGERIGHT})){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"evolutionIfLight\" no preparado para generar código python"
+      }
+    ]
+  }
+}

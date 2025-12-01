@@ -1,0 +1,89 @@
+{
+  "type": "statement",
+  "name": "mBotMoveAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "float"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "e9da8451-eeb9-4d35-8647-97af3ae7932d"
+    }
+  ],
+  "bloqClass": "bloq-mbot-move",
+  "content": [
+    [
+      {
+        "id": "MOVEMENT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-mbot-move-forward",
+            "value": "1"
+          },
+          {
+            "label": "bloq-mbot-move-backward",
+            "value": "2"
+          },
+          {
+            "label": "bloq-mbot-move-turnright",
+            "value": "3"
+          },
+          {
+            "label": "bloq-mbot-move-turnleft",
+            "value": "4"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-move-advanced-speed"
+      },
+      {
+        "bloqInputId": "SPEED",
+        "alias": "bloqInput",
+        "acceptType": [
+          "float"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "e9da8451-eeb9-4d35-8647-97af3ae7932d"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "includes": [
+      "BitbloqMBotDeprecated.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "mBotv1",
+        "type": "MBot"
+      }
+    ],
+    "code": "mBotv1.move({MOVEMENT},{SPEED});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotMoveAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

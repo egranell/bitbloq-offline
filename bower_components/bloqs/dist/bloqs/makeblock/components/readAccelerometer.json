@@ -1,0 +1,52 @@
+{
+  "type": "output",
+  "name": "mkbAccelerometer",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Obtener ángulo del acelerómetro en el eje"
+      },
+      {
+        "id": "AXIS",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "X",
+            "value": "X"
+          },
+          {
+            "label": "Y",
+            "value": "Y"
+          },
+          {
+            "label": "Z",
+            "value": "Z"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "robot.getAngle{AXIS}()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbAccelerometer\" no preparado para generar código python"
+      }
+    ]
+  }
+}

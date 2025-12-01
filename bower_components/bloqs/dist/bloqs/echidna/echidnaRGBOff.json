@@ -1,0 +1,38 @@
+{
+  "type": "statement",
+  "name": "echidnaRGBOff",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-rgbLed-off",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-rgbLed-off"
+      },
+      {
+        "alias": "text",
+        "value": "from-echidna"
+      }
+    ]
+  ],
+  "code": "echidna.setRGBcolor(0,0,0);",
+  "arduino": {
+    "code": "echidna.setRGBcolor(0,0,0);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"echidnaRGBOff\" no preparado para generar código python"
+      }
+    ]
+  }
+}

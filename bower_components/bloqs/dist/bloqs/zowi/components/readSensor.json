@@ -1,0 +1,72 @@
+{
+  "type": "output",
+  "name": "zowiReadSensor",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-zowicomponent-read-sensor",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-read-read"
+      },
+      {
+        "id": "SENSOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-zowi-button-A",
+            "value": "buttonA"
+          },
+          {
+            "label": "bloq-zowi-button-B",
+            "value": "buttonB"
+          },
+          {
+            "label": "bloq-zowi-sound-sensor",
+            "value": "sound"
+          },
+          {
+            "label": "bloq-zowi-us-sensor",
+            "value": "us"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.readSensor(\"{SENSOR}\")"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiReadSensor\" no preparado para generar código python"
+      }
+    ]
+  }
+}

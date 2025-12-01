@@ -1,0 +1,83 @@
+{
+  "type": "statement-input",
+  "name": "mBotIfFollowLines",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-iffollowlines",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-mbot-iffollowlines-if"
+      },
+      {
+        "id": "LINELEFT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "white",
+            "value": 1
+          },
+          {
+            "label": "black",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-iffollowlines-and"
+      },
+      {
+        "id": "LINERIGHT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "white",
+            "value": 1
+          },
+          {
+            "label": "black",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-iffollowlines-withsensor"
+      },
+      {
+        "id": "LINEFOLLOWER",
+        "alias": "dynamicDropdown",
+        "options": "mkb_linefollower"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "if((digitalRead({LINEFOLLOWER}_1) == {LINELEFT}) && (digitalRead({LINEFOLLOWER}_2) == {LINERIGHT})){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotIfFollowLines\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "type": "statement",
+  "name": "cube",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-wait",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Crear cubo con tamaño X:"
+      },
+      {
+        "id": "XINPUT",
+        "alias": "numberInput",
+        "value": 10
+      },
+      {
+        "alias": "text",
+        "value": "Y:"
+      },
+      {
+        "id": "YINPUT",
+        "alias": "numberInput",
+        "value": 10
+      },
+      {
+        "alias": "text",
+        "value": "Z:"
+      },
+      {
+        "id": "ZINPUT",
+        "alias": "numberInput",
+        "value": 10
+      }
+    ]
+  ],
+  "arduino": {
+    "code": "cube([ {XINPUT}, {YINPUT}, {ZINPUT} ], center=false);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"cube\" no preparado para generar código python"
+      }
+    ]
+  }
+}

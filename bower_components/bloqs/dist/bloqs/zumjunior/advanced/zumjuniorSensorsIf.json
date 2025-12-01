@@ -1,0 +1,137 @@
+{
+  "type": "statement-input",
+  "name": "zumjuniorSensorsIfAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown",
+        "zumjuniorSensorsIfDown",
+        "zumjuniorSensorsIfAdvancedDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "7b25e179-cef3-4b0f-9c55-cb6cba5fd4fc"
+    }
+  ],
+  "bloqClass": "bloq-zumjunior-sensors-if",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-sensors-if"
+      },
+      {
+        "id": "SENSOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-zumjunior-sensors-temperature",
+            "value": "temp{MULTI}.getTemp()"
+          },
+          {
+            "label": "bloq-zumjunior-sensors-distance",
+            "value": "ALPS{MULTI}.getDistance()"
+          },
+          {
+            "label": "bloq-zumjunior-sensors-brightness",
+            "value": "ALPS{MULTI}.getAL()"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-multi-measured-by"
+      },
+      {
+        "id": "MULTI",
+        "alias": "dynamicDropdown",
+        "options": "zumjuniorSensors"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-is"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "=",
+            "value": "=="
+          },
+          {
+            "label": "!=",
+            "value": "!="
+          },
+          {
+            "label": ">",
+            "value": ">"
+          },
+          {
+            "label": ">=",
+            "value": ">="
+          },
+          {
+            "label": "<",
+            "value": "<"
+          },
+          {
+            "label": "<=",
+            "value": "<="
+          }
+        ]
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "7b25e179-cef3-4b0f-9c55-cb6cba5fd4fc"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-sensors-exec"
+      }
+    ]
+  ],
+  "suggestedBloqs": [
+    "zumjuniorsensorselseif",
+    "else"
+  ],
+  "code": "if({SENSOR} {OPERATOR} {VALUE}){{STATEMENTS}}",
+  "arduino": {
+    "code": "if({SENSOR} {OPERATOR} {VALUE}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zumjuniorSensorsIfAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

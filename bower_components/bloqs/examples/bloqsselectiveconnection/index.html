@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bloqs Simple Web</title>
+    <!--Add bloqs css-->
+    <link rel="stylesheet" href="./../../dist/bloqs.css" />
+    <style type="text/css">
+    body {
+        margin: 0;
+    }
+    
+    #code--field {
+        width: 100%;
+        height: 500px;
+    }
+    
+    #bloqs--field {
+        overflow-y: auto;
+        background-color: #EBEBEB;
+        width: 1500px;
+        height: 650px;
+    }
+    
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: black;
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        direction: ltr;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        line-height: 1.3;
+        tab-size: 4;
+        hyphens: none;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+    
+    code[class*="language-"]::-moz-selection,
+    pre[class*="language-"]::-moz-selection {
+        color: #000;
+        background-color: #fefefe;
+    }
+    
+    code[class*="language-"]::selection,
+    pre[class*="language-"]::selection {
+        color: #000;
+        background-color: #fefefe;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">bloqs demo</h1>
+    <!-- begin demo markup -->
+    <div id="bloqs--field" class="theme-colors"></div>
+    <button id="getcodebutton">getCode()</button>
+    <code id="code--field" class="language-"></code>
+    <!-- end demo markup -->
+    <p>See the <a href="http://bq.github.io/bloqs">project homepage</a>.</p>
+    <p>Check out the <a href="https://github.com/bq/bloqs">project repo</a>.</p>
+    <p>BQ 2015</p>
+    <script src="http://localhost:9000/livereload.js"></script>
+    <!--Load Scripts-->
+    <script src="./../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./../../bower_components/lodash/lodash.min.js"></script>
+    <script src="./../../bower_components/autogrow/autogrow.min.js"></script>
+    <script src="./../../bower_components/jquery-auto-grow-input/jquery.auto-grow-input.min.js"></script>
+    <!--Add bloqs js compiled-->
+    <!--<script src="./../../dist/bloqs.min.js"></script>-->
+    <!--Or add bloqs js without compile-->
+    <script src="beautify.js"></script>
+    <script src="./../../src/scripts/bloqs-languages.js"></script>
+    <script src="./../../src/scripts/bloqs-utils.js"></script>
+    <script src="./../../src/scripts/bloqs-tooltip.js"></script>
+    <script src="./../../src/scripts/bloqs.js"></script>
+    <script>
+    console.log(window.bloqs);
+    console.log(window.bloqsLanguages);
+    console.log(window.bloqsUtils);
+    /**
+     * Set options like the offset from the field.
+     */
+    window.bloqs.setOptions({
+        fieldOffsetLeft: 0,
+        //fieldOffsetTopSource: ['header'],
+        fieldOffsetTopForced: 0
+    });
+
+    //load Bloqs
+    $.getJSON('./../../dist/bloqsmap.json', function(bloqSchemas) {
+        /**
+         * Listener
+         */
+        window.addEventListener('bloqs:connect', function() {
+            console.log('bloqs:connect');
+        });
+
+        window.addEventListener('bloqs:dragend', function() {
+            console.log('bloqs:dragend');
+        });
+
+        window.addEventListener('bloqs:bloqremoved', function() {
+            console.log('bloqs:bloqremoved');
+        });
+
+        window.addEventListener('bloqs:change', function() {
+            console.log('bloqs:change');
+        });
+
+        /**
+         * Components array its the hardware elements
+         * {
+            leds: [],
+            rgbs: [],
+            sensors: [],
+            buzzers: [],
+            servos: [],
+            continuousServos: [],
+            oscillators: [],
+            lcds: [],
+            serialElements: [],
+            clocks: [],
+            hts221: [],
+            robot: []
+        };
+         */
+        var componentsArray = window.bloqsUtils.getEmptyComponentsArray(),
+            arduinoMainBloqs = {
+                varsBloq: null,
+                setupBloq: null,
+                loopBloq: null
+            };
+
+        window.bloqs.componentsArray = componentsArray;
+
+        /*//Add some hardware
+        componentsArray.servos[0]={id: "servo", name: "servo_0", oscillator:"false", pin:{s:"2"}};
+        componentsArray.servos[1]={id: "servo", name: "servo_1", oscillator:"false", pin:{s:"3"}};
+        componentsArray.servos[2]={id: "servo", name: "servo_2", oscillator:"false", pin:{s:"4"}};
+        */
+
+        var $field = $('#bloqs--field');
+        // Create the main arduino bloqs
+        //firsttime set componentsArray and field
+        arduinoMainBloqs.varsBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['varsBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(arduinoMainBloqs.varsBloq.$bloq);
+        arduinoMainBloqs.varsBloq.enable(true);
+        arduinoMainBloqs.varsBloq.doConnectable();
+
+        arduinoMainBloqs.setupBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['setupBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(arduinoMainBloqs.setupBloq.$bloq);
+        arduinoMainBloqs.setupBloq.enable(true);
+        arduinoMainBloqs.setupBloq.doConnectable();
+
+
+        arduinoMainBloqs.loopBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['loopBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(arduinoMainBloqs.loopBloq.$bloq);
+        arduinoMainBloqs.loopBloq.enable(true);
+        arduinoMainBloqs.loopBloq.doConnectable();
+
+        $('#getcodebutton').click(function() {
+            $('#code--field').text(js_beautify(window.bloqsUtils.getCode(componentsArray, arduinoMainBloqs)));
+        });
+
+        //start build bloqs!
+        var createBloq = function(name) {
+            //Create a if bloq from the bloqsSchemas loaded
+            var bloq = new bloqs.Bloq({
+                bloqData: bloqSchemas[name],
+                componentsArray: componentsArray,
+                $field: $field
+            });
+            //append it to the field
+            $field.append(bloq.$bloq);
+            //enable if you want
+            bloq.enable(true);
+            //do connectable to allow anothers bloqs to connect to them
+            bloq.doConnectable();
+        };
+
+        createBloq('if');
+        createBloq('elseif');
+        createBloq('else');
+        createBloq('voidFunction');
+        createBloq('switch');
+        createBloq('case');
+        createBloq('case');
+        createBloq('caseDefault');
+        createBloq('case');
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+{
+  "type": "statement-input",
+  "name": "freakscarIfThereIsALotOfLightGlobal",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-freakscar-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "if"
+      },
+      {
+        "id": "OPERATION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-alot",
+            "value": "+"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-low",
+            "value": "-"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-operation-nodetect",
+            "value": "*"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "conditional": {
+      "aliasId": "OPERATION",
+      "code": {
+        "+": "if(((robot.readLDRRight() + robot.readLDRLeft())/2) > 250){{STATEMENTS}}",
+        "-": "if(((robot.readLDRRight() + robot.readLDRLeft())/2) > 10 && ((robot.readLDRRight() + robot.readLDRLeft())/2) <= 250){{STATEMENTS}}",
+        "*": "if(((robot.readLDRRight() + robot.readLDRLeft())/2) <= 10){{STATEMENTS}}"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarIfThereIsALotOfLightGlobal\" no preparado para generar código python"
+      }
+    ]
+  }
+}

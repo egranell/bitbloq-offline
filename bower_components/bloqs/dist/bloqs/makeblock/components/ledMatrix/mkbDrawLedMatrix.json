@@ -1,0 +1,71 @@
+{
+  "type": "statement",
+  "name": "mkbDrawLedMatrix",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "id": "STATE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-led-turnon",
+            "value": true
+          },
+          {
+            "label": "bloq-led-turnoff",
+            "value": false
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "el led en el punto x:"
+      },
+      {
+        "id": "COLUMN",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "y:"
+      },
+      {
+        "id": "ROW",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.drawLed({COLUMN},{ROW}, {STATE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbDrawLedMatrix\" no preparado para generar código python"
+      }
+    ]
+  }
+}

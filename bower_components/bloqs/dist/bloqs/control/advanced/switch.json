@@ -1,0 +1,65 @@
+{
+  "type": "statement-input",
+  "name": "switchAdvanced-v2",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "switchChildren"
+      ]
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable",
+        "readSensor"
+      ],
+      "name": "5f79c91b-9797-4034-858d-377802ae7ad1"
+    }
+  ],
+  "bloqClass": "bloq-switch",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-switch-check"
+      },
+      {
+        "bloqInputId": "VAR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable",
+          "readSensor"
+        ],
+        "name": "5f79c91b-9797-4034-858d-377802ae7ad1"
+      }
+    ]
+  ],
+  "code": "switch ({VAR}) {{STATEMENTS}}",
+  "arduino": {
+    "code": "switch ({VAR}) {{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"switchAdvanced-v2\" no preparado para generar código python"
+      }
+    ]
+  }
+}

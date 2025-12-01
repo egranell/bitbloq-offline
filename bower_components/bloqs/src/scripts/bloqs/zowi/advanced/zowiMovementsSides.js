@@ -1,0 +1,90 @@
+/*global require */
+'use strict';
+
+var _ = require('lodash'),
+    utils = require('./../../build-utils'),
+    StatementBloq = require('./../../statementBloq');
+
+/**
+ * Bloq name: zowiMovementsSides
+ *
+ * Bloq type: statement
+ *
+ * Description: It makes Zowi execute a specific movement, selectable
+ *              from a first drop-down, in a concrete direction,
+ *              selectable from a second drop-down, the given number
+ *              of times at a determined velocity, selectable from a
+ *              third drop-down.
+ *
+ * Return type: none
+ */
+
+var zowiMovementsSides = _.merge(_.clone(StatementBloq, true), {
+
+    name: 'zowiMovementsSides',
+    bloqClass: 'bloq-zowi-movements-sides',
+    content: [
+        [{
+            id: 'MOVEMENT',
+            alias: 'staticDropdown',
+            options: [{
+                label: 'bloq-zowi-movements-simple-turn-v1',
+                value: 'turn'
+            }, {
+                label: 'bloq-zowi-movements-simple-shakeLeg-v1',
+                value: 'shakeLeg'
+            }, {
+                label: 'bloq-zowi-movements-simple-bend-v1',
+                value: 'bend'
+            }]
+        }, {
+            id: 'DIR',
+            alias: 'staticDropdown',
+            options: [{
+                label: 'bloq-zowi-movements-left',
+                value: 'LEFT'
+            }, {
+                label: 'bloq-zowi-movements-right',
+                value: 'RIGHT'
+            }]
+        }, {
+            id: 'STEPS',
+            alias: 'numberInput',
+            value: 4
+        }, {
+            alias: 'text',
+            value: 'bloq-zowi-movements-speed'
+        }, {
+            id: 'SPEED',
+            alias: 'staticDropdown',
+            options: [{
+                label: 'bloq-zowi-movements-speed-small',
+                value: 'LOW_SPEED'
+            }, {
+                label: 'bloq-zowi-movements-speed-medium',
+                value: 'MEDIUM_SPEED'
+            }, {
+                label: 'bloq-zowi-movements-speed-high',
+                value: 'HIGH_SPEED'
+            }]
+        }, {
+            alias: 'text',
+            value: 'bloq-zowi-movements-endtext'
+        }]
+    ],
+    code: 'zowi.{MOVEMENT}({STEPS},{SPEED},{DIR});',
+    arduino: {
+        includes: ['BitbloqZowi.h', 'BitbloqUS.h', 'BitbloqBatteryReader.h',
+            'BitbloqLedMatrix.h', 'Servo.h', 'BitbloqOscillator.h', 'EEPROM.h'
+        ],
+        needInstanceOf: [{
+            name: 'zowi',
+            type: 'Zowi'
+        }],
+        setupExtraCode: 'zowi.init();',
+        code: 'zowi.{MOVEMENT}({STEPS},{SPEED},{DIR});'
+    }
+});
+utils.preprocessBloq(zowiMovementsSides);
+
+module.exports = zowiMovementsSides;

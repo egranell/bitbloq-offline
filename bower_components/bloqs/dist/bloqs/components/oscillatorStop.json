@@ -1,0 +1,51 @@
+{
+  "type": "statement",
+  "name": "oscillatorStop",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-oscillator-stop",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-oscillator-stop-stop"
+      },
+      {
+        "id": "OSCILLATOR",
+        "alias": "dynamicDropdown",
+        "options": "oscillators"
+      }
+    ]
+  ],
+  "code": "{OSCILLATOR}.Stop();",
+  "arduino": {
+    "includes": [
+      "Servo.h",
+      "Wire.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "{OSCILLATOR}",
+        "type": "Oscillator"
+      }
+    ],
+    "setupExtraCode": "{OSCILLATOR}.attach(º[{OSCILLATOR}.pin.s]);",
+    "code": "{OSCILLATOR}.Stop();"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"oscillatorStop\" no preparado para generar código python"
+      }
+    ]
+  }
+}

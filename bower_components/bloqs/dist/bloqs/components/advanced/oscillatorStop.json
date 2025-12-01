@@ -1,0 +1,58 @@
+{
+  "type": "statement",
+  "name": "oscillatorStopAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "hwVariable",
+        "selectVariable"
+      ],
+      "name": "3755a924-65b9-45a4-ad64-697a0c2e26fd"
+    }
+  ],
+  "bloqClass": "bloq-oscillator-stop-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-oscillator-stop-advanced-stop"
+      },
+      {
+        "bloqInputId": "OSCILLATOR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "hwVariable",
+          "selectVariable"
+        ],
+        "name": "3755a924-65b9-45a4-ad64-697a0c2e26fd"
+      }
+    ]
+  ],
+  "code": "{OSCILLATOR}.stop()",
+  "arduino": {
+    "code": "{OSCILLATOR}.stop()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"oscillatorStopAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

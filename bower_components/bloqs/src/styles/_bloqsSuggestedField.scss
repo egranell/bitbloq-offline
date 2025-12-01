@@ -1,0 +1,33 @@
+.suggestion{
+    opacity: 0;
+    display:none;
+    height: 100%;
+    transition: opacity 0.5s linear;
+    &:before{
+        content: "";
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        margin-top: 3px;
+        left: 69px;
+        background-color: #FFF;
+        -webkit-mask-image: url($bulb);
+        mask-image: url($bulb);
+    }
+}
+//show only when is inside a main bloq
+.bloq--group{
+    .suggestion{
+        display: block;
+    }
+}
+//show when the mouse is over
+.suggestion-on:hover{
+    & > .bloq--extension{
+        & > .bloq--extension--end{
+            .suggestion{
+                opacity: 1;
+            }
+        }
+    }
+}

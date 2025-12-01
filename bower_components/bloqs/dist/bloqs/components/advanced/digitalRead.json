@@ -1,0 +1,58 @@
+{
+  "type": "output",
+  "name": "digitalReadAdvanced",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "cb0bfac9-5868-4537-b918-584f8cf26ee2"
+    }
+  ],
+  "bloqClass": "bloq-digital-read-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-digital-read-advanced-readpin"
+      },
+      {
+        "bloqInputId": "PIN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "cb0bfac9-5868-4537-b918-584f8cf26ee2"
+      }
+    ]
+  ],
+  "code": "digitalRead({PIN})",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "digitalRead({PIN})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"digitalReadAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "type": "output",
+  "name": "phoneReadAccel",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-phone-read-accel",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-read-read"
+      },
+      {
+        "id": "MESSAGE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-phone-acceleration",
+            "value": "\"readAccel-\""
+          },
+          {
+            "label": "bloq-phone-lacceleration",
+            "value": "\"readLAccel-\""
+          },
+          {
+            "label": "bloq-phone-gravity",
+            "value": "\"readGravity-\""
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-phone-axis"
+      },
+      {
+        "id": "AXIS",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "x",
+            "value": "\"x\""
+          },
+          {
+            "label": "y",
+            "value": "\"y\""
+          },
+          {
+            "label": "z",
+            "value": "\"z\""
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-phone-of"
+      },
+      {
+        "id": "PHONE",
+        "alias": "dynamicDropdown",
+        "options": "serialElements"
+      },
+      {
+        "alias": "text",
+        "value": "(m/s²)"
+      }
+    ]
+  ],
+  "code": "{PHONE}.readString()",
+  "arduino": {
+    "includes": [
+      "BitbloqSoftwareSerial.h"
+    ],
+    "setupExtraCode": "{PHONE}.begin(º[{PHONE}.baudRate]);",
+    "needInstanceOf": [
+      {
+        "name": "{PHONE}",
+        "type": "bqSoftwareSerial",
+        "arguments": [
+          "º[{PHONE}.pin.rx]",
+          "º[{PHONE}.pin.tx]",
+          "º[{PHONE}.baudRate]"
+        ]
+      }
+    ],
+    "extraFunctionCode": "float getAcceleration(String axis, String message, bqSoftwareSerial & phone){phone.println(String(message)+String(axis));String data=\"\";while(data==\"\"){data=phone.readString();}return data.toFloat();}",
+    "code": "getAcceleration({AXIS}, {MESSAGE}, {PHONE})"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "recibir_aceleracion(server_sock, {MESSAGE}, {AXIS})"
+      }
+    ]
+  }
+}

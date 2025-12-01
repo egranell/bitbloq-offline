@@ -1,0 +1,29 @@
+.bloqs-dotsMatrix {
+    background-image: url($mbotLedMatrix);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 21px;
+}
+
+.dotsMatrix-window {
+    opacity: 1;
+    transition: opacity .5s ease;
+    .dots-container {
+        margin: 15px;
+        overflow: hidden;
+        .bloqs-dots-dot {
+            background-color: #EBEBEB;
+            width: 25px;
+            height: 25px;
+            float: left;
+            margin: 5px;
+            cursor: pointer;
+            &.active {
+                background-color: #00b8ff;
+            }
+        }
+    }
+    &.opacity0 {
+        opacity: 0;
+    }
+}

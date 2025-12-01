@@ -1,0 +1,74 @@
+{
+  "type": "statement-input",
+  "name": "elseifAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom",
+      "acceptedAliases": [
+        "ifDown",
+        "elseifDown"
+      ]
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "elseifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "equalityOperations",
+        "logicOperations"
+      ],
+      "name": "471aa8f1-a67d-410e-aa1d-fabe71b5daa6"
+    }
+  ],
+  "bloqClass": "bloq-else-if",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-else-if-if"
+      },
+      {
+        "bloqInputId": "VAR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "equalityOperations",
+          "logicOperations"
+        ],
+        "name": "471aa8f1-a67d-410e-aa1d-fabe71b5daa6"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-else-if-else"
+      }
+    ]
+  ],
+  "code": "else if ({VAR}){{STATEMENTS}}",
+  "arduino": {
+    "code": "else if ({VAR}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"elseifAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

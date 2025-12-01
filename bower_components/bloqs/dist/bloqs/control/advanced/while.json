@@ -1,0 +1,66 @@
+{
+  "type": "statement-input",
+  "name": "whileAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "equalityOperations",
+        "logicOperations"
+      ],
+      "name": "ee13d7ea-a037-4815-874c-79bd2ef817b8"
+    }
+  ],
+  "bloqClass": "bloq-while",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-while-while"
+      },
+      {
+        "bloqInputId": "CONDITION",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "equalityOperations",
+          "logicOperations"
+        ],
+        "name": "ee13d7ea-a037-4815-874c-79bd2ef817b8"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-while-exec"
+      }
+    ]
+  ],
+  "code": "while ({CONDITION}){{STATEMENTS}}",
+  "arduino": {
+    "code": "while ({CONDITION}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"whileAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

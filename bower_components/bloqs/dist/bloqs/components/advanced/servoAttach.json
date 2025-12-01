@@ -1,0 +1,39 @@
+{
+  "type": "statement",
+  "name": "servoAttach",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-servo-attach",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-servo-attach"
+      },
+      {
+        "id": "SERVO",
+        "alias": "dynamicDropdown",
+        "options": "allServos"
+      }
+    ]
+  ],
+  "code": "{SERVO}.attach({SERVO.pin});",
+  "arduino": {
+    "code": "{SERVO}.attach(º[{SERVO}.pin.s]);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"servoAttach\" no preparado para generar código python"
+      }
+    ]
+  }
+}

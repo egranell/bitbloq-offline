@@ -1,0 +1,27 @@
+{
+  "name": "pythonBloq",
+  "type": "group",
+  "connectors": [
+    {
+      "type": "connector--empty"
+    },
+    {
+      "type": "connector--empty"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-python",
+  "headerText": "Python Code",
+  "descriptionText": "Python code come here",
+  "content": [],
+  "python": {
+    "codeLines": [
+      {
+        "code": "{STATEMENTS}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "type": "statement",
+  "name": "zowiMouthAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-zowi-mouth",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowi-mouth-custom"
+      },
+      {
+        "id": "BINARY",
+        "alias": "numberInput",
+        "value": "111111111111111111111111111111"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.putMouth(0b00{BINARY}, false);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiMouthAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

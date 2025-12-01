@@ -1,0 +1,71 @@
+{
+  "type": "statement",
+  "name": "motorSetSpeedAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "c9783db1-09a0-477f-9e80-f8972ea80be4"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-shield-DCmotor-spin"
+      },
+      {
+        "id": "MOTOR",
+        "alias": "dynamicDropdown",
+        "options": "drivegearmotor"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-move-speed"
+      },
+      {
+        "bloqInputId": "SPEED",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "c9783db1-09a0-477f-9e80-f8972ea80be4"
+      },
+      {
+        "alias": "text",
+        "value": "(-255,255)"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{MOTOR}.setSpeed({SPEED});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"motorSetSpeedAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

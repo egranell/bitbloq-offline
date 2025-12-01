@@ -1,0 +1,42 @@
+{
+  "type": "statement-input",
+  "name": "freakscarCollision",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-freakscar-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-freakscar-if-collision"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "if(robot.readEndStop() == LOW){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarCollision\" no preparado para generar código python"
+      }
+    ]
+  }
+}

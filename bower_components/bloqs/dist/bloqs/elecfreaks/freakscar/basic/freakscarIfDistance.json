@@ -1,0 +1,85 @@
+{
+  "type": "statement-input",
+  "name": "freakscarIfDistance",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-freakscar-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-distance"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-if-distance-less",
+            "value": "<"
+          },
+          {
+            "label": "bloq-evolution-if-distance-more",
+            "value": ">"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-distance-than"
+      },
+      {
+        "id": "DISTANCE",
+        "alias": "numberInput",
+        "value": 15
+      },
+      {
+        "id": "MAGNITUDE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "cm",
+            "value": "cm"
+          },
+          {
+            "label": "inches",
+            "value": "inches"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "conditional": {
+      "aliasId": "MAGNITUDE",
+      "code": {
+        "cm": "if(robot.readUSMeasuredDistanceCM() {OPERATOR} {DISTANCE}){{STATEMENTS}}",
+        "inches": "if(robot.readUSMeasuredDistanceIN() {OPERATOR} {DISTANCE}){{STATEMENTS}}"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarIfDistance\" no preparado para generar código python"
+      }
+    ]
+  }
+}

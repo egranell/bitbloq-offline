@@ -1,0 +1,75 @@
+{
+  "type": "statement",
+  "name": "setVariable",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": {
+        "type": "fromDynamicDropdown",
+        "idDropdown": "NAME",
+        "options": "softwareVars"
+      },
+      "suggestedBloqs": [
+        "number",
+        "basicOperations",
+        "string",
+        "stringSum"
+      ],
+      "name": "6252bc0b-fe82-4457-9913-8faf4fd9586b"
+    }
+  ],
+  "bloqClass": "bloq-set-variable",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-set-variable-variable"
+      },
+      {
+        "id": "NAME",
+        "alias": "dynamicDropdown",
+        "options": "softwareVars"
+      },
+      {
+        "alias": "text",
+        "value": "="
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": {
+          "type": "fromDynamicDropdown",
+          "idDropdown": "NAME",
+          "options": "softwareVars"
+        },
+        "suggestedBloqs": [
+          "number",
+          "basicOperations",
+          "string",
+          "stringSum"
+        ],
+        "name": "6252bc0b-fe82-4457-9913-8faf4fd9586b"
+      }
+    ]
+  ],
+  "code": "{NAME} = {VALUE};",
+  "python": {
+    "codeLines": [
+      {
+        "code": "{NAME} = {VALUE}"
+      }
+    ]
+  },
+  "arduino": {
+    "code": "{NAME} = {VALUE};"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "type": "statement",
+  "name": "advancedEchidnaRGB",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "28728c4d-248a-460c-96ad-4c5de585d99a"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "8436f035-4b3f-4a44-a347-d2039b4bc299"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "b1be0934-e020-4430-9427-e23feabaecfe"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-rgbLed"
+      },
+      {
+        "alias": "text",
+        "value": "with-the-color"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-setled-red"
+      },
+      {
+        "bloqInputId": "RED",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "28728c4d-248a-460c-96ad-4c5de585d99a"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-setled-green"
+      },
+      {
+        "bloqInputId": "GREEN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "8436f035-4b3f-4a44-a347-d2039b4bc299"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-setled-blue"
+      },
+      {
+        "bloqInputId": "BLUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "b1be0934-e020-4430-9427-e23feabaecfe"
+      }
+    ]
+  ],
+  "arduino": {
+    "code": "echidna.setRGBcolor({RED}, {GREEN}, {BLUE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"advancedEchidnaRGB\" no preparado para generar código python"
+      }
+    ]
+  }
+}

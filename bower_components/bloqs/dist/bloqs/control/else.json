@@ -1,0 +1,46 @@
+{
+  "type": "statement-input",
+  "name": "else",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom",
+      "acceptedAliases": [
+        "ifDown",
+        "elseifDown"
+      ]
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-else",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-else-else"
+      }
+    ]
+  ],
+  "code": "else {{STATEMENTS}}",
+  "python": {
+    "codeLines": [
+      {
+        "code": "else:"
+      },
+      {
+        "indentation": 1,
+        "code": "{STATEMENTS}"
+      }
+    ]
+  },
+  "arduino": {
+    "code": "else {{STATEMENTS}}"
+  }
+}

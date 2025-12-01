@@ -1,0 +1,54 @@
+{
+  "type": "output",
+  "name": "serialReceiveInt",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-serial-receive-number",
+  "content": [
+    [
+      {
+        "id": "SERIAL",
+        "alias": "dynamicDropdown",
+        "options": "serialElements"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-serial-receiver-receive-number"
+      }
+    ]
+  ],
+  "code": "{SERIAL}.readInt()",
+  "arduino": {
+    "includes": [
+      "BitbloqSoftwareSerial.h"
+    ],
+    "setupExtraCode": "{SERIAL}.begin(º[{SERIAL}.baudRate]);",
+    "needInstanceOf": [
+      {
+        "name": "{SERIAL}",
+        "type": "bqSoftwareSerial",
+        "arguments": [
+          "º[{SERIAL}.pin.rx]",
+          "º[{SERIAL}.pin.tx]",
+          "º[{SERIAL}.baudRate]"
+        ]
+      }
+    ],
+    "code": "{SERIAL}.readInt()"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "int"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"serialReceiveInt\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "type": "statement",
+  "name": "oscillatorStart",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-oscillator-start",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-oscillator-start-oscillator"
+      },
+      {
+        "id": "OSCILLATOR",
+        "alias": "dynamicDropdown",
+        "options": "oscillators"
+      }
+    ]
+  ],
+  "code": "{OSCILLATOR}.Play();{OSCILLATOR}.refresh();",
+  "arduino": {
+    "includes": [
+      "Servo.h",
+      "Wire.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "{OSCILLATOR}",
+        "type": "Oscillator"
+      }
+    ],
+    "setupExtraCode": "{OSCILLATOR}.attach(º[{OSCILLATOR}.pin.s]);",
+    "code": "{OSCILLATOR}.Play();{OSCILLATOR}.refresh();"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"oscillatorStart\" no preparado para generar código python"
+      }
+    ]
+  }
+}

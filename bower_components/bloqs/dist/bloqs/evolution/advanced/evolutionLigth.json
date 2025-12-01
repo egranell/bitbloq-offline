@@ -1,0 +1,65 @@
+{
+  "type": "output",
+  "name": "evolutionLight",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-evolution-light",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-light"
+      },
+      {
+        "id": "SIDE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-light-left",
+            "value": "LEFT"
+          },
+          {
+            "label": "bloq-evolution-light-right",
+            "value": "RIGHT"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-light-evolution"
+      }
+    ]
+  ],
+  "code": "evolution.getLight({SIDE})",
+  "arduino": {
+    "includes": [
+      "BitbloqEvolution.h",
+      "BitbloqUS.h",
+      "Servo.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "evolution",
+        "type": "Evolution"
+      }
+    ],
+    "setupExtraCode": "evolution.init();",
+    "code": "evolution.getLight({SIDE})"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "int"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"evolutionLight\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "type": "output",
+  "name": "mBotGetButtonStatus",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-mbot-getbuttonstatus",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-mbot-getbuttonstatus"
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "includes": [
+      "BitbloqMBotDeprecated.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "mBotv1",
+        "type": "MBot"
+      }
+    ],
+    "code": "mBotv1.getButtonStatus()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotGetButtonStatus\" no preparado para generar código python"
+      }
+    ]
+  }
+}

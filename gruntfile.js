@@ -76,6 +76,7 @@ module.exports = function(grunt) {
         },
         sass: {
             options: {
+                implementation: require('sass'),
                 sourceMap: false
             },
             all: {

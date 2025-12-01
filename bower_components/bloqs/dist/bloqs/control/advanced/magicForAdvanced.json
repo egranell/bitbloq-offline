@@ -1,0 +1,66 @@
+{
+  "type": "statement-input",
+  "name": "magicForAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable",
+        "number"
+      ],
+      "name": "4664ae77-baa9-4190-9eee-4b2441f4bc6b"
+    }
+  ],
+  "bloqClass": "bloq-magicfor",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-magicfor-repeat"
+      },
+      {
+        "bloqInputId": "TIMES",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable",
+          "number"
+        ],
+        "name": "4664ae77-baa9-4190-9eee-4b2441f4bc6b"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-magicfor-times"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "for(int bitbloqForCounter=0;bitbloqForCounter < {TIMES};bitbloqForCounter += 1){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"magicForAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

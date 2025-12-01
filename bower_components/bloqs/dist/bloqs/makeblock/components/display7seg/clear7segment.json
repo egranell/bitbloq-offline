@@ -1,0 +1,39 @@
+{
+  "type": "statement",
+  "name": "clear7segment",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-7segment-clear"
+      },
+      {
+        "id": "DISPLAY",
+        "alias": "dynamicDropdown",
+        "options": "display7seg"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{DISPLAY}.clearDisplay();"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"clear7segment\" no preparado para generar código python"
+      }
+    ]
+  }
+}

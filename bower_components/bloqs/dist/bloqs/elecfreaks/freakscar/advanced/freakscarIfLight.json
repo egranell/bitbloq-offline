@@ -1,0 +1,100 @@
+{
+  "type": "statement-input",
+  "name": "freakscarIfLight",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-freakscar-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "if"
+      },
+      {
+        "id": "CONDITION1",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-alot",
+            "value": "robot.readLDRRight() > 250"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-low",
+            "value": "robot.readLDRRight() <= 250  &&  robot.readLDRRight() > 10"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-operation-nodetect",
+            "value": "robot.readLDRRight() < 10"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-freakscar-light-right"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-logic-operations-and",
+            "value": "&&"
+          },
+          {
+            "label": "bloq-logic-operations-or",
+            "value": "||"
+          }
+        ]
+      },
+      {
+        "id": "CONDITION2",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-alot",
+            "value": "robot.readLDRLeft() > 250"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-low",
+            "value": "robot.readLDRLeft() <= 250  &&  robot.readLDRLeft() > 10"
+          },
+          {
+            "label": "bloq-mbot-ifthereisalotoflight-operation-nodetect",
+            "value": "robot.readLDRLeft() < 10"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-freakscar-light-left"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "if({CONDITION1} {OPERATOR} {CONDITION2}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarIfLight\" no preparado para generar código python"
+      }
+    ]
+  }
+}

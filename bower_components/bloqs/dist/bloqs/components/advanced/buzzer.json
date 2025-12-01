@@ -1,0 +1,99 @@
+{
+  "type": "statement",
+  "name": "buzzerAdvanced-v2",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "72365d91-ea72-4933-adce-d48f25592a8f"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "47eeb6e0-fa43-4a35-824f-7aa530f32f95"
+    }
+  ],
+  "bloqClass": "bloq-buzzer-advance",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-sound"
+      },
+      {
+        "id": "BUZZER",
+        "alias": "dynamicDropdown",
+        "options": "buzzers"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-note"
+      },
+      {
+        "bloqInputId": "NOTE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "72365d91-ea72-4933-adce-d48f25592a8f"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-for"
+      },
+      {
+        "bloqInputId": "SECONDS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "47eeb6e0-fa43-4a35-824f-7aa530f32f95"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-ms"
+      }
+    ]
+  ],
+  "code": "tone({BUZZER},{NOTE},{SECONDS});\ndelay({SECONDS});",
+  "arduino": {
+    "code": "tone({BUZZER},{NOTE},{SECONDS});\ndelay({SECONDS});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"buzzerAdvanced-v2\" no preparado para generar código python"
+      }
+    ]
+  }
+}

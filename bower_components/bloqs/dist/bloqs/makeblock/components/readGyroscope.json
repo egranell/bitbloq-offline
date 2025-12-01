@@ -1,0 +1,48 @@
+{
+  "type": "output",
+  "name": "mkbGyroscope",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Leer información del giroscopio en el eje"
+      },
+      {
+        "id": "AXIS",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "X",
+            "value": "X"
+          },
+          {
+            "label": "Y",
+            "value": "Y"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "robot.getGyro{AXIS}()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbGyroscope\" no preparado para generar código python"
+      }
+    ]
+  }
+}

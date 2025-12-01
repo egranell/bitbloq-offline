@@ -1,0 +1,52 @@
+{
+  "type": "statement",
+  "name": "mBotLedMatrix",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-ledmatrix-draw"
+      },
+      {
+        "id": "DRAW",
+        "alias": "dotsMatrix",
+        "options": {
+          "rows": 8,
+          "columns": 16
+        },
+        "value": "0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0"
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.draw({DRAW});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotLedMatrix\" no preparado para generar código python"
+      }
+    ]
+  }
+}

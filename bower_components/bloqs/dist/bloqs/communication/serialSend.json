@@ -1,0 +1,94 @@
+{
+  "type": "statement",
+  "name": "serialSend-v1",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "number",
+        "selectVariable"
+      ],
+      "name": "9be2116c-4cd6-48a3-a8fe-f5c319c9a1a7"
+    }
+  ],
+  "bloqClass": "bloq-serial-send",
+  "content": [
+    [
+      {
+        "id": "SERIAL",
+        "alias": "dynamicDropdown",
+        "options": "serialElements"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-serial-send-send"
+      },
+      {
+        "bloqInputId": "DATA",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "number",
+          "selectVariable"
+        ],
+        "name": "9be2116c-4cd6-48a3-a8fe-f5c319c9a1a7"
+      },
+      {
+        "id": "LN",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-serial-send-println",
+            "value": "println"
+          },
+          {
+            "label": "bloq-serial-send-print",
+            "value": "print"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "{SERIAL}.{LN}({DATA});",
+  "arduino": {
+    "includes": [
+      "BitbloqSoftwareSerial.h"
+    ],
+    "setupExtraCode": "{SERIAL}.begin(º[{SERIAL}.baudRate]);",
+    "needInstanceOf": [
+      {
+        "name": "{SERIAL}",
+        "type": "bqSoftwareSerial",
+        "arguments": [
+          "º[{SERIAL}.pin.rx]",
+          "º[{SERIAL}.pin.tx]",
+          "º[{SERIAL}.baudRate]"
+        ]
+      }
+    ],
+    "code": "{SERIAL}.{LN}({DATA});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"serialSend-v1\" no preparado para generar código python"
+      }
+    ]
+  }
+}

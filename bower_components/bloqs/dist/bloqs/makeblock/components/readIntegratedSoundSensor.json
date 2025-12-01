@@ -1,0 +1,34 @@
+{
+  "type": "output",
+  "name": "mkbIntegratedSoundSensor",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Leer sensor de sonido integrado"
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "robot.readSoundLevel()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbIntegratedSoundSensor\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -86,7 +86,7 @@ angular.module('bitbloqOffline')
                     }
                 });
             } else {
-                var filePath = nodeDialog.showOpenDialog({
+                var filePathPromise = nodeDialog.showOpenDialog({
                     properties: ['openFile', 'createDirectory'],
                     filters: [{
                         name: 'Bitbloq',
@@ -97,7 +97,39 @@ angular.module('bitbloqOffline')
                     }]
                 });
 
-                if (filePath) {
+                // Manejar promesa
+                if (filePathPromise && filePathPromise.then) {
+                    filePathPromise.then(function(filePath) {
+                        if (filePath && filePath[0]) {
+                            nodeFs.readFile(filePath[0], function(err, data) {
+                                if (err) {
+                                    throw err;
+                                } else {
+                                    var project = JSON.parse(data);
+                                    
+                                    if (isANewerVersion(project.bloqsVersion, common.bloqsVersion)) {
+                                        alertsService.add('bigger-bloqs-version-detected', 'warning', 'warning', 5000, null, false, false);
+                                    }
+                                    if (isANewerVersion(project.bitbloqOfflineVersion, common.version)) {
+                                        alertsService.add('offline-new-version-available', 'info', 'info', 5000, null, false, false);
+                                    }
+                                    $scope.setProject(project);
+                                    projectApi.savedProjectPath = filePath[0];
+                                    projectApi.projectChanged = false;
+                                    hw2Bloqs.repaint();
+                                    $scope.refreshCode();
+                                    $scope.refreshComponentsArray();
+                                    utils.apply($scope);
+                                    projectApi.save(project);
+                                    $rootScope.$emit('refreshScroll');
+                                    bloqs.updateDropdowns();
+                                }
+                            });
+                        }
+                    });
+                } else if (filePathPromise) {
+                    // Compatibilidad legacy - retorno directo
+                    var filePath = filePathPromise;
                     nodeFs.readFile(filePath[0], function(err, data) {
                         if (err) {
                             throw err;

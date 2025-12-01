@@ -1,0 +1,82 @@
+$windowBorderRadius: 5px;
+$headerColor: #eaebec;
+.suggestion-window,
+.dotsMatrix-window {
+    position: absolute;
+    background-color: #FFF;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 2px 2px 6px 0 rgba(50, 50, 50, .35);
+    min-width: 350px;
+    border-radius: $windowBorderRadius;
+    .sugg-header {
+        background-color: $headerColor;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-top-left-radius: $windowBorderRadius;
+        border-top-right-radius: $windowBorderRadius;
+        h3 {
+            margin: 10px 14px;
+        }
+    }
+    .triangle {
+        width: 0;
+        height: 0;
+        position: absolute;
+        margin-left: 32px;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        &.top {
+            top: -13px;
+            border-bottom: 14px solid $headerColor;
+        }
+        &.bottom {
+            display: none;
+            bottom: -13px;
+            border-top: 14px solid #ffffff;
+        }
+    }
+    &.right {
+        .triangle {
+            margin-left: auto;
+            margin-right: 23px;
+        }
+    }
+    &.top {
+        .triangle {
+            &.top {
+                display: none;
+            }
+            &.bottom {
+                display: block;
+            }
+        }
+    }
+    .bloqs-container {
+        margin: 7px 0;
+        p {
+            margin: 10px 14px;
+        }
+    }
+    .bloq-container {
+        position: relative;
+        overflow: hidden;
+        .bloq {
+            position: relative;
+            margin: 7px 25px;
+            .bloq--statement-input__header {
+                position: static !important;
+            }
+        }
+    }
+    &.hide {
+        display: none;
+    }
+
+    //fix static position and padding
+    .bloq--statement-input__header:first-of-type + .bloq--extension{
+        padding-top: 0;
+    }
+}

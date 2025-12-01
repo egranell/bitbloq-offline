@@ -1,0 +1,111 @@
+{
+  "type": "output",
+  "name": "substringAdvanced",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable"
+      ],
+      "name": "49577da9-ca39-4d6b-9456-1beb6601faef"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "d7d1649d-fdda-4bf2-bff0-b9c7182ec1b0"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "d49162b6-fc59-4698-9be0-cdb97b5a605a"
+    }
+  ],
+  "bloqClass": "bloq-string",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-button-if"
+      },
+      {
+        "bloqInputId": "STRING",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable"
+        ],
+        "name": "49577da9-ca39-4d6b-9456-1beb6601faef"
+      },
+      {
+        "alias": "text",
+        "value": "empezando en la posición"
+      },
+      {
+        "bloqInputId": "FROM",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "d7d1649d-fdda-4bf2-bff0-b9c7182ec1b0"
+      },
+      {
+        "alias": "text",
+        "value": "y acabando en la posición"
+      },
+      {
+        "bloqInputId": "TO",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "d49162b6-fc59-4698-9be0-cdb97b5a605a"
+      }
+    ]
+  ],
+  "returnType": {
+    "type": "simple",
+    "value": "String"
+  },
+  "arduino": {
+    "code": "{STRING}.substring({FROM}, {TO})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"substringAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "type": "statement",
+  "name": "setDisplayBrightnessAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "9d460508-75c2-44e6-95a5-9c30145c2500"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-7segment-setLight"
+      },
+      {
+        "id": "DISPLAY",
+        "alias": "dynamicDropdown",
+        "options": "display7seg"
+      },
+      {
+        "alias": "text",
+        "value": "to"
+      },
+      {
+        "bloqInputId": "BRIGHTNESSLEVEL",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "9d460508-75c2-44e6-95a5-9c30145c2500"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{DISPLAY}.setBrightness({BRIGHTNESSLEVEL});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"setDisplayBrightnessAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

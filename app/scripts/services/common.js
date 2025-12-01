@@ -18,11 +18,10 @@ angular.module('bitbloqOffline')
 
 
 
-        exports.webPath = process.mainModule.filename.substring(0, process.mainModule.filename.lastIndexOf('/'));
-
-        var app = exports.webPath.substring(0, exports.webPath.lastIndexOf('/'));
-        var resources = process.resourcesPath + '/app/';
-        exports.appPath = app || resources;
+        // Obtener la ruta correcta de la aplicación usando process.cwd()
+        const path = require('path');
+        exports.appPath = process.cwd();
+        exports.webPath = path.join(exports.appPath, 'app');
 
         exports.bloqsSchemas = JSON.parse(fs.readFileSync(exports.appPath + '/bower_components/bloqs/dist/bloqsmap.json', 'utf8'));
         exports.hardware = JSON.parse(fs.readFileSync(exports.appPath + '/app/res/hw.json', 'utf8'));

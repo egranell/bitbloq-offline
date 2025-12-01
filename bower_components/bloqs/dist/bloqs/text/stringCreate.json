@@ -1,0 +1,56 @@
+{
+  "type": "output",
+  "name": "stringCreate",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "selectVariable"
+      ],
+      "name": "d442e2a4-be91-4d85-86d9-ad08ac320200"
+    }
+  ],
+  "bloqClass": "bloq-string-create",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-string-create-create"
+      },
+      {
+        "bloqInputId": "TEXT",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "selectVariable"
+        ],
+        "name": "d442e2a4-be91-4d85-86d9-ad08ac320200"
+      }
+    ]
+  ],
+  "code": "String({TEXT})",
+  "returnType": {
+    "type": "simple",
+    "value": "String"
+  },
+  "arduino": {
+    "code": "String({TEXT})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"stringCreate\" no preparado para generar código python"
+      }
+    ]
+  }
+}

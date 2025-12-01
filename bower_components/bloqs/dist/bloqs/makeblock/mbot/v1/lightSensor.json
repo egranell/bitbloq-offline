@@ -1,0 +1,43 @@
+{
+  "type": "output",
+  "name": "mBotGetLightSensor",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-mbot-getlightsensor",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-mbot-getlightsensor"
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "includes": [
+      "BitbloqMBotDeprecated.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "mBotv1",
+        "type": "MBot"
+      }
+    ],
+    "code": "mBotv1.getLightSensor()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotGetLightSensor\" no preparado para generar código python"
+      }
+    ]
+  }
+}

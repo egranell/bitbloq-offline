@@ -1,0 +1,59 @@
+{
+  "type": "output",
+  "name": "echidnaReadSensor",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-read-sensor",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-read-read"
+      },
+      {
+        "id": "SENSOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "echidna-button-1",
+            "value": "readButton1"
+          },
+          {
+            "label": "echidna-button-2",
+            "value": "readButton2"
+          },
+          {
+            "label": "echidna-ldrs",
+            "value": "readLightSensor"
+          },
+          {
+            "label": "echidna-joystick-button",
+            "value": "readJoystickButton"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "from-echidna"
+      }
+    ]
+  ],
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "echidna.{SENSOR}()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"echidnaReadSensor\" no preparado para generar código python"
+      }
+    ]
+  }
+}

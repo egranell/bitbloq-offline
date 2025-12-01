@@ -1,0 +1,39 @@
+{
+  "type": "statement",
+  "name": "mBotRGBLedOff",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-rgbLedsimple-off",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-mbot-turnoffled-off"
+      },
+      {
+        "id": "LED",
+        "alias": "dynamicDropdown",
+        "options": "mkb_integrated_RGB"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "robot.setLed(º[{LED}.pin.s],0,0,0);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotRGBLedOff\" no preparado para generar código python"
+      }
+    ]
+  }
+}

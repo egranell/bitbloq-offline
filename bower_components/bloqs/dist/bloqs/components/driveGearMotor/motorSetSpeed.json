@@ -1,0 +1,52 @@
+{
+  "type": "statement",
+  "name": "motorSetSpeed",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-shield-DCmotor-spin"
+      },
+      {
+        "id": "MOTOR",
+        "alias": "dynamicDropdown",
+        "options": "drivegearmotor"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-move-speed"
+      },
+      {
+        "id": "SPEED",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "(-255,255)"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{MOTOR}.setSpeed({SPEED});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"motorSetSpeed\" no preparado para generar código python"
+      }
+    ]
+  }
+}

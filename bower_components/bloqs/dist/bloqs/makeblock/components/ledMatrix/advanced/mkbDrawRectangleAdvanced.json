@@ -1,0 +1,151 @@
+{
+  "type": "statement",
+  "name": "mkbDrawRectangleAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "55c3cd1e-e098-484e-ba2d-d48cea60daf9"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "ba7cf627-5d41-4f0f-869c-201942866844"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "fc9ec03f-da18-402c-8fff-1b38d85aa581"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "5e263c53-7af7-4f4a-9750-8d135f2f834d"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Dibujar rectángulo con origen x:"
+      },
+      {
+        "bloqInputId": "COLUMN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "55c3cd1e-e098-484e-ba2d-d48cea60daf9"
+      },
+      {
+        "alias": "text",
+        "value": "y:"
+      },
+      {
+        "bloqInputId": "ROW",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "ba7cf627-5d41-4f0f-869c-201942866844"
+      },
+      {
+        "alias": "text",
+        "value": "ancho:"
+      },
+      {
+        "bloqInputId": "WIDTH",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "fc9ec03f-da18-402c-8fff-1b38d85aa581"
+      },
+      {
+        "alias": "text",
+        "value": "alto:"
+      },
+      {
+        "bloqInputId": "HEIGHT",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "5e263c53-7af7-4f4a-9750-8d135f2f834d"
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.drawRectangle({COLUMN},{ROW},{WIDTH},{HEIGHT});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbDrawRectangleAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "type": "output",
+  "name": "numberArrayAdvanced",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "2da902ea-b588-4604-9bbc-375ef945b483"
+    }
+  ],
+  "bloqClass": "bloq-numberArray-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-numberArray-advanced-arraySize"
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "2da902ea-b588-4604-9bbc-375ef945b483"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-numberArray-advanced-type"
+      },
+      {
+        "id": "TYPE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-numberArray-advanced-float",
+            "value": "float *"
+          },
+          {
+            "label": "bloq-numberArray-advanced-int",
+            "value": "int *"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "({TYPE})malloc({VALUE}*sizeof({TYPE}.withoutAsterisk))",
+  "returnType": {
+    "type": "fromDropdown",
+    "idDropdown": "TYPE",
+    "options": "softwareVars"
+  },
+  "arduino": {
+    "code": "({TYPE})malloc({VALUE}*sizeof(¬{TYPE.withoutAsterisk}))"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"numberArrayAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

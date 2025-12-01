@@ -1,0 +1,81 @@
+{
+  "type": "output",
+  "name": "invokeClassReturnFunctionWithArguments",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "arguments",
+        "number",
+        "string",
+        "selectVariable"
+      ],
+      "name": "590a22be-8383-4e6a-9210-293541339786"
+    }
+  ],
+  "bloqClass": "bloq-invoke-class-return-function",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-invoke-class-return-function-args-exec"
+      },
+      {
+        "id": "FUNCTION",
+        "alias": "dynamicDropdown",
+        "options": "returnFunctions"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-invoke-class-return-function-args-class"
+      },
+      {
+        "id": "CLASS",
+        "alias": "dynamicDropdown",
+        "options": "objects"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-invoke-class-return-function-args-args"
+      },
+      {
+        "bloqInputId": "ARGS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "arguments",
+          "number",
+          "string",
+          "selectVariable"
+        ],
+        "name": "590a22be-8383-4e6a-9210-293541339786"
+      }
+    ]
+  ],
+  "code": "{CLASS}.{FUNCTION}({ARGS});",
+  "returnType": {
+    "type": "fromDynamicDropdown",
+    "idDropdown": "FUNCTION",
+    "options": "returnFunctions"
+  },
+  "arduino": {
+    "code": "{CLASS}.{FUNCTION}({ARGS});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"invokeClassReturnFunctionWithArguments\" no preparado para generar código python"
+      }
+    ]
+  }
+}

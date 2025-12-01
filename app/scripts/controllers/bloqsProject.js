@@ -265,13 +265,68 @@ angular.module('bitbloqOffline')
 
         $scope.getHardwareSchema = function() {
             var schema = hw2Bloqs.saveSchema();
+            console.log('🔍 DEBUG getHardwareSchema - schema completo:', JSON.stringify(schema, null, 2));
             if (schema) { //If project is loaded on protocanvas
-                schema.components = schema.components.map(function(elem) {
-                    var newElem = _.find($scope.project.hardware.components, {
-                        uid: elem.uid
+                // Procesar las conexiones para extraer los pines asignados
+                var pinsMap = {};
+                if (schema.connections) {
+                    console.log('🔍 DEBUG - Número de conexiones:', schema.connections.length);
+                    
+                    // Obtener el UID del componente directamente desde la conexión
+                    schema.connections.forEach(function(connection) {
+                        console.log('🔍 DEBUG - Conexión:', {
+                            pinBoard: connection.pinBoard,
+                            pinComponent: connection.pinComponent,
+                            pinSourceUid: connection.pinSourceUid
+                        });
+                        
+                        // Buscar el componente DOM por el UID del endpoint source
+                        var allConnections = hw2Bloqs.saveSchema().connections;
+                        
+                        // Buscar en los componentes del proyecto el que tiene este endpoint
+                        var componentUid = null;
+                        $scope.project.hardware.components.forEach(function(comp) {
+                            if (comp.endpoints && comp.endpoints[connection.pinComponent]) {
+                                if (comp.endpoints[connection.pinComponent].uid === connection.pinSourceUid) {
+                                    componentUid = comp.uid;
+                                }
+                            }
+                        });
+                        
+                        console.log('🔍 DEBUG - Component UID encontrado:', componentUid);
+                        
+                        if (componentUid && connection.pinBoard) {
+                            if (!pinsMap[componentUid]) {
+                                pinsMap[componentUid] = {};
+                            }
+                            pinsMap[componentUid][connection.pinComponent] = connection.pinBoard;
+                            console.log('🔍 DEBUG - Pin asignado:', {
+                                componentUid: componentUid,
+                                pinComponent: connection.pinComponent,
+                                pinBoard: connection.pinBoard
+                            });
+                        }
                     });
-                    newElem.connected = elem.connected;
-                    return newElem;
+                }
+                
+                console.log('🔍 DEBUG - pinsMap final:', JSON.stringify(pinsMap, null, 2));
+                
+                // Reconstruir componentes desde project.hardware.components
+                // ya que schema.components está vacío
+                schema.components = [];
+                $scope.project.hardware.components.forEach(function(comp) {
+                    // Solo agregar componentes que tengan pines asignados
+                    if (pinsMap[comp.uid]) {
+                        var newComp = _.cloneDeep(comp);
+                        newComp.pin = pinsMap[comp.uid];
+                        newComp.connected = true;
+                        schema.components.push(newComp);
+                        console.log('🔍 DEBUG - Componente agregado a schema:', {
+                            uid: newComp.uid,
+                            name: newComp.name,
+                            pin: newComp.pin
+                        });
+                    }
                 });
                 schema.board = $scope.project.hardware.board;
                 schema.robot = $scope.project.hardware.robot;
@@ -335,7 +390,13 @@ angular.module('bitbloqOffline')
         };
 
         $scope.saveIno = function() {
-            projectApi.exportArduinoCode($scope.componentsArray, $scope.arduinoMainBloqs);
+            // Verificar que los bloques estén inicializados
+            if (!$scope.arduinoMainBloqs.varsBloq || !$scope.arduinoMainBloqs.setupBloq || !$scope.arduinoMainBloqs.loopBloq) {
+                alertsService.add('bloqs-project-no-code', 'bloqs-project-no-code-msg', 'error', 5000);
+                return;
+            }
+            var hardware = $scope.getHardwareSchema();
+            projectApi.exportArduinoCode(hardware, $scope.arduinoMainBloqs);
         };
 
         $window.onbeforeunload = function(e) {
@@ -374,6 +435,16 @@ angular.module('bitbloqOffline')
             setupBloq: null,
             loopBloq: null
         };
+        
+        // Escuchar evento de componente conectado para actualizar código
+        $rootScope.$on('hardware:componentConnected', function() {
+            console.log('📡 hardware:componentConnected event received in bloqsProject');
+            $timeout(function() {
+                $scope.updateBloqs();
+                $scope.refreshCode();
+                console.log('✅ Code updated after component connection');
+            }, 150);
+        });
 
         $scope.hardware = {
             boardList: null,

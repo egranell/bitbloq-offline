@@ -1,0 +1,70 @@
+{
+  "type": "statement-input",
+  "name": "ifAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "equalityOperations",
+        "logicOperations"
+      ],
+      "name": "69d85ea4-2953-4ecf-9ad0-3d3d31b1fefe"
+    }
+  ],
+  "bloqClass": "bloq-if",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-if-if"
+      },
+      {
+        "bloqInputId": "CONDITION",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "equalityOperations",
+          "logicOperations"
+        ],
+        "name": "69d85ea4-2953-4ecf-9ad0-3d3d31b1fefe"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-if-exec"
+      }
+    ]
+  ],
+  "code": "if({CONDITION}){{STATEMENTS}}",
+  "arduino": {
+    "code": "if({CONDITION}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"ifAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

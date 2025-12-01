@@ -1,0 +1,45 @@
+{
+  "type": "statement",
+  "name": "rgbLedOff",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-rgbLed-off",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-rgbLed-off"
+      },
+      {
+        "id": "LED",
+        "alias": "dynamicDropdown",
+        "options": "rgbs"
+      }
+    ]
+  ],
+  "arduino": {
+    "conditional": {
+      "hardwareProperty": "codeType",
+      "hardwareAliasId": "LED",
+      "code": {
+        "neopixel": "{LED}.setPixelColor(0, {LED}.Color(0, 0, 0));\n{LED}.show();",
+        "": "{LED}.setRGBcolor(0,0,0);"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"rgbLedOff\" no preparado para generar código python"
+      }
+    ]
+  }
+}

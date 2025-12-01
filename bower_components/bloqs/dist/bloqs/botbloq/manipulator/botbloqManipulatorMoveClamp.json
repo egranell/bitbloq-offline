@@ -1,0 +1,54 @@
+{
+  "type": "statement",
+  "name": "botbloqManipulatorMoveClamp",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-botbloq-manipulator-moveclamp",
+  "content": [
+    [
+      {
+        "id": "ACTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "open",
+            "value": true
+          },
+          {
+            "label": "close",
+            "value": false
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "the-clamp"
+      }
+    ]
+  ],
+  "code": "",
+  "python": {
+    "libraries": [
+      "BotbloqManipulator"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "manipulator",
+        "type": "BotbloqManipulator"
+      }
+    ],
+    "codeLines": [
+      {
+        "code": "manipulator.moveClamp({ACTION})"
+      }
+    ]
+  }
+}

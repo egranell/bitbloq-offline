@@ -1,0 +1,103 @@
+{
+  "type": "statement",
+  "name": "buzzerWithoutPauseAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "0646abde-e509-484d-9be1-b4a879f389b9"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "0e763ae8-c1db-4eb4-9786-7f135e8b18dd"
+    }
+  ],
+  "bloqClass": "bloq-buzzer-advance",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-sound"
+      },
+      {
+        "id": "BUZZER",
+        "alias": "dynamicDropdown",
+        "options": "buzzers"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-note"
+      },
+      {
+        "bloqInputId": "NOTE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "0646abde-e509-484d-9be1-b4a879f389b9"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-for"
+      },
+      {
+        "bloqInputId": "SECONDS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "0e763ae8-c1db-4eb4-9786-7f135e8b18dd"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-advance-ms"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-without-pause"
+      }
+    ]
+  ],
+  "code": "tone({BUZZER},{NOTE},{SECONDS});",
+  "arduino": {
+    "code": "tone({BUZZER},{NOTE},{SECONDS});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"buzzerWithoutPauseAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

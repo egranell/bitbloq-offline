@@ -1,0 +1,34 @@
+{
+  "type": "statement",
+  "name": "break",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-break",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-break-stopLoop"
+      }
+    ]
+  ],
+  "code": "break;",
+  "arduino": {
+    "code": "break;"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"break\" no preparado para generar código python"
+      }
+    ]
+  }
+}

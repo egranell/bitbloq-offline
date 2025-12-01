@@ -1,38 +1,61 @@
 {
   "name": "bitbloq-offline",
-  "version": "1.2.3",
+  "version": "2.0.0",
+  "description": "Bitbloq Offline - Visual programming tool for Arduino (Modernized)",
   "main": "main.js",
+  "type": "commonjs",
   "license": "GPL-3.0",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --inspect",
+    "build": "npm run build:sass",
+    "build:sass": "sass app/styles/main.scss app/styles/main.css --style=compressed",
+    "watch:sass": "sass --watch app/styles/main.scss:app/styles/main.css",
+    "lint": "eslint app/scripts/**/*.js",
+    "test": "echo \"Tests pending\" && exit 0"
+  },
   "dependencies": {
-    "angular": "^1.5.5",
-    "async": "1.5.2",
-    "grunt": "0.4.5",
-    "grunt-sass": "1.1.0",
-    "grunt-svgstore": "0.5.0",
-    "jquery": "2.2.0",
-    "q": "^1.5.0",
-    "universal-analytics": "^0.3.11",
-    "ws": "1.0.1"
+    "@jsplumb/browser-ui": "^6.2.10",
+    "@jsplumb/community": "^4.0.0-RC47",
+    "angular": "^1.8.3",
+    "angular-clipboard": "^1.6.2",
+    "angular-nvd3": "^1.0.9",
+    "angular-route": "^1.8.3",
+    "angular-sanitize": "^1.8.3",
+    "angular-translate": "^2.19.0",
+    "angular-translate-loader-static-files": "^2.19.0",
+    "angular-websocket": "^2.0.1",
+    "async": "^3.2.5",
+    "d3": "^7.9.0",
+    "jquery": "^3.7.1",
+    "js-beautify": "^1.15.1",
+    "jsplumb": "^2.15.6",
+    "lodash": "^4.17.21",
+    "ng-dialog": "^0.6.6",
+    "nvd3": "^1.8.6",
+    "prismjs": "^1.29.0",
+    "q": "^1.5.1",
+    "universal-analytics": "^0.5.3",
+    "ws": "^8.16.0"
   },
   "devDependencies": {
-    "electron-prebuilt": "0.36.7",
-    "grunt-contrib-clean": "0.7.0",
-    "grunt-contrib-copy": "0.8.2",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-watch": "0.6.1",
-    "grunt-exec": "0.4.6",
-    "grunt-shell": "1.1.2",
-    "grunt-wiredep": "2.0.0",
-    "jshint-stylish": "^2.1.0",
-    "load-grunt-tasks": "3.4.0"
+    "electron": "^31.7.5",
+    "eslint": "^8.57.0",
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-exec": "^3.0.0",
+    "grunt-sass": "^4.0.1",
+    "grunt-shell": "^4.0.0",
+    "jshint-stylish": "^2.2.1",
+    "load-grunt-tasks": "^5.1.0",
+    "sass": "^1.94.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/bq/bitbloq-offline.git"
-  },
-  "scripts": {
-    "postinstall": "bower install",
-    "test": "node $(which grunt) jshint"
   },
   "contributors": [
     "Diego Segura <diego.segura@bq.com>",
@@ -40,5 +63,9 @@
     "Fernando del Olmo <fernando.delolmo@bq.com>",
     "Tom Calvo <tomas.calvo@bq.com>",
     "Luis Antonio Gonzalez <luisantonio.gonzalez@bq.com>"
-  ]
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
 }

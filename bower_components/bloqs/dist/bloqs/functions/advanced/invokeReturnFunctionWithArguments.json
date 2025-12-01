@@ -1,0 +1,72 @@
+{
+  "type": "output",
+  "name": "invokeReturnFunctionWithArguments",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "string",
+        "selectVariable",
+        "arguments"
+      ],
+      "name": "df324c2f-79fd-478a-ab6c-225dd6f00450"
+    }
+  ],
+  "bloqClass": "bloq-invoke-return-function-with-arguments",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-invoke-return-function-exec"
+      },
+      {
+        "id": "FUNCTION",
+        "alias": "dynamicDropdown",
+        "options": "returnFunctions"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-invoke-function-args"
+      },
+      {
+        "bloqInputId": "ARGS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "string",
+          "selectVariable",
+          "arguments"
+        ],
+        "name": "df324c2f-79fd-478a-ab6c-225dd6f00450"
+      }
+    ]
+  ],
+  "code": "{FUNCTION}({ARGS})",
+  "returnType": {
+    "type": "fromDynamicDropdown",
+    "idDropdown": "FUNCTION",
+    "options": "returnFunctions"
+  },
+  "arduino": {
+    "code": "{FUNCTION}({ARGS})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"invokeReturnFunctionWithArguments\" no preparado para generar código python"
+      }
+    ]
+  }
+}

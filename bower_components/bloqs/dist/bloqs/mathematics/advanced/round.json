@@ -1,0 +1,80 @@
+{
+  "type": "output",
+  "name": "round-v1",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "float"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "3854bc51-d376-402b-814a-533be5a24f8d"
+    }
+  ],
+  "bloqClass": "bloq-round",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-round-advanced-roundto"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-round-advanced-floor",
+            "value": "floor"
+          },
+          {
+            "label": "bloq-round-advanced-ceil",
+            "value": "ceil"
+          },
+          {
+            "label": "bloq-round-advanced-round",
+            "value": "round"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-round-advanced-thenumber"
+      },
+      {
+        "bloqInputId": "VAR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "float"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "3854bc51-d376-402b-814a-533be5a24f8d"
+      }
+    ]
+  ],
+  "code": "{OPERATOR}({VAR})",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "{OPERATOR}({VAR})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"round-v1\" no preparado para generar código python"
+      }
+    ]
+  }
+}

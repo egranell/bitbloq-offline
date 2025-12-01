@@ -1,0 +1,68 @@
+{
+  "type": "statement-input",
+  "name": "constructorClassArguments",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "argument",
+        "arguments",
+        "number",
+        "string",
+        "selectVariable"
+      ],
+      "name": "10df8759-5bdf-4949-a1f8-f894994d7fd6"
+    }
+  ],
+  "bloqClass": "bloq-constructor-arguments",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-constructor-arguments"
+      },
+      {
+        "bloqInputId": "ARGS",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "argument",
+          "arguments",
+          "number",
+          "string",
+          "selectVariable"
+        ],
+        "name": "10df8759-5bdf-4949-a1f8-f894994d7fd6"
+      }
+    ]
+  ],
+  "code": "{CLASS-OUTSIDE} ({ARGS}){{STATEMENTS}};",
+  "arduino": {
+    "code": "{CLASS-OUTSIDE} ({ARGS}){{STATEMENTS}};"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"constructorClassArguments\" no preparado para generar código python"
+      }
+    ]
+  }
+}

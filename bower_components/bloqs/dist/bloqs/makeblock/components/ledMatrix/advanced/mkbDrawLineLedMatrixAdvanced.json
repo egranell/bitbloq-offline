@@ -1,0 +1,151 @@
+{
+  "type": "statement",
+  "name": "mkbDrawLineAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "2fa3211e-d277-45c7-b9b6-0fb4d4150ef0"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "1b6a5407-23f6-4a4a-a7e2-5a6d124fe041"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "d0cc7562-2ef5-4150-bd5b-d3013c62fcad"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "4aab48fc-7b63-4dd5-b60c-d1713d9484f7"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Dibujar línea desde x1:"
+      },
+      {
+        "bloqInputId": "COLUMN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "2fa3211e-d277-45c7-b9b6-0fb4d4150ef0"
+      },
+      {
+        "alias": "text",
+        "value": "y1:"
+      },
+      {
+        "bloqInputId": "ROW",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "1b6a5407-23f6-4a4a-a7e2-5a6d124fe041"
+      },
+      {
+        "alias": "text",
+        "value": "hasta x2:"
+      },
+      {
+        "bloqInputId": "COLUMNF",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "d0cc7562-2ef5-4150-bd5b-d3013c62fcad"
+      },
+      {
+        "alias": "text",
+        "value": "y2:"
+      },
+      {
+        "bloqInputId": "ROWF",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "4aab48fc-7b63-4dd5-b60c-d1713d9484f7"
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.drawLine({COLUMN},{ROW},{COLUMNF},{ROWF});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbDrawLineAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

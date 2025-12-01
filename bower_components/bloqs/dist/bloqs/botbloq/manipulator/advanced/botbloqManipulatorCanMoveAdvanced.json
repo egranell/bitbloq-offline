@@ -1,0 +1,128 @@
+{
+  "type": "output",
+  "name": "botbloqManipulatorCanMoveAdvanced",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "37c45a89-bd59-43a8-bd17-74e39c8a3d76"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "ecd4df61-9b3a-478a-85c2-3965816d6fab"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "af82a3ba-ed3b-4271-8271-912c06e8d289"
+    }
+  ],
+  "bloqClass": "bloq-botbloq-manipulator-canmove",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "can-move-to"
+      },
+      {
+        "alias": "text",
+        "value": "x:"
+      },
+      {
+        "bloqInputId": "X",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "37c45a89-bd59-43a8-bd17-74e39c8a3d76"
+      },
+      {
+        "alias": "text",
+        "value": "y:"
+      },
+      {
+        "bloqInputId": "Y",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "ecd4df61-9b3a-478a-85c2-3965816d6fab"
+      },
+      {
+        "alias": "text",
+        "value": "z:"
+      },
+      {
+        "bloqInputId": "Z",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "af82a3ba-ed3b-4271-8271-912c06e8d289"
+      },
+      {
+        "alias": "text",
+        "value": "?"
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "bool"
+  },
+  "python": {
+    "libraries": [
+      "BotbloqManipulator"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "manipulator",
+        "type": "BotbloqManipulator"
+      }
+    ],
+    "codeLines": [
+      {
+        "code": "vehicle.canMove({X}, {Y}, {Z})"
+      }
+    ]
+  }
+}

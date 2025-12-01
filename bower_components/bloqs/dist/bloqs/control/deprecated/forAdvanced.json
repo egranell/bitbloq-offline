@@ -1,0 +1,118 @@
+{
+  "type": "statement-input",
+  "name": "forAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "name": "f5600310-8601-4a08-8fdc-c548d28380a1"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "name": "376ab9dc-d0d1-4f38-bbee-7489faa58490"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "name": "db9c083a-a1e4-4b5f-b06c-aa4e8a72f9aa"
+    }
+  ],
+  "bloqClass": "bloq-for deprecated",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-for-count"
+      },
+      {
+        "bloqInputId": "VAR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "name": "f5600310-8601-4a08-8fdc-c548d28380a1"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-for-from"
+      },
+      {
+        "bloqInputId": "INIT",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "name": "376ab9dc-d0d1-4f38-bbee-7489faa58490"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-for-to"
+      },
+      {
+        "bloqInputId": "FINAL",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "name": "db9c083a-a1e4-4b5f-b06c-aa4e8a72f9aa"
+      },
+      {
+        "id": "MODE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-for-add",
+            "value": "++"
+          },
+          {
+            "label": "bloq-for-subtract",
+            "value": "--"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-for-exec"
+      }
+    ]
+  ],
+  "code": "for({VAR}={INIT};{VAR}<{FINAL};{VAR}{MODE}){{STATEMENTS}}",
+  "arduino": {
+    "conditional": {
+      "aliasId": "MODE",
+      "code": {
+        "+": "for({VAR}={INIT};{VAR} <= {FINAL};{VAR} += {ADD}){{STATEMENTS}}",
+        "-": "for({VAR}={INIT};{VAR} >= {FINAL};{VAR} -= {ADD}){{STATEMENTS}}"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"forAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

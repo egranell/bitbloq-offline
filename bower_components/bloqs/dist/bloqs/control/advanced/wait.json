@@ -1,0 +1,58 @@
+{
+  "type": "statement",
+  "name": "waitAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "986970b7-e12f-4f7e-9056-a371769f2310"
+    }
+  ],
+  "bloqClass": "bloq-wait",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-wait-wait"
+      },
+      {
+        "bloqInputId": "TIME",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "986970b7-e12f-4f7e-9056-a371769f2310"
+      }
+    ]
+  ],
+  "code": "delay({TIME});",
+  "arduino": {
+    "code": "delay({TIME});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"waitAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "type": "output",
+  "name": "freakscarDistance",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-freakscar-distance"
+      },
+      {
+        "id": "MAGNITUDE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "cm",
+            "value": "cm"
+          },
+          {
+            "label": "inches",
+            "value": "inches"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "conditional": {
+      "aliasId": "MAGNITUDE",
+      "code": {
+        "cm": "robot.readUSMeasuredDistanceCM()",
+        "inches": "robot.readUSMeasuredDistanceIN()"
+      }
+    }
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "int"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarDistance\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "type": "output",
+  "name": "stringSum",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "String"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "selectVariable"
+      ],
+      "name": "6ffc8b2f-d7f9-4196-a94d-cb6bc0fcafc3"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "String"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "selectVariable"
+      ],
+      "name": "f776a1a4-9862-42fa-912b-95aa2ce1515b"
+    }
+  ],
+  "bloqClass": "bloq-string-sum",
+  "content": [
+    [
+      {
+        "bloqInputId": "ARG1",
+        "alias": "bloqInput",
+        "acceptType": [
+          "String"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "selectVariable"
+        ],
+        "name": "6ffc8b2f-d7f9-4196-a94d-cb6bc0fcafc3"
+      },
+      {
+        "alias": "text",
+        "value": "+"
+      },
+      {
+        "bloqInputId": "ARG2",
+        "alias": "bloqInput",
+        "acceptType": [
+          "String"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "selectVariable"
+        ],
+        "name": "f776a1a4-9862-42fa-912b-95aa2ce1515b"
+      }
+    ]
+  ],
+  "code": "String({ARG1})+String({ARG2})",
+  "returnType": {
+    "type": "simple",
+    "value": "String"
+  },
+  "arduino": {
+    "code": "String({ARG1})+String({ARG2})"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"stringSum\" no preparado para generar código python"
+      }
+    ]
+  }
+}

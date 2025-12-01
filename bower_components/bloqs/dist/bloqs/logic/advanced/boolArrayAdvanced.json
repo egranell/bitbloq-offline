@@ -1,0 +1,54 @@
+{
+  "type": "output",
+  "name": "boolArrayAdvanced",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "name": "660176e9-3ff8-41f2-8b9e-32e46a0419e1"
+    }
+  ],
+  "bloqClass": "bloq-boolArray-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-boolArray-advanced-arraySize"
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "name": "660176e9-3ff8-41f2-8b9e-32e46a0419e1"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-boolArray-advanced-boolType"
+      }
+    ]
+  ],
+  "code": "(bool *)malloc({VALUE}*sizeof(bool))",
+  "returnType": {
+    "type": "simple",
+    "value": "bool *"
+  },
+  "arduino": {
+    "code": "(bool *)malloc({VALUE}*sizeof(bool))"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"boolArrayAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

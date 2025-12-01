@@ -1,0 +1,76 @@
+{
+  "type": "output",
+  "name": "numConversion",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "75e7aee0-4948-46c4-abd6-119401886181"
+    }
+  ],
+  "bloqClass": "bloq-num-conversion",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-num-conversion"
+      },
+      {
+        "bloqInputId": "NUMBER",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "75e7aee0-4948-46c4-abd6-119401886181"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-num-conversion-to"
+      },
+      {
+        "id": "TYPE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-num-conversion-int",
+            "value": "int"
+          },
+          {
+            "label": "bloq-num-conversion-float",
+            "value": "float"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "({TYPE}) {NUMBER}",
+  "arduino": {
+    "code": "({TYPE}) {NUMBER}"
+  },
+  "returnType": {
+    "type": "fromDropdown",
+    "idDropdown": "TYPE"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"numConversion\" no preparado para generar código python"
+      }
+    ]
+  }
+}

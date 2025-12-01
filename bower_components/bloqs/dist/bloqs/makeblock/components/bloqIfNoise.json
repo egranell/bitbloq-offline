@@ -1,0 +1,76 @@
+{
+  "type": "statement-input",
+  "name": "makeblockIfNoise",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "if"
+      },
+      {
+        "id": "OPERATION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-makeblock-ifnoise-alot",
+            "value": "+"
+          },
+          {
+            "label": "bloq-makeblock-ifnoise-low",
+            "value": "-"
+          },
+          {
+            "label": "bloq-makeblock-ifnoise-nodetect",
+            "value": "*"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "with-the"
+      },
+      {
+        "id": "SOUNDSENSOR",
+        "alias": "dynamicDropdown",
+        "options": "mkb_soundsensor"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "conditional": {
+      "aliasId": "OPERATION",
+      "code": {
+        "+": "if(¬{SOUNDSENSOR.readSensor} > 360){{STATEMENTS}}",
+        "-": "if((¬{SOUNDSENSOR.readSensor} > 115) && (¬{SOUNDSENSOR.readSensor} <= 360)){{STATEMENTS}}",
+        "*": "if(¬{SOUNDSENSOR.readSensor} <= 115){{STATEMENTS}}"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"makeblockIfNoise\" no preparado para generar código python"
+      }
+    ]
+  }
+}

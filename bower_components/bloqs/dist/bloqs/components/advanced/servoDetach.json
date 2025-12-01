@@ -1,0 +1,39 @@
+{
+  "type": "statement",
+  "name": "servoDetach",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-servo-detach",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-servo-detach"
+      },
+      {
+        "id": "SERVO",
+        "alias": "dynamicDropdown",
+        "options": "allServos"
+      }
+    ]
+  ],
+  "code": "{SERVO}.detach();",
+  "arduino": {
+    "code": "{SERVO}.detach();"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"servoDetach\" no preparado para generar código python"
+      }
+    ]
+  }
+}

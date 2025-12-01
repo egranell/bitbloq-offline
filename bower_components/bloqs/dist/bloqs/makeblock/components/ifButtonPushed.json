@@ -1,0 +1,73 @@
+{
+  "type": "statement-input",
+  "name": "ifButtonPushed",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "if-button-pressed"
+      },
+      {
+        "id": "BUTTON",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "1",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          },
+          {
+            "label": "4",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "in-the"
+      },
+      {
+        "id": "BUTTONPAD",
+        "alias": "dynamicDropdown",
+        "options": "mkb_4buttonKeyPad"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "if(¬{BUTTONPAD.readSensor} == {BUTTON}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"ifButtonPushed\" no preparado para generar código python"
+      }
+    ]
+  }
+}

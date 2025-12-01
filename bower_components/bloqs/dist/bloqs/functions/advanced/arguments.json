@@ -1,0 +1,95 @@
+{
+  "type": "output",
+  "name": "arguments",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "argument",
+        "arguments",
+        "number",
+        "string",
+        "selectVariable"
+      ],
+      "name": "435dc518-e5a8-424f-b827-0c4f08c98273"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "argument",
+        "arguments",
+        "number",
+        "string",
+        "selectVariable"
+      ],
+      "name": "965737af-4ad9-47ed-b2b5-9d3301d45771"
+    }
+  ],
+  "bloqClass": "bloq-arguments",
+  "content": [
+    [
+      {
+        "bloqInputId": "ARG1",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "argument",
+          "arguments",
+          "number",
+          "string",
+          "selectVariable"
+        ],
+        "name": "435dc518-e5a8-424f-b827-0c4f08c98273"
+      },
+      {
+        "alias": "text",
+        "value": ","
+      },
+      {
+        "bloqInputId": "ARG2",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "argument",
+          "arguments",
+          "number",
+          "string",
+          "selectVariable"
+        ],
+        "name": "965737af-4ad9-47ed-b2b5-9d3301d45771"
+      }
+    ]
+  ],
+  "createDynamicContent": "softwareVars",
+  "code": "{ARG1},{ARG2}",
+  "returnType": {
+    "type": "simple",
+    "value": "var"
+  },
+  "arduino": {
+    "code": "{ARG1},{ARG2}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"arguments\" no preparado para generar código python"
+      }
+    ]
+  }
+}

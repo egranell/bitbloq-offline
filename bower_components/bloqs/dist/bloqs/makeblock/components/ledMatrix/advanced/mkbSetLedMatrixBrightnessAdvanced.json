@@ -1,0 +1,67 @@
+{
+  "type": "statement",
+  "name": "mBotSetLedMatrixBrightnessAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "a02e97f8-8f22-4741-81c8-c08a999b68cb"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-ledmatrix-setLight"
+      },
+      {
+        "id": "LEDMATRIX",
+        "alias": "dynamicDropdown",
+        "options": "ledMatrix"
+      },
+      {
+        "alias": "text",
+        "value": "to"
+      },
+      {
+        "bloqInputId": "BRIGHTNESSLEVEL",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "a02e97f8-8f22-4741-81c8-c08a999b68cb"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{LEDMATRIX}.setBrightness({BRIGHTNESSLEVEL});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotSetLedMatrixBrightnessAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "type": "statement",
+  "name": "evolutionHome",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-evolution-rest",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-rest"
+      }
+    ]
+  ],
+  "code": "evolution.home();",
+  "arduino": {
+    "includes": [
+      "BitbloqEvolution.h",
+      "BitbloqUS.h",
+      "Servo.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "evolution",
+        "type": "Evolution"
+      }
+    ],
+    "setupExtraCode": "evolution.init();",
+    "code": "evolution.home();"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"evolutionHome\" no preparado para generar código python"
+      }
+    ]
+  }
+}

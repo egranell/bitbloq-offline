@@ -1,0 +1,117 @@
+{
+  "type": "statement",
+  "name": "buzzer",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-buzzer",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-sound"
+      },
+      {
+        "id": "BUZZER",
+        "alias": "dynamicDropdown",
+        "options": "buzzers"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-note"
+      },
+      {
+        "id": "NOTE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-buzzer-do",
+            "value": "261"
+          },
+          {
+            "label": "bloq-buzzer-re",
+            "value": "293"
+          },
+          {
+            "label": "bloq-buzzer-mi",
+            "value": "329"
+          },
+          {
+            "label": "bloq-buzzer-fa",
+            "value": "349"
+          },
+          {
+            "label": "bloq-buzzer-sol",
+            "value": "392"
+          },
+          {
+            "label": "bloq-buzzer-la",
+            "value": "440"
+          },
+          {
+            "label": "bloq-buzzer-si",
+            "value": "494"
+          },
+          {
+            "label": "bloq-buzzer-do-#",
+            "value": "277"
+          },
+          {
+            "label": "bloq-buzzer-re-#",
+            "value": "311"
+          },
+          {
+            "label": "bloq-buzzer-fa-#",
+            "value": "370"
+          },
+          {
+            "label": "bloq-buzzer-sol-#",
+            "value": "415"
+          },
+          {
+            "label": "bloq-buzzer-la-#",
+            "value": "466"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-for"
+      },
+      {
+        "id": "SECONDS",
+        "alias": "numberInput",
+        "value": 2000
+      },
+      {
+        "alias": "text",
+        "value": "bloq-buzzer-ms"
+      }
+    ]
+  ],
+  "code": "tone({BUZZER},{NOTE},{SECONDS});\ndelay({SECONDS});",
+  "arduino": {
+    "needInstanceOf": [
+      {
+        "name": "{BUZZER}",
+        "type": "const int",
+        "equals": "º[{BUZZER}.pin.s]"
+      }
+    ],
+    "code": "tone({BUZZER},{NOTE},{SECONDS});\ndelay({SECONDS});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"buzzer\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "type": "statement",
+  "name": "zumjuniorMiniservoAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "b7c4ccfc-da68-42fb-9889-0fbda6f19258"
+    }
+  ],
+  "bloqClass": "bloq-zumjunior-miniservo",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-miniservo-move"
+      },
+      {
+        "id": "SERVO",
+        "alias": "dynamicDropdown",
+        "options": "zumjuniorMiniservos"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-miniservo-to"
+      },
+      {
+        "bloqInputId": "POSITION",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "b7c4ccfc-da68-42fb-9889-0fbda6f19258"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-miniservo-degrees"
+      }
+    ]
+  ],
+  "code": "{SERVO}.write({POSITION});",
+  "arduino": {
+    "code": "{SERVO}.write({POSITION});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zumjuniorMiniservoAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

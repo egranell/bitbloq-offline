@@ -1,0 +1,86 @@
+{
+  "type": "statement",
+  "name": "lcdWriteAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "selectVariable"
+      ],
+      "name": "d87c108e-1713-44a2-b51a-651bdb740839"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "hwVariable",
+        "selectVariable"
+      ],
+      "name": "b0ada389-7f32-4a70-8c87-b93e24b4a6b8"
+    }
+  ],
+  "bloqClass": "bloq-lcd-writte-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-lcd-writte-advanced-write"
+      },
+      {
+        "bloqInputId": "TEXT",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "selectVariable"
+        ],
+        "name": "d87c108e-1713-44a2-b51a-651bdb740839"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-lcd-writte-advanced-inLCD"
+      },
+      {
+        "bloqInputId": "LCD",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "hwVariable",
+          "selectVariable"
+        ],
+        "name": "b0ada389-7f32-4a70-8c87-b93e24b4a6b8"
+      }
+    ]
+  ],
+  "code": "{LCD}.print({TEXT});",
+  "arduino": {
+    "code": "{LCD}.print({TEXT});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"lcdWriteAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

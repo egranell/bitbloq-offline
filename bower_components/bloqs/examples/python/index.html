@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bloqs Simple Web</title>
+    <!--Add bloqs css-->
+    <link rel="stylesheet" href="./../../dist/bloqs.css" />
+    <style type="text/css">
+    body {
+        margin: 0;
+    }
+    
+    #code--field {
+        width: 100%;
+        height: 500px;
+        display: block;
+        overflow: auto;
+    }
+    
+    #bloqs--field {
+        overflow-y: auto;
+        background-color: #EBEBEB;
+        width: 1500px;
+        overflow: auto;
+    }
+    
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: black;
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        direction: ltr;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        line-height: 1.3;
+        tab-size: 4;
+        hyphens: none;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+    
+    code[class*="language-"]::-moz-selection,
+    pre[class*="language-"]::-moz-selection {
+        color: #000;
+        background-color: #fefefe;
+    }
+    
+    code[class*="language-"]::selection,
+    pre[class*="language-"]::selection {
+        color: #000;
+        background-color: #fefefe;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">bloqs demo</h1>
+    <!-- begin demo markup -->
+    <div id="bloqs--field" class="theme-colors"></div>
+    <button id="getcodebutton">getCode()</button>
+    <code id="code--field" class="language-"></code>
+    <!-- end demo markup -->
+    <p>See the <a href="http://bq.github.io/bloqs">project homepage</a>.</p>
+    <p>Check out the <a href="https://github.com/bq/bloqs">project repo</a>.</p>
+    <p>BQ 2015</p>
+    <script src="http://localhost:9000/livereload.js"></script>
+    <!--Load Scripts-->
+    <script src="./../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./../../bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="./../../bower_components/autogrow/autogrow.min.js"></script>
+    <script src="./../../bower_components/jquery-auto-grow-input/jquery.auto-grow-input.min.js"></script>
+    <!--Add bloqs js compiled-->
+    <!--<script src="./../../dist/bloqs.min.js"></script>-->
+    <!--Or add bloqs js without compile-->
+    <script src="beautify.js"></script>
+    <script src="./../../bower_components/q/q.js"></script>
+    <script src="./../../src/scripts/bloqs-languages.js"></script>
+    <script src="./../../src/scripts/bloqs-utils.js"></script>
+    <script src="./../../src/scripts/bloqs-tooltip.js"></script>
+    <script src="./../../src/scripts/python-generation.js"></script>
+    <script src="./../../src/scripts/bloqs-suggested.js"></script>
+    <script src="./../../src/scripts/bloqs-dotsMatrix.js"></script>
+    <script src="./../../src/scripts/arduino-generation.js"></script>
+    <script src="./../../src/scripts/bloqs.js"></script>
+    <script>
+    console.log(window.bloqs);
+    console.log(window.bloqsLanguages);
+    console.log(window.bloqsUtils);
+    console.log(window.pythonGeneration);
+    /**
+     * Set options like the offset from the field.
+     */
+
+    //load Bloqs
+    $.getJSON('./../../dist/bloqsmap.json', function(bloqSchemas) {
+        window.bloqs.setOptions({
+            fieldOffsetLeft: 0,
+            //fieldOffsetTopSource: ['header'],
+            fieldOffsetTopForced: 0,
+            bloqSchemas: bloqSchemas,
+            suggestionWindowParent: document.getElementById('bloqs--field')
+        });
+        /**
+         * Listener
+         */
+        window.addEventListener('bloqs:connect', function() {
+            console.log('bloqs:connect');
+        });
+
+        window.addEventListener('bloqs:dragend', function() {
+            console.log('bloqs:dragend');
+        });
+
+        window.addEventListener('bloqs:bloqremoved', function() {
+            console.log('bloqs:bloqremoved');
+        });
+
+        window.addEventListener('bloqs:change', function() {
+            console.log('bloqs:change');
+        });
+
+
+
+        var componentsArray = window.bloqsUtils.getEmptyComponentsArray(),
+            pythonMainBloq;
+
+        window.bloqs.componentsArray = componentsArray;
+
+
+
+        var $field = $('#bloqs--field');
+        // Create the main arduino bloqs
+        //firsttime set componentsArray and field
+
+        pythonMainBloq = new bloqs.Bloq({
+            bloqData: bloqSchemas['pythonBloq'],
+            componentsArray: componentsArray,
+            $field: $field
+        });
+        $field.append(pythonMainBloq.$bloq);
+        pythonMainBloq.enable(true);
+        pythonMainBloq.doConnectable();
+
+
+
+
+        $('#getcodebutton').click(function() {
+            var bloqFullDefinition = pythonMainBloq.getBloqsStructure(true);
+            var code = window.pythonGeneration.getCode(bloqFullDefinition);
+            //code = js_beautify(code);
+            console.log(code);
+            $('#code--field').text(code);
+        });
+
+        //start build bloqs!
+        var createBloq = function(name) {
+            //Create a if bloq from the bloqsSchemas loaded
+            var bloq = new bloqs.Bloq({
+                bloqData: bloqSchemas[name],
+                componentsArray: componentsArray,
+                $field: $field
+            });
+            //append it to the field
+            $field.append(bloq.$bloq);
+            //enable if you want
+            bloq.enable(true);
+            //do connectable to allow anothers bloqs to connect to them
+            bloq.doConnectable();
+        };
+
+
+        /*createBloq('if');
+        createBloq('declareVariable');
+        createBloq('string');
+        createBloq('string');
+        createBloq('string');
+        createBloq('selectVariable');
+        createBloq('selectVariable');
+        createBloq('code');
+        createBloq('code');
+        createBloq('for-v1');
+        createBloq('while');
+        createBloq('setVariable');
+        createBloq('setVariable');
+        createBloq('setVariable');
+        createBloq('returnFunction');
+        createBloq('voidFunction');
+        createBloq('invokeFunction');
+        createBloq('invokeReturnFunction');
+        createBloq('basicOperations');
+        createBloq('basicOperations');
+        createBloq('number');
+        createBloq('number');*/
+
+        /*createBloq('botbloqVehicleIRSensor');
+        createBloq('botbloqVehicleMove');
+        createBloq('botbloqVehicleStop');*/
+
+        /*createBloq('botbloqManipulatorCanMove');
+        createBloq('botbloqManipulatorCanMoveAdvanced');
+        createBloq('botbloqManipulatorMoveOnSpace');
+        createBloq('botbloqManipulatorMoveOnSpaceAdvanced');
+        createBloq('botbloqManipulatorMoveClamp');
+        createBloq('botbloqManipulatorRotateJoints');
+        createBloq('if');*/
+
+        /*createBloq('botbloqHumanBendDown');
+        createBloq('botbloqHumanLateralDisplacement');
+        createBloq('botbloqHumanMove');
+        createBloq('botbloqHumanRotateByFoot');
+        createBloq('botbloqHumanStop');
+        createBloq('botbloqHumanUpstairs');*/
+
+        /*createBloq('botbloqSnakeLateralDisplacement');
+        createBloq('botbloqSnakeMove');
+        createBloq('botbloqSnakeRoll');
+        createBloq('botbloqSnakeRotate');
+        createBloq('botbloqSnakeStop');*/
+
+        /*createBloq('botbloqHexapodLateralDisplacement');
+        createBloq('botbloqHexapodMove');
+        createBloq('botbloqHexapodStop');*/
+
+
+        createBloq('botbloqManipulatorCanMoveAdvanced');
+        createBloq('declareVariable');
+        createBloq('phoneSendText');
+        createBloq('phoneEmitSound');
+        createBloq('phoneReceive');
+        createBloq('phoneTurnOnLight');
+        createBloq('phoneTurnOffLight');
+        createBloq('phoneReadLight');
+
+
+
+
+    });
+    </script>
+</body>
+
+</html>

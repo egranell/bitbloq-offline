@@ -1,0 +1,44 @@
+{
+  "type": "output",
+  "name": "boolean",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-boolean",
+  "content": [
+    [
+      {
+        "id": "STATE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-boolean-true",
+            "value": "true"
+          },
+          {
+            "label": "bloq-boolean-false",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "{STATE}",
+  "returnType": {
+    "type": "simple",
+    "value": "bool"
+  },
+  "arduino": {
+    "code": "{STATE}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"boolean\" no preparado para generar código python"
+      }
+    ]
+  }
+}

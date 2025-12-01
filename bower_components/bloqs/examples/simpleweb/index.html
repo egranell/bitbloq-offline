@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bloqs Simple Web</title>
+    <!--Add bloqs css-->
+    <link rel="stylesheet" href="./../../dist/bloqs.css" />
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        #code--field {
+            width: 100%;
+            height: 500px;
+        }
+
+        #bloqs--field {
+            overflow-y: auto;
+            background-color: #EBEBEB;
+            width: 1500px;
+            height: 650px;
+        }
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: black;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            direction: ltr;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            line-height: 1.3;
+            tab-size: 4;
+            hyphens: none;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        code[class*="language-"]::-moz-selection,
+        pre[class*="language-"]::-moz-selection {
+            color: #000;
+            background-color: #fefefe;
+        }
+
+        code[class*="language-"]::selection,
+        pre[class*="language-"]::selection {
+            color: #000;
+            background-color: #fefefe;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">bloqs demo</h1>
+    <!-- begin demo markup -->
+    <div id="bloqs--field" class="theme-colors"></div>
+    <button id="getcodebutton">getCode()</button>
+    <button id="getStructure">getStructure()</button>
+    <button id="removeAllBloqs">removeAllBloqs()</button>
+    <code id="code--field" class="language-"></code>
+    <!-- end demo markup -->
+    <p>See the
+        <a href="http://bq.github.io/bloqs">project homepage</a>.</p>
+    <p>Check out the
+        <a href="https://github.com/bq/bloqs">project repo</a>.</p>
+    <p>BQ 2015</p>
+    <script src="http://localhost:9000/livereload.js"></script>
+    <!--Load Scripts-->
+    <script src="./../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./../../bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="./../../bower_components/autogrow/autogrow.min.js"></script>
+    <script src="./../../bower_components/jquery-auto-grow-input/jquery.auto-grow-input.min.js"></script>
+    <!--Add bloqs js compiled-->
+    <!--<script src="./../../dist/bloqs.min.js"></script>-->
+    <!--Or add bloqs js without compile-->
+    <script src="beautify.js"></script>
+    <script src="./../../bower_components/q/q.js"></script>
+    <script src="./../../src/scripts/bloqs-languages.js"></script>
+    <script src="./../../src/scripts/bloqs-utils.js"></script>
+    <script src="./../../src/scripts/bloqs-tooltip.js"></script>
+    <script src="./../../src/scripts/python-generation.js"></script>
+    <script src="./../../src/scripts/bloqs-suggested.js"></script>
+    <script src="./../../src/scripts/bloqs-dotsMatrix.js"></script>
+    <script src="./../../src/scripts/arduino-generation.js"></script>
+    <script src="./../../src/scripts/bloqs.js"></script>
+    <script>
+        console.log(window.bloqs);
+        console.log(window.bloqsLanguages);
+        console.log(window.bloqsUtils);
+        console.log(window.pythonGeneration);
+        /**
+         * Set options like the offset from the field.
+         */
+
+
+
+        //load Bloqs
+        $.getJSON('./../../dist/bloqsmap.json', function (bloqSchemas) {
+            window.bloqs.setOptions({
+                fieldOffsetLeft: 0,
+                //fieldOffsetTopSource: ['header'],
+                fieldOffsetTopForced: 0,
+                bloqSchemas: bloqSchemas,
+                suggestionWindowParent: document.getElementById('bloqs--field'),
+                dotsMatrixWindowParent: document.getElementById('bloqs--field'),
+                suggestionOnStatements: true
+            });
+
+            /**
+             * Listener
+             */
+            window.addEventListener('bloqs:connect', function () {
+                console.log('bloqs:connect');
+            });
+
+            window.addEventListener('bloqs:dragend', function () {
+                console.log('bloqs:dragend');
+            });
+
+            window.addEventListener('bloqs:bloqremoved', function () {
+                console.log('bloqs:bloqremoved');
+            });
+
+            window.addEventListener('bloqs:change', function () {
+                console.log('bloqs:change');
+            });
+
+            window.addEventListener('bloqs:created', function (evt) {
+                console.log('bloqs:created');
+                console.log(evt);
+            });
+
+            window.addEventListener('bloqs:dotsMatrixClosed', function (evt) {
+                console.log('bloqs:dotsMatrixClosed');
+                console.log(evt);
+            });
+
+            /**
+             * Components array its the hardware elements
+             * {
+                leds: [],
+                rgbs: [],
+                sensors: [],
+                buzzers: [],
+                servos: [],
+                continuousServos: [],
+                oscillators: [],
+                lcds: [],
+                serialElements: [],
+                clocks: [],
+                hts221: [],
+                robot: []
+            };
+             */
+            var componentsArray = window.bloqsUtils.getEmptyComponentsArray(),
+                arduinoMainBloqs = {
+                    varsBloq: null,
+                    setupBloq: null,
+                    loopBloq: null
+                };
+
+            window.bloqs.componentsArray = componentsArray;
+
+            //Add some hardware
+            componentsArray.serialElements[0] = {
+                id: "serialElement",
+                name: "serial_0",
+                oscillator: "false",
+                pin: {
+                    s: "2"
+                }
+            };
+
+            componentsArray.mkb_lightsensor.push({
+                id: "mkb_integrated_lightsensor",
+                name: "ultrasonidos_0",
+                dataReturnType: "float",
+                pin: {
+                    s: "3"
+                }
+            });
+
+            /*componentsArray.phoneElements[0] = {
+             id: "phoneElement",
+             name: "phone_0",
+             oscillator: "false",
+             pin: {
+             rx: "2",
+             tx: "4"
+             },
+             baudRate: "19200"
+             };*/
+            componentsArray.continuousServos[0] = {
+                id: "servocont",
+                name: "servo_continuo_0",
+                oscillator: "false",
+                pin: {
+                    s: "10"
+                }
+            };
+
+            componentsArray.servos[0] = {
+                id: "servo",
+                name: "servo_0",
+                oscillator: "true",
+                pin: {
+                    s: "3"
+                }
+            };
+            componentsArray.servos[1] = {
+                id: "servo",
+                name: "servo_2",
+                oscillator: "false",
+                pin: {
+                    s: "4"
+                }
+            };
+
+            componentsArray.buzzers.push({
+                id: "buzzer",
+                name: "zumbador_0",
+                pin: {
+                    s: "5"
+                }
+            });
+
+            componentsArray.lcds.push({
+                id: "lcd",
+                name: "lcd_0",
+                pin: {
+                    s: "5"
+                }
+            });
+
+            componentsArray.leds.push({
+                id: "led",
+                name: "led_0",
+                pin: {
+                    s: "3"
+                }
+            });
+
+            componentsArray.sensors.push({
+                id: "button",
+                name: "button_0",
+                dataReturnType: "float",
+                pin: {
+                    s: "3"
+                }
+            });
+
+            componentsArray.sensors.push({
+                id: "buttons",
+                name: "botonera_0",
+                dataReturnType: "char",
+                pin: {
+                    s: "A5"
+                }
+            });
+
+            componentsArray.sensors.push({
+                id: "irs2",
+                name: "siguelineas_0",
+                dataReturnType: "float *",
+                pin: {
+                    s: "A5"
+                }
+            });
+            componentsArray.sensors.push({
+                id: "irs2",
+                name: "siguelineas_0",
+                dataReturnType: "float",
+                pin: {
+                    s: "A5"
+                }
+            });
+
+            componentsArray.rgbs.push({
+                id: "rgbLed",
+                name: "neo",
+                pin: {
+                    s: "5"
+                }
+            });
+
+            componentsArray.joystick.push({
+                id: "mkb_joystick",
+                name: "mkb_joystick",
+                pins: {
+                    "black": [
+                        "s"
+                    ]
+                }
+            });
+
+
+            componentsArray.joystick.push({
+                id: "mkb_bluetooth",
+                name: "mkb_bluetooth",
+                pins: {
+                    "wireless": [
+                        "s"
+                    ]
+                }
+            });
+
+
+            var $field = $('#bloqs--field');
+            // Create the main arduino bloqs
+            //firsttime set componentsArray and field
+            arduinoMainBloqs.varsBloq = new bloqs.Bloq({
+                bloqData: bloqSchemas['varsBloq'],
+                componentsArray: componentsArray,
+                $field: $field
+            });
+            $field.append(arduinoMainBloqs.varsBloq.$bloq);
+            arduinoMainBloqs.varsBloq.enable(true);
+            arduinoMainBloqs.varsBloq.doConnectable();
+
+            arduinoMainBloqs.setupBloq = new bloqs.Bloq({
+                bloqData: bloqSchemas['setupBloq'],
+                componentsArray: componentsArray,
+                $field: $field
+            });
+            $field.append(arduinoMainBloqs.setupBloq.$bloq);
+            arduinoMainBloqs.setupBloq.enable(true);
+            arduinoMainBloqs.setupBloq.doConnectable();
+
+
+            arduinoMainBloqs.loopBloq = new bloqs.Bloq({
+                bloqData: bloqSchemas['loopBloq'],
+                componentsArray: componentsArray,
+                $field: $field
+            });
+            $field.append(arduinoMainBloqs.loopBloq.$bloq);
+            arduinoMainBloqs.loopBloq.enable(true);
+            arduinoMainBloqs.loopBloq.doConnectable();
+
+            $('#getcodebutton').click(function () {
+                //old way
+                /*$('#code--field').text(js_beautify(window.bloqsUtils.getCode(componentsArray, arduinoMainBloqs)));*/
+                //new way
+                $('#code--field').text(js_beautify(window.arduinoGeneration.getCode({
+                    varsBloq: arduinoMainBloqs.varsBloq.getBloqsStructure(true),
+                    setupBloq: arduinoMainBloqs.setupBloq.getBloqsStructure(true),
+                    loopBloq: arduinoMainBloqs.loopBloq.getBloqsStructure(true)
+                }, hardwareSchema)));
+            });
+            $('#getStructure').click(function () {
+                var actualProjectSoftware = {
+                    vars: arduinoMainBloqs.varsBloq.getBloqsStructure(true),
+                    setup: arduinoMainBloqs.setupBloq.getBloqsStructure(true),
+                    loop: arduinoMainBloqs.loopBloq.getBloqsStructure(true)
+                };
+                //now you can store that project and load in another moment.
+                console.log(JSON.stringify(actualProjectSoftware));
+                window.bloqs.startBloqsUpdate().then(function () {
+                    console.log('bloqs updated!');
+                });
+            });
+            $('#removeAllBloqs').click(function () {
+                window.bloqs.removeAllBloqs();
+            });
+
+            //start build bloqs!
+            var createBloq = function (name) {
+                //Create a if bloq from the bloqsSchemas loaded
+                var bloq = new bloqs.Bloq({
+                    bloqData: bloqSchemas[name],
+                    componentsArray: componentsArray,
+                    $field: $field
+                });
+                //append it to the field
+                $field.append(bloq.$bloq);
+                //enable if you want
+                bloq.enable(true);
+                //do connectable to allow anothers bloqs to connect to them
+                bloq.doConnectable();
+            };
+
+            var functionBloqs = ['declareVariable', 'declareVariable', 'returnFunction', 'invokeFunction', 'invokeReturnFunction', 'returnFunction',
+                'voidFunction'
+            ];
+
+            var functionBloqs2 = ['declareVariable', 'argument', 'arguments', 'invokeFunctionWithArguments', 'invokeReturnFunctionWithArguments', 'return', 'returnFunctionWithArguments', 'voidFunctionWithArguments'];
+
+            var logics = ['boolArray', 'boolean', 'equalityOperations', 'logicOperations', 'not', 'boolArrayAdvanced', 'declareVariable'];
+
+
+            var vars = ['arrayVariable', 'declareArray', 'declareVariable', 'selectVariable', 'setArrayVariable', 'setVariable'];
+
+            var vars2 = ['arrayVariableAdvanced', 'declareArrayAdvanced', 'declareVariableAdvanced', 'hwVariable', 'setArrayVariableAdvanced'];
+
+            var varsBloqs = ['setVariable', 'declareVariable', 'setArrayVariable', 'arrayVariableAdvanced', 'declareArrayAdvanced',
+                'declareVariableAdvanced', 'setArrayVariableAdvanced'
+            ];
+            var mathBloqs = ['declareVariable', 'declareVariable', 'declareVariable', 'basicOperations', 'map', 'number', 'numberArray', 'random', 'randomSeed', 'mapAdvanced', 'mathOperations', 'numberArrayAdvanced', 'round-v1',
+                'numConversion'
+            ];
+
+            var witouthAsterisk = ['declareVariable', 'numberArrayAdvanced'];
+
+            var textBloqs = ['declareVariable', 'length', 'string', 'stringArray', 'stringCreate', 'stringSum', 'char', 'stringArrayAdvanced'];
+
+            var controlBloqs = ['break', 'case', 'caseDefault', 'continue', 'else', 'elseif', 'for-v1', 'if', 'millis', 'switch', 'wait', 'while'];
+
+            var controlBloqs2 = ['caseAdvanced-v1', 'elseifAdvanced', 'forAdvanced-v1', 'ifAdvanced', 'switchAdvanced-v2', 'waitAdvanced', 'whileAdvanced'];
+
+            var classBloqs = ['setClassVariable', 'constructorClassArguments', 'invokeArgumentsClass', 'invokeClassFunctionWithArguments',
+                'invokeClassReturnFunctionWithArguments', 'setClassArrayVariable'
+            ];
+
+            var comunicationBloqs = ['convert', 'serialSend-v1'];
+
+            var componentsBloqs = ['declareVariable', 'buzzer', 'continuousServoStart', 'continuousServoStop', 'hts221Humidity', 'hts221Temperature', 'lcdClear', 'lcdTurnOnOff', 'lcdWrite', 'lcdWritePosition', 'led', 'oscillator',
+                'oscillatorStart', 'oscillatorStop', 'oscillatorTimes', 'PTSensor', 'readSensor'
+            ];
+
+            var componentsBloqs2 = ['declareVariable', 'rgbLed', 'rgbLedFade', 'rgbLedOff', 'rgbLedSimple', 'clockRTCAdvanced', 'clockRTCInit', 'servoNormal'];
+
+            var componentsBloqs3 = ['declareVariable', 'analogReadAdvanced', 'analogWrite', 'buzzerAdvanced', 'continuousServoStartAdvanced-v1', 'continuousServoStopAdvanced', 'digitalReadAdvanced', 'digitalWrite', 'lcdTurnOnOffAdvanced',
+                'lcdWriteAdvanced', 'lcdWritePositionAdvanced-v1', 'ledAdvanced'
+            ];
+
+            var componentsBloqs4 = ['declareVariable', 'oscillatorAdvanced', 'oscillatorStartAdvanced', 'oscillatorStopAdvanced', 'pinLevels', 'PTSensorCalibration', 'rgbLedAdvanced', 'servoNormalAdvanced', 'servoAttach', 'servoDetach'];
+
+            var hardwareBloqs = ['servoAttach'];
+
+            var evolutionBloqs = ['evolutionHeadAdvance'];
+
+            var conversionBloqs = ['declareVariable', 'numConversion', 'stringToInt'];
+
+            var evolutionBloqs = ['evolutionBuzzer', 'evolutionHead', 'evolutionHome', 'evolutionIfDistance', 'evolutionIfLight', 'evolutionIfLine', 'evolutionMovementsSimple'];
+
+            var evolutionBloqs2 = ['declareVariable', 'evolutionDistance', 'evolutionHeadAdvance', 'evolutionLight', 'evolutionLine'];
+
+            var zowi = ['zowiGestures', 'zowiHome', 'zowiIfButtons', 'zowiIfDistance', 'zowiIfSound', 'zowiMouth', 'zowiMovementsSimple', 'zowiSounds'];
+
+            var zowi2 = ['declareVariable', 'zowiButtons', 'zowiDistance', 'zowiMovementsFront', 'zowiMovementsHeightFront', 'zowiMovementsHeightSides', 'zowiMovementsNoDir-v1', 'zowiMovementsSides', 'zowiSound'];
+
+            var zowiComponents = ['zowiComponentBuzzer', 'zowiComponentBuzzerAdvanced', 'zowiReadSensor', 'declareVariable', 'zowiComponentSerialSend', 'zowiSerialReceive', 'zowiSerialReceiveInt'];
+
+            var deprecated = ['declareVariable'];
+
+            var classs = ['class', 'constructorClass', 'invokeClass', 'invokeClassFunction', 'invokeClassReturnFunction', 'selectClassVariable', 'setClassVariable', 'private', 'protected', 'public', 'voidFunction'];
+
+            var classs2 = ['arrayClassVariable', 'classChildren', 'constructorClassArguments', 'invokeArgumentsClass', 'invokeClassFunctionWithArguments', 'invokeClassReturnFunctionWithArguments', 'private', 'protected', 'public',
+                'setClassArrayVariable'
+            ];
+
+            var mRanger = ['mRangerBuzzer', 'mRangerGetDistance', 'mRangerGetLightSensor', 'mRangerLineFollower', 'mRangerSetLed', 'mRangerTurnOffLed', 'mRangerBuzzerAdvanced', 'mRangerSetLedAdvanced'];
+
+            var mbotv2 = ['declareVariable', 'readSensor', 'mBotIfThereIsALotOfLight', 'mBotIfFollowLines', 'mBotSetRGBLedSimple', 'mBotSetRGBLed'];
+
+            var testPhone = ['phoneSendText', 'phoneEmitSound', 'phoneReceive', 'declareVariable', 'phoneToggleLight', 'phoneTurnOnLight', 'phoneReadLinearAccel'];
+
+            var mbotLedMatrix = ['mBotLedMatrix', 'mBotLedMatrix', 'mBotClearLedMatrix', 'mBotShowTimeOnLedMatrix', 'mBotShowNumberOnLedMatrix', 'mBotShowStringOnLedMatrix', 'mBotSetLedMatrixBrightness'];
+
+            var readJoystickXY = ['declareVariable', 'readJoystickXY'];
+
+            var mbotSwitch = ['remoteButtonPushedSwitch', 'remoteButtonPushedCase', 'remoteButtonPushedCase', 'switch', 'case', 'mBotSetLedMatrixBrightness', 'mBotSetRGBLed', 'remoteButtonPushedCaseDefault'];
+
+            var substring = ['substring', 'declareVariable', 'declareVariable', 'substringAdvanced'];
+
+            var openscad = ['sphere', 'cube'];
+
+            var makeblock3 = ['declareVariable', 'mkbShowFaceOnLedMatrix', 'robotSetMotorSpeed', 'robotSetMotorSpeedAdvanced', 'mkbGyroscope', 'mkbIntegratedSoundSensor', 'mkbAccelerometer'];
+
+            var mkb_compass = ['declareVariable', 'mkbReadMagneticField'];
+
+            var mkb_ExternalRGBLed = ['mkbSetExternalRGBLedSimple', 'mkbSetExternalRGBLedAdvanced', 'mkbSetExternalRGBLedAdvancedFull', 'mkbSetExternalRGBLedOff'];
+
+            var mkb_RangerRGBLed = ['mBotSetRGBLedSimple', 'mBotSetRGBLed', 'mBotRGBLedOff', 'mBotSetRGBLedAdvancedFull', 'mBotSetRGBLedAdvanced'];
+
+            var mkb_ledMatrixV2 = ['mkbfan', 'mkbDrawRectangleAdvanced', 'mkbDrawLedMatrix', 'mkbDrawLineAdvanced', 'mkbDrawLedMatrixAdvanced'];
+
+            var driveGearMotor = ['motorSetSpeed', 'motorSetSpeedAdvanced'];
+
+            var echidna = ['echidnaBuzzer', 'echidnaLeds', 'echidnaRGB', 'advancedEchidnaRGB', 'declareVariable', 'echidnaReadJoystickXY', 'echidnaReadAccelXY', 'echidnaReadSensor', 'echidnaBuzzerWithoutPause'];
+
+            var echidna2 = ['declareVariable', 'echidnaReadSensor', 'echidnaRGBOff', 'echidnaRGBFull'];
+
+            var testSet2 = ['declareVariable', 'basicOperations'];
+
+            var neoPixelRGB = ['rgbLed'];
+
+            testSet = neoPixelRGB;
+
+            for (var i = 0; i < testSet.length; i++) {
+                createBloq(testSet[i]);
+            }
+
+            var hardwareSchema = {
+                "board": "mcore",
+                "components": [
+                    {
+                        "uuid": "RGBled",
+                        "manufacturer": "standard",
+                        "category": "rgbs",
+                        "width": 67,
+                        "height": 79,
+                        "name": "neo",
+                        "pins": {
+                            "digital": [
+                                "s"
+                            ]
+                        },
+                        "pin": {
+                            "s": "2"
+                        },
+                        "connected": true,
+                        "metadata": {
+                            "codeType": "neopixel"
+                        }
+                    }
+                    /*{
+                    "id": "sp",
+                    "baudRate": "9600",
+                    "width": 115,
+                    "height": 71,
+                    "pin": {
+                        "s": "serial"
+                    },
+                    "pins": {
+                        "serial": [
+                            "s"
+                        ]
+                    },
+                    "dragtype": "components",
+                    "coordinates": {
+                        "x": 9.9,
+                        "y": 39.52569169960474
+                    },
+                    "category": "serialElements",
+                    "name": "serial_0",
+                    "connected": true,
+                    "uid": "df47e6be-8aec-4b63-9119-0dcb31511d72",
+                    "endpoints": {
+                        "s": {
+                            "type": "serial",
+                            "uid": "67eed2ae-74a8-4916-a26d-0f75bbaff2dc"
+                        }
+                    }
+                }, {
+                    "id": "mkb_joystick",
+                    "category": "joystick",
+                    "type": "Joystick",
+                    "manufacter": "makeblock",
+                    "width": 84.5,
+                    "height": 118.09,
+                    "dataReturnType": "float *",
+                    "pins": {
+                        "black": [
+                            "s"
+                        ]
+                    }
+                }, {
+                    "uuid": "mkb_bluetooth",
+                    "category": "serialElements",
+                    "manufacturer": "makeblock",
+                    "baudRate": 115200,
+                    "width": 115,
+                    "height": 82.63,
+                    "pin": {
+                        "s": "serial"
+                    },
+                    "pins": {
+                        "serial": [
+                            "s"
+                        ]
+                    }
+                }, {
+                    "id": "mkb_integrated_lightsensor",
+                    "category": "mkb_lightsensor",
+                    "type": "mkb_integrated_lightsensor",
+                    "manufacter": "makeblock",
+                    "width": 134.5,
+                    "height": 106.2,
+                    "dataReturnType": "float",
+                    "pins": {
+                        "yellow": [
+                            "s"
+                        ]
+                    },
+                    "name": "ultrasonidos_0",
+                    "coordinates": {
+                        "x": 61.75548589341693,
+                        "y": 19.46564885496183
+                    },
+                    "connected": true,
+                    "uid": "8592f42f-89a7-4704-8208-3f787c943c14",
+                    "pin": {
+                        "s": "3"
+                    },
+                    "endpoints": {
+                        "s": {
+                            "uid": "3633453a-cc71-4172-a3ce-4959ffbb0f63",
+                            "type": "yellow"
+                        }
+                    }
+                }*/
+                    /*, {
+                     "id": "phone",
+                     "baudRate": "9600",
+                     "width": 115,
+                     "height": 71,
+                     "pin": {
+                     "rx": "2",
+                     "tx": "4"
+                     },
+                     "pins": {
+                     "digital": [
+                     "rx",
+                     "tx"
+                     ]
+                     },
+                     "dragtype": "components",
+                     "coordinates": {
+                     "x": 9.9,
+                     "y": 39.52569169960474
+                     },
+                     "category": "phoneElements",
+                     "name": "phone_0",
+                     "connected": true,
+                     "uid": "df47e6be-8aec-4b63-9119-0dcb31511d72",
+                     "endpoints": {
+                     "s": {
+                     "type": "serial",
+                     "uid": "67eed2ae-74a8-4916-a26d-0f75bbaff2dc"
+                     }
+                     }
+                     }
+    
+                     ,
+    
+                     {
+                     "id": "led",
+                     "width": 55,
+                     "height": 83,
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "dragtype": "components",
+                     "coordinates": {
+                     "x": 77.2,
+                     "y": 13.203463203463203
+                     },
+                     "category": "leds",
+                     "name": "led_1",
+                     "connected": true,
+                     "uid": "bfa1a548-8bc5-44b5-9e5e-d9e647db72b1",
+                     "pin": {
+                     "s": "7"
+                     },
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "3fe14580-c769-4fb2-ac65-b614cd15e74c"
+                     }
+                     }
+                     }, {
+                     "category": "servos",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 73.4,
+                     "y": 8.695652173913043
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "e6f64bd5-3327-49f3-8061-cc697daed825"
+                     }
+                     },
+                     "height": 106,
+                     "id": "servo",
+                     "name": "servo_0",
+                     "oscillator": "false",
+                     "pin": {
+                     "s": "6"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "uid": "bca89355-7619-4a14-bf0f-ba1aba694585",
+                     "width": 125
+                     }, {
+                     "category": "buzzers",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 73.3,
+                     "y": 24.308300395256918
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "8b49e998-8f5e-4770-80a9-998b94a93708"
+                     }
+                     },
+                     "height": 80,
+                     "id": "buzz",
+                     "name": "zumbador_0",
+                     "pin": {
+                     "s": "5"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "type": "digital",
+                     "uid": "7e9daf0b-0c84-47da-a9ee-61f6998cfd48",
+                     "width": 85
+                     }, {
+                     "category": "continuousServos",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 13.100000000000001,
+                     "y": 52.81385281385281
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "90a0ac6e-4385-4bec-95a8-bd0889ccfce2"
+                     }
+                     },
+                     "height": 106,
+                     "id": "servocont",
+                     "name": "servo_continuo_0",
+                     "pin": {
+                     "s": "10"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "uid": "fb243e14-853d-4b56-be71-22faa7b9ce14",
+                     "width": 125
+                     }, {
+                     "category": "lcds",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 10.8,
+                     "y": 77.66798418972331
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "scl": {
+                     "type": "i2c-5",
+                     "uid": "32ada0d3-7990-476d-b6de-5d3d69353701"
+                     },
+                     "sda": {
+                     "type": "i2c-4",
+                     "uid": "033b409e-9573-4648-9e2f-656a9fdb79ec"
+                     }
+                     },
+                     "height": 93,
+                     "id": "lcd",
+                     "name": "lcd_0",
+                     "pin": {
+                     "scl": "A5-H",
+                     "sda": "A4"
+                     },
+                     "pins": {
+                     "i2c-4": [
+                     "sda"
+                     ],
+                     "i2c-5": [
+                     "scl"
+                     ]
+                     },
+                     "uid": "b0925be6-23b8-4999-a655-8e762d002b32",
+                     "width": 170
+                     }, {
+                     "category": "leds",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 75.8,
+                     "y": 8.441558441558442
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "577c2ae0-8673-46b4-90e5-2954b934d7b0"
+                     }
+                     },
+                     "height": 83,
+                     "id": "led",
+                     "name": "led_0",
+                     "pin": {
+                     "s": "3"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "uid": "e0f279ee-ac1a-4f29-9ed0-ddeefd44c441",
+                     "width": 55
+                     }, {
+                     "baudRate": "9600",
+                     "category": "serialElements",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 77.2,
+                     "y": 11.778290993071593
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "rx": {
+                     "type": "digital",
+                     "uid": "7d60a1d4-ddd9-48a1-855a-58d707ed17ad"
+                     },
+                     "tx": {
+                     "type": "digital",
+                     "uid": "daecc40c-3fd2-427c-8967-488640796906"
+                     }
+                     },
+                     "height": 88,
+                     "id": "bt",
+                     "name": "bluetooth_0",
+                     "pin": {
+                     "rx": "2",
+                     "tx": "4"
+                     },
+                     "pins": {
+                     "digital": [
+                     "rx",
+                     "tx"
+                     ]
+                     },
+                     "uid": "e1b1b18e-0a05-4507-a051-b28eea60caad",
+                     "width": 115
+                     }, {
+                     "category": "sensors",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 72.7,
+                     "y": 50.649350649350644
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "analog",
+                     "uid": "d25f2ee2-c7d2-42a5-92ab-42262223f1ad"
+                     }
+                     },
+                     "height": 120,
+                     "dataReturnType": "char",
+                     "id": "buttons",
+                     "name": "botonera_0",
+                     "pin": {
+                     "s": "A5"
+                     },
+                     "pins": {
+                     "analog": [
+                     "s"
+                     ]
+                     },
+                     "type": "ButtonPad",
+                     "uid": "bf454cc6-f519-4a7f-b996-e338169323e8",
+                     "width": 165
+                     },
+    
+                     {
+                     "category": "sensors",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 73.7,
+                     "y": 19.913419913419915
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "a7be6354-07f2-4a1b-aa36-9cf1d5f9d697"
+                     }
+                     },
+                     "height": 73,
+                     "id": "button",
+                     "name": "button_0",
+                     "dataReturnType": "float",
+                     "pin": {
+                     "s": "3"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "type": "digital",
+                     "uid": "1f72beb4-fbde-4952-ac5c-c4c0b43f3fd5",
+                     "width": 90
+                     }, {
+                     "category": "sensors",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 16.1,
+                     "y": 17.786561264822133
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s1": {
+                     "type": "digital",
+                     "uid": "5af076c1-2e0c-4e5b-8961-f249f16aec6c"
+                     },
+                     "s2": {
+                     "type": "digital",
+                     "uid": "04ec26b6-bd9f-490d-adbc-f04da75134a8"
+                     }
+                     },
+                     "height": 88,
+                     "id": "irs2",
+                     "dataReturnType": "float *",
+                     "name": "siguelineas_0",
+                     "pin": {
+                     "s1": "11",
+                     "s2": "10"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s1",
+                     "s2"
+                     ]
+                     },
+                     "type": "LineFollower",
+                     "uid": "a2a4e557-89d8-435c-bc98-25989edccac9",
+                     "width": 97
+                     }, {
+                     "category": "sensors",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 76.7,
+                     "y": 7.142857142857142
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "k": {
+                     "type": "digital",
+                     "uid": "4684f13b-b79f-4f7a-990e-eb35082f1b62"
+                     },
+                     "sa": {
+                     "type": "digital",
+                     "uid": "098d5fcf-442d-43a5-b0c0-602cc6fb1795"
+                     },
+                     "sb": {
+                     "type": "digital",
+                     "uid": "32353729-1455-4427-adf4-2f6cf37723fd"
+                     }
+                     },
+                     "height": 84,
+                     "id": "encoder",
+                     "name": "encoder_1",
+                     "pin": {
+                     "k": "4",
+                     "sa": "3",
+                     "sb": "2"
+                     },
+                     "pins": {
+                     "digital": [
+                     "k",
+                     "sa",
+                     "sb"
+                     ]
+                     },
+                     "type": "encoder",
+                     "uid": "a1d88ec7-3bce-410d-9eca-792c0dd75a9e",
+                     "width": 74
+                     }, {
+                     "category": "sensors",
+                     "connected": true,
+                     "coordinates": {
+                     "x": 79.7,
+                     "y": 15.367965367965366
+                     },
+                     "dragtype": "components",
+                     "endpoints": {
+                     "s": {
+                     "type": "digital",
+                     "uid": "c29a4a33-b778-454d-9b77-0a1f46735427"
+                     }
+                     },
+                     "height": 92,
+                     "id": "limitswitch",
+                     "name": "final_de_carrera_0",
+                     "pin": {
+                     "s": "2"
+                     },
+                     "pins": {
+                     "digital": [
+                     "s"
+                     ]
+                     },
+                     "type": "digital",
+                     "uid": "e2722753-b89a-41b3-bee3-10c44acd171c",
+                     "width": 100
+                     } */
+                ]
+            };
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{
+  "type": "statement-input",
+  "name": "private",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-private",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-private"
+      }
+    ]
+  ],
+  "code": "private : {STATEMENTS}",
+  "arduino": {
+    "code": "private : {STATEMENTS}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"private\" no preparado para generar código python"
+      }
+    ]
+  }
+}

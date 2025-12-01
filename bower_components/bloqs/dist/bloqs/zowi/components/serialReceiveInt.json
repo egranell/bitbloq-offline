@@ -1,0 +1,50 @@
+{
+  "type": "output",
+  "name": "zowiSerialReceiveInt",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-zowicomponent-serial-receiver-int",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowicomponent-serial-receive-int"
+      }
+    ]
+  ],
+  "code": "{SERIAL}.readString()",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.readInt()"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "String"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiSerialReceiveInt\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "type": "statement",
+  "name": "continuousServoStopAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "hwVariable",
+        "selectVariable"
+      ],
+      "name": "a57b6189-7ec9-4495-ae2a-423a97b6d5fc"
+    }
+  ],
+  "bloqClass": "bloq-continuous-servo-stop-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-continuous-servo-stop-advanced-stop"
+      },
+      {
+        "bloqInputId": "SERVO",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "hwVariable",
+          "selectVariable"
+        ],
+        "name": "a57b6189-7ec9-4495-ae2a-423a97b6d5fc"
+      }
+    ]
+  ],
+  "code": "{SERVO}.write(90);",
+  "arduino": {
+    "code": "{SERVO}.write(90);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"continuousServoStopAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

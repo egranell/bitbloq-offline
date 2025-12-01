@@ -1,0 +1,67 @@
+{
+  "type": "statement",
+  "name": "zumjuniorDisplayCharsAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "selectVariable"
+      ],
+      "name": "cf9723f3-1f16-4f1f-8cae-9f278829b0ee"
+    }
+  ],
+  "bloqClass": "bloq-zumjunior-display-number",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-display-chars-advanced"
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "selectVariable"
+        ],
+        "name": "cf9723f3-1f16-4f1f-8cae-9f278829b0ee"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-in-display-name"
+      },
+      {
+        "id": "DISPLAY",
+        "alias": "dynamicDropdown",
+        "options": "zumjunior7segments"
+      }
+    ]
+  ],
+  "code": "{DISPLAY}.displayString({VALUE});",
+  "arduino": {
+    "code": "{DISPLAY}.displayString({VALUE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zumjuniorDisplayCharsAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

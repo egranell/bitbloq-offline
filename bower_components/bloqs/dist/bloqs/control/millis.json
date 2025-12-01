@@ -1,0 +1,34 @@
+{
+  "type": "output",
+  "name": "millis",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-millis",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-millis"
+      }
+    ]
+  ],
+  "code": "millis()",
+  "arduino": {
+    "code": "millis()"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"millis\" no preparado para generar código python"
+      }
+    ]
+  }
+}

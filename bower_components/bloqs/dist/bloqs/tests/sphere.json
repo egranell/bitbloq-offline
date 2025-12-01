@@ -1,0 +1,38 @@
+{
+  "type": "statement",
+  "name": "sphere",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-wait",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "Crear esfera con radio"
+      },
+      {
+        "id": "RAD",
+        "alias": "numberInput",
+        "value": 10
+      }
+    ]
+  ],
+  "arduino": {
+    "code": "sphere(r={RAD});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"sphere\" no preparado para generar código python"
+      }
+    ]
+  }
+}

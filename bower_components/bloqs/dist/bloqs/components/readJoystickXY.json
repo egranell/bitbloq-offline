@@ -1,0 +1,63 @@
+{
+  "type": "output",
+  "name": "readJoystickXY",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-read-mkb_joystick"
+      },
+      {
+        "id": "OPTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "X",
+            "value": "X"
+          },
+          {
+            "label": "Y",
+            "value": "Y"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-of-joystick"
+      },
+      {
+        "id": "JOYSTICK",
+        "alias": "dynamicDropdown",
+        "options": "joystick"
+      }
+    ]
+  ],
+  "code": "",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "conditional": {
+      "aliasId": "OPTION",
+      "code": {
+        "X": "{JOYSTICK}.readPinX()",
+        "Y": "{JOYSTICK}.readPinY()"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"readJoystickXY\" no preparado para generar código python"
+      }
+    ]
+  }
+}

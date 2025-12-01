@@ -1,0 +1,89 @@
+{
+  "type": "statement",
+  "name": "digitalWrite",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "ca3365df-507c-47a1-9af0-c670db551d3c"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "pinLevels",
+        "number",
+        "selectVariable"
+      ],
+      "name": "eb6c2917-ef21-4f9d-a2e6-3c8545da20fe"
+    }
+  ],
+  "bloqClass": "bloq-pin-writte-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-pin-digital-write"
+      },
+      {
+        "bloqInputId": "PIN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "ca3365df-507c-47a1-9af0-c670db551d3c"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-pin-digital-write-data-V1"
+      },
+      {
+        "bloqInputId": "DATA",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "pinLevels",
+          "number",
+          "selectVariable"
+        ],
+        "name": "eb6c2917-ef21-4f9d-a2e6-3c8545da20fe"
+      }
+    ]
+  ],
+  "code": "digitalWrite({PIN},{DATA});",
+  "arduino": {
+    "code": "digitalWrite({PIN},{DATA});",
+    "setupExtraCode": "pinMode({PIN}, OUTPUT);"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"digitalWrite\" no preparado para generar código python"
+      }
+    ]
+  }
+}

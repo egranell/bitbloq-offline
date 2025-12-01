@@ -1,0 +1,46 @@
+{
+  "type": "statement-input",
+  "name": "remoteButtonPushedSwitch",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "switchChildren"
+      ]
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-makeblock-remote-switch"
+      },
+      {
+        "id": "REMOTE",
+        "alias": "dynamicDropdown",
+        "options": "remoteControl"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "switch(¬{REMOTE.readSensor}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"remoteButtonPushedSwitch\" no preparado para generar código python"
+      }
+    ]
+  }
+}

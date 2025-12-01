@@ -1,0 +1,110 @@
+{
+  "type": "statement",
+  "name": "declareVariableAdvanced",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "basicOperations",
+        "string",
+        "stringSum",
+        "char",
+        "boolean"
+      ],
+      "name": "dcf9ccc5-6946-4836-9d33-afc90ae45175"
+    }
+  ],
+  "bloqClass": "bloq-declare-variable",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-declare-variable-declare"
+      },
+      {
+        "id": "NAME",
+        "alias": "varInput",
+        "placeholder": "bloq-name-default"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-declare-variable-declare-type"
+      },
+      {
+        "id": "TYPE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-declare-variable-declare-type-int",
+            "value": "int"
+          },
+          {
+            "label": "bloq-declare-variable-declare-type-float",
+            "value": "float"
+          },
+          {
+            "label": "bloq-declare-variable-declare-type-text",
+            "value": "String"
+          },
+          {
+            "label": "bloq-declare-variable-declare-type-char",
+            "value": "char"
+          },
+          {
+            "label": "bloq-declare-variable-declare-type-bool",
+            "value": "bool"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "="
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "basicOperations",
+          "string",
+          "stringSum",
+          "char",
+          "boolean"
+        ],
+        "name": "dcf9ccc5-6946-4836-9d33-afc90ae45175"
+      }
+    ]
+  ],
+  "returnType": {
+    "type": "fromDropdown",
+    "idDropdown": "TYPE"
+  },
+  "createDynamicContent": "softwareVars",
+  "code": "{TYPE} {NAME} = {VALUE};",
+  "arduino": {
+    "code": "{TYPE} {NAME} = {VALUE};"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"declareVariableAdvanced\" no preparado para generar código python"
+      }
+    ]
+  }
+}

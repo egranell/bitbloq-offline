@@ -1,0 +1,51 @@
+{
+  "type": "output",
+  "name": "hts221Humidity",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-hts221-humidity",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-hts221-humidity"
+      },
+      {
+        "id": "SENSOR",
+        "alias": "dynamicDropdown",
+        "options": "hts221"
+      }
+    ]
+  ],
+  "code": "{SENSOR}.getHumidity()",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "includes": [
+      "Wire.h",
+      "BitbloqHTS221.h",
+      "HTS221_Registers.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "{SENSOR}",
+        "type": "HTS221"
+      }
+    ],
+    "setupExtraCode": "Wire.begin();\n{SENSOR}.begin();",
+    "code": "{SENSOR}.getHumidity()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"hts221Humidity\" no preparado para generar código python"
+      }
+    ]
+  }
+}

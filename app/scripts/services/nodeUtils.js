@@ -12,15 +12,31 @@ angular.module('bitbloqOffline')
         var exports = {};
 
         exports.downloadFile = function(fileName, data, defaultExtension, callback) {
-            var filePath = nodeDialog.showSaveDialog({
+            var dialogPromise = nodeDialog.showSaveDialog({
                 defaultPath: fileName
             });
-            if (filePath) {
-                if (defaultExtension && filePath.indexOf('.') === -1) {
-                    filePath += defaultExtension;
+            
+            // Manejar promesa
+            if (dialogPromise && dialogPromise.then) {
+                dialogPromise.then(function(filePath) {
+                    if (filePath) {
+                        if (defaultExtension && filePath.indexOf('.') === -1) {
+                            filePath += defaultExtension;
+                        }
+                        nodeFs.writeFileSync(filePath, data);
+                        callback(filePath);
+                    }
+                });
+            } else {
+                // Compatibilidad con retorno directo (legacy)
+                var filePath = dialogPromise;
+                if (filePath) {
+                    if (defaultExtension && filePath.indexOf('.') === -1) {
+                        filePath += defaultExtension;
+                    }
+                    nodeFs.writeFileSync(filePath, data);
+                    callback(filePath);
                 }
-                nodeFs.writeFileSync(filePath, data);
-                callback(filePath);
             }
         };
 

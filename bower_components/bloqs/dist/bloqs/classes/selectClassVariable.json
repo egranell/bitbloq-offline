@@ -1,0 +1,49 @@
+{
+  "type": "output",
+  "name": "selectClassVariable",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-select-class-variable",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-select-class-variable-variable"
+      },
+      {
+        "id": "VAR",
+        "alias": "dynamicDropdown",
+        "options": "softwareVars"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-invoke-class-function-class"
+      },
+      {
+        "id": "CLASS",
+        "alias": "dynamicDropdown",
+        "options": "objects"
+      }
+    ]
+  ],
+  "code": "{CLASS}.{VAR}",
+  "returnType": {
+    "type": "fromDynamicDropdown",
+    "idDropdown": "VAR",
+    "options": "softwareVars"
+  },
+  "arduino": {
+    "code": "{CLASS}.{VAR}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"selectClassVariable\" no preparado para generar código python"
+      }
+    ]
+  }
+}

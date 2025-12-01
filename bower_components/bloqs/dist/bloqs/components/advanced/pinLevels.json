@@ -1,0 +1,44 @@
+{
+  "type": "output",
+  "name": "pinLevels",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-pinlevels",
+  "content": [
+    [
+      {
+        "id": "STATE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-pinlevel-high",
+            "value": "HIGH"
+          },
+          {
+            "label": "bloq-pinlevel-low",
+            "value": "LOW"
+          }
+        ]
+      }
+    ]
+  ],
+  "code": "{STATE}",
+  "returnType": {
+    "type": "simple",
+    "value": "bool"
+  },
+  "arduino": {
+    "code": "{STATE}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"pinLevels\" no preparado para generar código python"
+      }
+    ]
+  }
+}

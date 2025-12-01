@@ -1,0 +1,42 @@
+{
+  "type": "statement-input",
+  "name": "caseDefault",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom",
+      "acceptedAliases": [
+        "switchChildren",
+        "case"
+      ]
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-case-default",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-case-default-inOtherCase"
+      }
+    ]
+  ],
+  "code": "default:{STATEMENTS}break;",
+  "arduino": {
+    "code": "default:{STATEMENTS}break;"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"caseDefault\" no preparado para generar código python"
+      }
+    ]
+  }
+}

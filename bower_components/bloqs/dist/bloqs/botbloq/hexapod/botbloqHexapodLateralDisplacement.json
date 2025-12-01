@@ -1,0 +1,63 @@
+{
+  "type": "statement",
+  "name": "botbloqHexapodLateralDisplacement",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-botbloq-hexapod-lateraldisplacement",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "lateraldisplacement-moveto"
+      },
+      {
+        "id": "SIDE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "right",
+            "value": "RIGHT"
+          },
+          {
+            "label": "left",
+            "value": "LEFT"
+          }
+        ]
+      },
+      {
+        "id": "STEPS",
+        "alias": "numberInput",
+        "value": 3
+      },
+      {
+        "alias": "text",
+        "value": "steps"
+      }
+    ]
+  ],
+  "code": "",
+  "python": {
+    "libraries": [
+      "BotbloqHexapod"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "hexapod",
+        "type": "BotbloqHexapod"
+      }
+    ],
+    "codeLines": [
+      {
+        "code": "hexapod.lateralDisplacement(\"{SIDE}\", {STEPS})"
+      }
+    ]
+  }
+}

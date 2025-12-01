@@ -1,0 +1,427 @@
+/* BASIC THEME */
+
+$code-color: #58B42D;
+$classes-color: #e30b9a;
+$components-color: #cf1c22;
+$control-color: #11489A;
+$functions-color: #DD5A0A;
+$logic-color: #7C0DD6;
+$maths-color: #01C0C8;
+$text-color: #0294CF;
+$vars-color: #D9B032;
+$conversions-color: #00CC11;
+$zowi-color: #60BCC9;
+$freakscar-color: #966F33;
+$evolution-color: #9a0768;
+$mbot-color: #0076b4;
+$mranger-color: #0076b4;
+$botbloq-car: #4B0082;
+$botbloq-manipulator: #058723;
+$botbloq-human: #6495ED;
+$botbloq-hexapod: #FF6347;
+$botbloq-snake: #3CB371;
+$phone-color: #5d6069;
+$zumjunior-color: #02ADCF;
+
+/* COLOR THEME */
+
+$theme-color-classes-color: #e30b9a;
+$theme-color-functions-color: #dd5b0c;
+$theme-color-control-color: #114698;
+$theme-color-code-color: #59b52e;
+$theme-color-components-color: #ce1c23;
+$theme-color-logic-color: #790cd7;
+$theme-color-maths-color: #00c1c7;
+$theme-color-text-color: #0094cf;
+$theme-color-vars-color: #d8af31;
+$theme-color-conversions-color: #00CC11;
+$theme-color-zowi-color: #60BCC9;
+$theme-color-evolution-color: #9a0768;
+$theme-color-freakscar-color: #966F33;
+$theme-color-mbot-color: #0076b4;
+$theme-color-mranger-color: #0076b4;
+$theme-color-botbloq-car: #4B0082;
+$theme-color-botbloq-manipulator: #058723;
+$theme-color-botbloq-human: #6495ED;
+$theme-color-botbloq-hexapod: #FF6347;
+$theme-color-botbloq-snake: #3CB371;
+$theme-color-phone-color: #5d6069;
+$theme-color-zumjunior-color: #02ADCF;
+@mixin createBloqsTheme ($reverse) {
+    /*--- GENERIC ---*/
+    @include createBloqsCss($reverse, "bloq-mbot-color", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-color", $mbot-color, $theme-color-mbot-color, true);
+    @include createBloqsCss($reverse, "bloq-freakscar-color", $freakscar-color, $theme-color-freakscar-color, true);
+    @include createBloqsCss($reverse, "bloq-freakscar-color", $freakscar-color, $theme-color-freakscar-color, true);
+    @include createBloqsCss($reverse, "bloq-code-color", $code-color, $theme-color-code-color);
+    @include createBloqsCss($reverse, "bloq-code-color", $code-color, $theme-color-code-color, true);
+    @include createBloqsCss($reverse, "bloq-components-color", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-components-color", $components-color, $theme-color-components-color, true);
+    /*---- BOTBLOQ - CAR ---------*/
+    @include createBloqsCss($reverse, "bloq-botbloq-vehicle-move", $botbloq-car, $theme-color-botbloq-car);
+    @include createBloqsCss($reverse, "bloq-botbloq-vehicle-stop", $botbloq-car, $theme-color-botbloq-car);
+    @include createBloqsCss($reverse, "bloq-botbloq-vehicle-ir", $botbloq-car, $theme-color-botbloq-car);
+    /*---- BOTBLOQ - MANIPULATOR ---------*/
+    @include createBloqsCss($reverse, "bloq-botbloq-manipulator-canmove", $botbloq-manipulator, $theme-color-botbloq-manipulator);
+    @include createBloqsCss($reverse, "bloq-botbloq-manipulator-moveonspace", $botbloq-manipulator, $theme-color-botbloq-manipulator);
+    @include createBloqsCss($reverse, "bloq-botbloq-manipulator-moveclamp", $botbloq-manipulator, $theme-color-botbloq-manipulator);
+    @include createBloqsCss($reverse, "bloq-botbloq-manipulator-rotatejoints", $botbloq-manipulator, $theme-color-botbloq-manipulator);
+    /*---- BOTBLOQ - HUMAN ---------*/
+    @include createBloqsCss($reverse, "bloq-botbloq-human-move", $botbloq-human, $theme-color-botbloq-human);
+    @include createBloqsCss($reverse, "bloq-botbloq-human-benddown", $botbloq-human, $theme-color-botbloq-human);
+    @include createBloqsCss($reverse, "bloq-botbloq-human-lateraldisplacement", $botbloq-human, $theme-color-botbloq-human);
+    @include createBloqsCss($reverse, "bloq-botbloq-human-rotatefoot", $botbloq-human, $theme-color-botbloq-human);
+    @include createBloqsCss($reverse, "bloq-botbloq-human-stop", $botbloq-human, $theme-color-botbloq-human);
+    @include createBloqsCss($reverse, "bloq-botbloq-human-upstairs", $botbloq-human, $theme-color-botbloq-human);
+    /*---- BOTBLOQ - HEXAPOD ---------*/
+    @include createBloqsCss($reverse, "bloq-botbloq-hexapod-move", $botbloq-hexapod, $theme-color-botbloq-hexapod);
+    @include createBloqsCss($reverse, "bloq-botbloq-hexapod-stop", $botbloq-hexapod, $theme-color-botbloq-hexapod);
+    @include createBloqsCss($reverse, "bloq-botbloq-hexapod-lateraldisplacement", $botbloq-hexapod, $theme-color-botbloq-hexapod);
+    /*---- BOTBLOQ - SNAKE ---------*/
+    @include createBloqsCss($reverse, "bloq-botbloq-snake-lateraldisplacement", $botbloq-snake, $theme-color-botbloq-snake);
+    @include createBloqsCss($reverse, "bloq-botbloq-snake-move", $botbloq-snake, $theme-color-botbloq-snake);
+    @include createBloqsCss($reverse, "bloq-botbloq-snake-roll", $botbloq-snake, $theme-color-botbloq-snake);
+    @include createBloqsCss($reverse, "bloq-botbloq-snake-rotate", $botbloq-snake, $theme-color-botbloq-snake);
+    @include createBloqsCss($reverse, "bloq-botbloq-snake-stop", $botbloq-snake, $theme-color-botbloq-snake);
+    /*---- CONVERSIONS ---------*/
+    @include createBloqsCss($reverse, "bloq-string-to-int", $conversions-color, $theme-color-conversions-color);
+    /*---- EVOLUTION ---------*/
+    @include createBloqsCss($reverse, "bloq-evolution-buzzer", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-head", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-home", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-rest", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-movements-simple", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-distance", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-light", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-line", $evolution-color, $theme-color-evolution-color);
+    @include createBloqsCss($reverse, "bloq-evolution-if-distance", $evolution-color, $theme-color-evolution-color, true);
+    @include createBloqsCss($reverse, "bloq-evolution-if-light", $evolution-color, $theme-color-evolution-color, true);
+    @include createBloqsCss($reverse, "bloq-evolution-if-line", $evolution-color, $theme-color-evolution-color, true);
+    @include createBloqsCss($reverse, "bloq-evolution-if-light-advanced", $evolution-color, $theme-color-evolution-color, true);
+    /*---- MBOT ---------*/
+    @include createBloqsCss($reverse, "bloq-mbot-move", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-setmotor", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-setservo", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-setled", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-setled-advanced", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-buzzer", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-showfacebynumber", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-printtext", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-getdistance", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-getlightsensor", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-getbuttonstatus", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-linefollower", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-turnoffled", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-stop", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-somethingnear", $mbot-color, $theme-color-mbot-color, true);
+    @include createBloqsCss($reverse, "bloq-mbot-ifthereisalotoflight", $mbot-color, $theme-color-mbot-color, true);
+    @include createBloqsCss($reverse, "bloq-mbot-iffollowlines", $mbot-color, $theme-color-mbot-color, true);
+    @include createBloqsCss($reverse, "bloq-mbot-setrgbLed-simple", $mbot-color, $theme-color-mbot-color);
+    @include createBloqsCss($reverse, "bloq-mbot-rgbLedsimple-off", $mbot-color, $theme-color-mbot-color);
+
+    /*---- ZUMJUNIOR -------*/
+    @include createBloqsCss($reverse, "bloq-zumjunior-servo-start", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-servo-stop", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-doubleled", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-miniservo", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-display-number", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-display-numbers", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-clear-display", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-turnon-led", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-turnoff-led", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-play-buzz", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-play-buzz-advanced", $zumjunior-color, $theme-color-components-color,false,true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-sensors-if", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-sensors-while", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-color-if", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-color-while", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-button-if", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-button-while", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-slider-if", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-slider-while", $zumjunior-color, $theme-color-control-color, true, true);
+    @include createBloqsCss($reverse, "bloq-zumjunior-read-slider", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-zumjunior-read-button", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-zumjunior-read-sensors", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-zumjunior-read-color", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-zumjunior-turnon-led-rgb", $zumjunior-color, $theme-color-components-color,false,true);
+
+    /*---- ZOWI ---------*/
+    @include createBloqsCss($reverse, "bloq-zowi-gestures", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-rest", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-simple", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-mouth", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-height", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-no-dir", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-sounds", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-sound", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-distance", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-buttons", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-if-buttons", $zowi-color, $theme-color-zowi-color, true);
+    @include createBloqsCss($reverse, "bloq-zowi-if-sound", $zowi-color, $theme-color-zowi-color, true);
+    @include createBloqsCss($reverse, "bloq-zowi-if-distance", $zowi-color, $theme-color-zowi-color, true);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-front", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-sides", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-height-sides", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-height-front", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowi-movements-no-dir-v1", $zowi-color, $theme-color-zowi-color);
+    /*---- ZOWI COMPONENTS---------*/
+    @include createBloqsCss($reverse, "bloq-zowicomponent-buzzer", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowicomponent-buzzer-advance", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowicomponent-read-sensor", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowicomponent-serial-send", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowicomponent-serial-receiver", $zowi-color, $theme-color-zowi-color);
+    @include createBloqsCss($reverse, "bloq-zowicomponent-serial-receiver-int", $zowi-color, $theme-color-zowi-color);
+    /*---- CLASSES ---------*/
+    @include createBloqsCss($reverse, "bloq-array-class-variable", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-class", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-class-children", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-constructor", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-constructor-arguments", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-invoke-arguments-class", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-invoke-class", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-invoke-class-function", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-invoke-class-function-args", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-invoke-class-return-function", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-invoke-class-return-function", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-private", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-public", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-protected", $classes-color, $theme-color-classes-color, true);
+    @include createBloqsCss($reverse, "bloq-select-class-variable", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-set-class-variableArray", $classes-color, $theme-color-classes-color);
+    @include createBloqsCss($reverse, "bloq-set-class-variable", $classes-color, $theme-color-classes-color);
+    /*---- FUNCTIONS ------*/
+    @include createBloqsCss($reverse, "bloq-argument", $functions-color, $theme-color-functions-color);
+    @include createBloqsCss($reverse, "bloq-arguments", $functions-color, $theme-color-functions-color);
+    @include createBloqsCss($reverse, "bloq-invoke-return-function", $functions-color, $theme-color-functions-color);
+    @include createBloqsCss($reverse, "bloq-return", $functions-color, $theme-color-functions-color);
+    @include createBloqsCss($reverse, "bloq-return-function", $functions-color, $theme-color-functions-color, true);
+    @include createBloqsCss($reverse, "bloq-return-function-with-arguments", $functions-color, $theme-color-functions-color, true);
+    @include createBloqsCss($reverse, "bloq-invoke-return-function-with-arguments", $functions-color, $theme-color-functions-color, true);
+    @include createBloqsCss($reverse, "bloq-void-function", $functions-color, $theme-color-functions-color, true);
+    @include createBloqsCss($reverse, "bloq-void-function-with-arguments", $functions-color, $theme-color-functions-color, true);
+    @include createBloqsCss($reverse, "bloq-invoke-function-with-arguments", $functions-color, $theme-color-functions-color, true);
+    @include createBloqsCss($reverse, "bloq-invoke-function", $functions-color, $theme-color-functions-color);
+    /*---- CONTROL ------*/
+    @include createBloqsCss($reverse, "bloq-millis", $control-color, $theme-color-control-color);
+    @include createBloqsCss($reverse, "bloq-break", $control-color, $theme-color-control-color);
+    @include createBloqsCss($reverse, "bloq-case", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-case-default", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-continue", $control-color, $theme-color-control-color);
+    @include createBloqsCss($reverse, "bloq-else", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-else-if", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-for", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-if", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-switch", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-wait", $control-color, $theme-color-control-color);
+    @include createBloqsCss($reverse, "bloq-while", $control-color, $theme-color-control-color, true);
+    @include createBloqsCss($reverse, "bloq-magicfor", $control-color, $theme-color-control-color, true);
+    /*---- CODE ------*/
+    @include createBloqsCss($reverse, "bloq-code", $code-color, $theme-color-code-color);
+    @include createBloqsCss($reverse, "bloq-comment", $code-color, $theme-color-code-color);
+    /*---- COMMUNICATION ------*/
+    @include createBloqsCss($reverse, "bloq-convert", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-serial-send", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-serial-receive-number", $components-color, $theme-color-components-color);
+    /*---- COMPONENTS ------*/
+    @include createBloqsCss($reverse, "bloq-hts221-humidity", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-hts221-temperature", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rgbLed", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rgbLed-simple", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rgbLed-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rgbLed-fade", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rgbLed-off", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rtc", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rtc-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rtc-init", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-rgbLed-fade", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-lcd-turn-on-off-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-hw-variable-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-buzzer-advance", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-continuous-servo-start-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-continuous-servo-stop-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-lcd-turn-on-on-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-lcd-writte-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-lcd-clear", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-led-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-oscillator-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-oscillator-start-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-oscillator-stop-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-pin-read-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-pin-writte-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-read-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-servo-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-turn-on-off-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-buzzer", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-continuous-servo-start", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-continuous-servo-stop", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-lcd-turn-on-off", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-lcd-writte", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-led", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-oscillator", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-oscillator-start", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-oscillator-stop", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-read-dropdown", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-servo", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-digital-read-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-analog-read-advanced", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-PTsensor", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-PTsensor-calibration", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-servo-detach", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-servo-attach", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-viewer", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-mbot-getdistance-v2", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-mbot-buzzer-v2", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-mbot-setrgbLed", $components-color, $theme-color-components-color);
+    /*---- PHONE ------*/
+    @include createBloqsCss($reverse, "bloq-phone-sound", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-write", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-receive", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-turnon-light", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-turnoff-light", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-twitter-config", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-send-tweet", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-read-accel", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-read-gyros", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-isCovered", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-read-light", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-read-magnetic", $phone-color, $theme-color-phone-color);
+    @include createBloqsCss($reverse, "bloq-phone-read-orientation", $phone-color, $theme-color-phone-color);
+    /*---- LOGIC ------*/
+    @include createBloqsCss($reverse, "bloq-boolean", $logic-color, $theme-color-logic-color);
+    @include createBloqsCss($reverse, "bloq-equality-operations", $logic-color, $theme-color-logic-color);
+    @include createBloqsCss($reverse, "bloq-logic-operations", $logic-color, $theme-color-logic-color);
+    @include createBloqsCss($reverse, "bloq-boolArray", $logic-color, $theme-color-logic-color);
+    @include createBloqsCss($reverse, "bloq-not", $logic-color, $theme-color-logic-color);
+    /*---- TEXT ------*/
+    @include createBloqsCss($reverse, "bloq-length", $text-color, $theme-color-text-color);
+    @include createBloqsCss($reverse, "bloq-string", $text-color, $theme-color-text-color);
+    @include createBloqsCss($reverse, "bloq-stringArray", $text-color, $theme-color-text-color);
+    @include createBloqsCss($reverse, "bloq-string-create", $text-color, $theme-color-text-color);
+    @include createBloqsCss($reverse, "bloq-stringArray-advanced", $text-color, $theme-color-text-color);
+    @include createBloqsCss($reverse, "bloq-string-sum", $text-color, $theme-color-text-color);
+    /*---- VARIABLES ------*/
+    @include createBloqsCss($reverse, "bloq-declare-array", $vars-color, $theme-color-vars-color);
+    @include createBloqsCss($reverse, "bloq-array-variable", $vars-color, $theme-color-vars-color);
+    @include createBloqsCss($reverse, "bloq-declare-variable", $vars-color, $theme-color-vars-color);
+    @include createBloqsCss($reverse, "bloq-sw-variable-advanced", $vars-color, $theme-color-vars-color);
+    @include createBloqsCss($reverse, "bloq-set-variableArray", $vars-color, $theme-color-vars-color);
+    @include createBloqsCss($reverse, "bloq-set-variable", $vars-color, $theme-color-vars-color);
+    @include createBloqsCss($reverse, "bloq-select-variable", $vars-color, $theme-color-vars-color);
+    /*---- OUTPUT BLOQ to avoid that a outputbloq take the extern bloq style------*/
+    @include createBloqsCss($reverse, "bloq-number", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-string", $text-color, $theme-color-text-color);
+    @include createBloqsCss($reverse, "bloq-read-sensor", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-serial-receiver", $components-color, $theme-color-components-color);
+    @include createBloqsCss($reverse, "bloq-pinlevels", $components-color, $theme-color-components-color);
+    /*---- MATHS ------*/
+    @include createBloqsCss($reverse, "bloq-basic-operations", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-numberArray-advanced", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-map", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-numberArray", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-map-advanced", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-math-operations", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-random", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-random-seed", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-math-binary-operations", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-num-conversion", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-basic-operations-v1", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-round", $maths-color, $theme-color-maths-color);
+    @include createBloqsCss($reverse, "bloq-parenthesis", $maths-color, $theme-color-maths-color);
+}
+
+@mixin createBloqsCss($reverse, $className, $classColor, $themeColorClassColor, $statementInput:false, $highlevel:false) {
+    @if ($reverse) {
+        &.#{$className} {
+            color: $classColor;
+            input,
+            select,
+            textarea {
+                color: $classColor;
+            }
+            @if($statementInput) {
+                border-left: 5px solid $classColor;
+                & > .bloq--extension:before {
+                    border-left: 5px solid $classColor;
+                }
+            }
+        }
+    }
+    @else {
+        &.#{$className} {}
+        &.#{$className}:not(.disabled) {
+            color: white;
+            .bloqinput,
+            input,
+            select,
+            textarea {
+                color: white;
+                background: $themeColorClassColor;
+                background-color: rgba(0, 0, 0, 0.2);
+                &:before {
+                    background: $themeColorClassColor;
+                    background-color: rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            @if($highlevel){
+              border-left: 5px solid $classColor;
+            }
+
+
+            ::-webkit-input-placeholder {
+                color: rgba(255, 255, 255, 0.5);
+            }
+            select {
+                background-image: url($whiteDownArrow);
+                background-repeat: no-repeat;
+                background-position: right 7px bottom 45%;
+                &.bloq__inner--first {
+                    margin-left: 10px;
+                }
+                option {
+                    color: black;
+                }
+            }
+            &.bloq--statement {
+                background-color: $themeColorClassColor;
+            }
+            &.bloq--output {
+                background-color: $themeColorClassColor;
+                &:before {
+                    background-color: $themeColorClassColor;
+                }
+                &:focus:not(.disabled):after {
+                    background-color: $themeColorClassColor;
+                }
+            }
+            @if($statementInput) {
+                // border-left: 5px solid $themeColorClassColor;
+                & .bloqinput {
+                    color: white;
+                    background: $themeColorClassColor;
+                    background-color: rgba(0, 0, 0, 0.2);
+                    &:before {
+                        background: $themeColorClassColor;
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+                &:before {
+                    background-color: $themeColorClassColor;
+                }
+                & > .bloq--statement-input__header {
+                    background-color: $themeColorClassColor;
+                }
+                & > .bloq--extension {
+                    &:before {
+                        border-left: 5px solid $themeColorClassColor;
+                    }
+                    & > .bloq--extension--end {
+                        background-color: $themeColorClassColor;
+                    }
+                }
+                & > .bloq--extension:before {}
+            }
+        }
+    }
+}

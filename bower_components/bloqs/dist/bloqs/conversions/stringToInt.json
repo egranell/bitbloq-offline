@@ -1,0 +1,50 @@
+{
+  "type": "output",
+  "name": "stringToInt",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "String"
+      ],
+      "name": "b19d44cc-2266-4df1-b2dd-54be0c6cde6e"
+    }
+  ],
+  "bloqClass": "bloq-string-to-int",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-string-to-int"
+      },
+      {
+        "bloqInputId": "VAR",
+        "alias": "bloqInput",
+        "acceptType": [
+          "String"
+        ],
+        "name": "b19d44cc-2266-4df1-b2dd-54be0c6cde6e"
+      }
+    ]
+  ],
+  "code": "{VAR}.toInt()",
+  "arduino": {
+    "code": "{VAR}.toInt()"
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "int"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"stringToInt\" no preparado para generar código python"
+      }
+    ]
+  }
+}

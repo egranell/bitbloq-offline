@@ -1,0 +1,50 @@
+{
+  "type": "output",
+  "name": "zowiSound",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-zowi-sound",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowi-sound-v1"
+      }
+    ]
+  ],
+  "code": "zowi.getNoise()",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.getNoise()"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiSound\" no preparado para generar código python"
+      }
+    ]
+  }
+}

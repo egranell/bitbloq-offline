@@ -1,0 +1,95 @@
+{
+  "type": "statement",
+  "name": "zowiMovementsFront",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-zowi-movements-front",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowi-movements-simple-walk-v1"
+      },
+      {
+        "id": "DIR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-zowi-movements-forward",
+            "value": "FORWARD"
+          },
+          {
+            "label": "bloq-zowi-movements-backward",
+            "value": "BACKWARD"
+          }
+        ]
+      },
+      {
+        "id": "STEPS",
+        "alias": "numberInput",
+        "value": 4
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zowi-movements-speed"
+      },
+      {
+        "id": "SPEED",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-zowi-movements-speed-small",
+            "value": "LOW_SPEED"
+          },
+          {
+            "label": "bloq-zowi-movements-speed-medium",
+            "value": "MEDIUM_SPEED"
+          },
+          {
+            "label": "bloq-zowi-movements-speed-high",
+            "value": "HIGH_SPEED"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zowi-movements-endtext"
+      }
+    ]
+  ],
+  "code": "zowi.walk({STEPS},{SPEED},{DIR});",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "zowi.walk({STEPS},{SPEED},{DIR});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiMovementsFront\" no preparado para generar código python"
+      }
+    ]
+  }
+}

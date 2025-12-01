@@ -153,11 +153,50 @@ angular.module('bitbloqOffline')
 
                 if (_detectConnected(componentReference.pin)) {
                     componentReference.connected = true;
+                    console.log('✅ Component marked as CONNECTED:', {
+                        name: componentReference.name,
+                        uid: componentReference.uid,
+                        connected: componentReference.connected,
+                        pin: componentReference.pin
+                    });
                 } else {
                     componentReference.connected = false;
+                    console.log('⚠️ Component marked as DISCONNECTED:', {
+                        name: componentReference.name,
+                        uid: componentReference.uid
+                    });
                 }
 
+                console.log('🔄 Calling refreshComponentsArray()');
                 $scope.refreshComponentsArray();
+                console.log('✅ refreshComponentsArray() completed');
+                console.log('📊 componentsArray after refresh:', JSON.stringify($scope.componentsArray, null, 2));
+                
+                // CRÍTICO: Forzar actualización del código después de conectar
+                console.log('🔍 Checking for refreshCode function...');
+                if ($scope.refreshCode && typeof $scope.refreshCode === 'function') {
+                    $timeout(function() {
+                        $scope.refreshCode();
+                        console.log('🔄 Code refreshed after connection');
+                        console.log('📝 $scope.code length:', $scope.code ? $scope.code.length : 'undefined');
+                        console.log('📝 First 200 chars of code:', $scope.code ? $scope.code.substring(0, 200) : 'NO CODE');
+                        // CRÍTICO: Forzar que Angular detecte el cambio en $scope.code
+                        if (!$scope.$$phase && !$rootScope.$$phase) {
+                            $scope.$apply();
+                            console.log('✅ $scope.$apply() forced - Angular should detect code change');
+                        } else {
+                            console.log('⚠️ Digest already in progress, skipping $apply()');
+                        }
+                    }, 150);
+                } else {
+                    console.warn('⚠️ refreshCode not available in hardwareTab scope');
+                    // Emitir evento BOTH ways para asegurar que llegue
+                    console.log('📤 Emitting hardware:componentConnected event via $emit');
+                    $rootScope.$emit('hardware:componentConnected');
+                    console.log('📤 Broadcasting hardware:componentConnected event via $broadcast');
+                    $rootScope.$broadcast('hardware:componentConnected');
+                    console.log('✅ Events dispatched');
+                }
 
             } else {
                 $log.debug('Unable to find this component or component is already removed');
@@ -339,6 +378,13 @@ angular.module('bitbloqOffline')
                 var componentReference = _.find($scope.project.hardware.components, function(c) {
                     return c.uid === componentDOM.dataset.uid;
                 });
+                
+                // Si el componente fue borrado pero el DOM aún existe, eliminarlo
+                if (!componentReference) {
+                    $(componentDOM).remove();
+                    return;
+                }
+                
                 var newCoordinates = {
                     x: (componentDOM.offsetLeft / container.offsetWidth) * 100,
                     y: (componentDOM.offsetTop / container.offsetHeight) * 100
@@ -427,11 +473,22 @@ angular.module('bitbloqOffline')
         };
 
         $scope.deleteComponent = function() {
+            if (!$scope.componentSelected) {
+                return;
+            }
+            
             $scope.disconnectComponent();
+            var uid = $scope.componentSelected.uid;
             var c = _.remove($scope.project.hardware.components, function(el) {
-                return $scope.componentSelected.uid === el.uid;
+                return uid === el.uid;
             });
-            var componenetToRemove = $('[data-uid="' + c[0].uid + '"]')[0];
+            
+            // Eliminar del DOM inmediatamente
+            var componenetToRemove = $('[data-uid="' + uid + '"]')[0];
+            if (componenetToRemove) {
+                $(componenetToRemove).remove();
+            }
+            
             $scope.componentSelected = false;
             hw2Bloqs.removeComponent(componenetToRemove);
             $scope.refreshComponentsArray();

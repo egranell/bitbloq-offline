@@ -1,0 +1,82 @@
+{
+  "type": "statement-input",
+  "name": "evolutionIfDistance",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-evolution-if-distance",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-distance"
+      },
+      {
+        "id": "OPERATOR",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-if-distance-less",
+            "value": "<"
+          },
+          {
+            "label": "bloq-evolution-if-distance-more",
+            "value": ">"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-distance-than"
+      },
+      {
+        "id": "DISTANCE",
+        "alias": "numberInput",
+        "value": 15
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-distance-then"
+      }
+    ]
+  ],
+  "code": "if(evolution.getDistance() {OPERATOR} {DISTANCE}){{STATEMENTS}}",
+  "arduino": {
+    "includes": [
+      "BitbloqEvolution.h",
+      "BitbloqUS.h",
+      "Servo.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "evolution",
+        "type": "Evolution"
+      }
+    ],
+    "setupExtraCode": "evolution.init();",
+    "code": "if(evolution.getDistance() {OPERATOR} {DISTANCE}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"evolutionIfDistance\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "statement",
+  "name": "zumjuniorClearDisplay",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-zumjunior-clear-display",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zumjunior-clear-display"
+      },
+      {
+        "id": "DISPLAY",
+        "alias": "dynamicDropdown",
+        "options": "zumjunior7segments"
+      }
+    ]
+  ],
+  "code": "{DISPLAY}.displayChar(' ', ' ');",
+  "arduino": {
+    "code": "{DISPLAY}.displayChar(' ', ' ');"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zumjuniorClearDisplay\" no preparado para generar código python"
+      }
+    ]
+  }
+}

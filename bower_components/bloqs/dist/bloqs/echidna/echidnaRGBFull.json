@@ -1,0 +1,64 @@
+{
+  "type": "statement",
+  "name": "echidnaRGBFull",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-rgbLed"
+      },
+      {
+        "alias": "text",
+        "value": "with-the-color"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-setled-red"
+      },
+      {
+        "id": "RED",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-setled-green"
+      },
+      {
+        "id": "GREEN",
+        "alias": "numberInput",
+        "value": 0
+      },
+      {
+        "alias": "text",
+        "value": "bloq-mbot-setled-blue"
+      },
+      {
+        "id": "BLUE",
+        "alias": "numberInput",
+        "value": 0
+      }
+    ]
+  ],
+  "arduino": {
+    "code": "echidna.setRGBcolor({RED}, {GREEN}, {BLUE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"echidnaRGBFull\" no preparado para generar código python"
+      }
+    ]
+  }
+}

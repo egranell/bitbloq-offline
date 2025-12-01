@@ -1,0 +1,27 @@
+{
+  "type": "statement",
+  "name": "phoneConfigTwitter",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-twitter-config",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-twitter-config"
+      }
+    ]
+  ],
+  "code": "/*sendTwitterAppConfig*/",
+  "arduino": {
+    "code": "/*sendTwitterAppConfig*/"
+  }
+}

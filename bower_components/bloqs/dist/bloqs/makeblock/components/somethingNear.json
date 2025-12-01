@@ -1,0 +1,69 @@
+{
+  "type": "statement-input",
+  "name": "mBotSomethingNear",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-somethingnear",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "if"
+      },
+      {
+        "id": "OPERATION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-mbot-somethingnear-operation-near",
+            "value": "{ULTRASOUND}.readDistanceInCM() < 8"
+          },
+          {
+            "label": "bloq-mbot-somethingnear-operation-faraway",
+            "value": "({ULTRASOUND}.readDistanceInCM() >= 8) && ({ULTRASOUND}.readDistanceInCM() < 513)"
+          },
+          {
+            "label": "bloq-mbot-somethingnear-operation-nodetect",
+            "value": "{ULTRASOUND}.readDistanceInCM() >= 513"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "with-the"
+      },
+      {
+        "id": "ULTRASOUND",
+        "alias": "dynamicDropdown",
+        "options": "mkb_ultrasound"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "if({OPERATION}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mBotSomethingNear\" no preparado para generar código python"
+      }
+    ]
+  }
+}

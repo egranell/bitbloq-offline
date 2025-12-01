@@ -1,0 +1,88 @@
+{
+  "type": "statement",
+  "name": "analogWrite",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "d05bca62-3ae0-44b1-ae5f-c368755de497"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "pinLevels",
+        "number",
+        "selectVariable"
+      ],
+      "name": "7835dd9a-846b-424a-b213-038107191d3b"
+    }
+  ],
+  "bloqClass": "bloq-pin-writte-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-pin-analog-write-V1"
+      },
+      {
+        "bloqInputId": "PIN",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "d05bca62-3ae0-44b1-ae5f-c368755de497"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-pin-analog-write-data-V1"
+      },
+      {
+        "bloqInputId": "DATA",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "pinLevels",
+          "number",
+          "selectVariable"
+        ],
+        "name": "7835dd9a-846b-424a-b213-038107191d3b"
+      }
+    ]
+  ],
+  "code": "'{PIN}'.indexOf('A') !== -1 ? 'analogWrite({PIN},{DATA});'.replace(/\"/g, '') : 'analogWrite({PIN},{DATA});'",
+  "arduino": {
+    "code": "analogWrite(¬{PIN.formatPin}, {DATA});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"analogWrite\" no preparado para generar código python"
+      }
+    ]
+  }
+}

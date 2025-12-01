@@ -1,0 +1,93 @@
+{
+  "type": "statement",
+  "name": "displayNumberInPosition",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "48572ad8-68bd-46a4-8823-4382a0c86d2d"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-display-show"
+      },
+      {
+        "bloqInputId": "VALUE",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "48572ad8-68bd-46a4-8823-4382a0c86d2d"
+      },
+      {
+        "alias": "text",
+        "value": "in-position"
+      },
+      {
+        "id": "POSITION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "0",
+            "value": 0
+          },
+          {
+            "label": "1",
+            "value": 1
+          },
+          {
+            "label": "2",
+            "value": 2
+          },
+          {
+            "label": "3",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "in"
+      },
+      {
+        "id": "DISPLAY",
+        "alias": "dynamicDropdown",
+        "options": "display7seg"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{DISPLAY}.display((uint8_t){POSITION},{VALUE});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"displayNumberInPosition\" no preparado para generar código python"
+      }
+    ]
+  }
+}

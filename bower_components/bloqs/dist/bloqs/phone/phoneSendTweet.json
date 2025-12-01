@@ -1,0 +1,82 @@
+{
+  "type": "statement",
+  "name": "phoneSendTweet",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "string",
+        "selectVariable"
+      ],
+      "name": "5f83b92c-1d60-47c3-83dd-87c54df522a1"
+    }
+  ],
+  "bloqClass": "bloq-send-tweet",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-send-tweet"
+      },
+      {
+        "bloqInputId": "TWEET",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "string",
+          "selectVariable"
+        ],
+        "name": "5f83b92c-1d60-47c3-83dd-87c54df522a1"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-from-device"
+      },
+      {
+        "id": "PHONE",
+        "alias": "dynamicDropdown",
+        "options": "serialElements"
+      }
+    ]
+  ],
+  "code": "{PHONE}.println(\"twitterSend-\" + {TWEET});",
+  "arduino": {
+    "includes": [
+      "BitbloqSoftwareSerial.h"
+    ],
+    "setupExtraCode": "{PHONE}.begin(º[{PHONE}.baudRate]);",
+    "needInstanceOf": [
+      {
+        "name": "{PHONE}",
+        "type": "bqSoftwareSerial",
+        "arguments": [
+          "º[{PHONE}.pin.rx]",
+          "º[{PHONE}.pin.tx]",
+          "º[{PHONE}.baudRate]"
+        ]
+      }
+    ],
+    "code": "{PHONE}.println(String(\"twitterSend-\")+String({TWEET}));"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"phoneSendTweet\" no preparado para generar código python"
+      }
+    ]
+  }
+}

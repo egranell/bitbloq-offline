@@ -1,0 +1,67 @@
+{
+  "type": "statement",
+  "name": "botbloqSnakeRoll",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-botbloq-snake-roll",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "roll-to"
+      },
+      {
+        "id": "SIDE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "right",
+            "value": "RIGHT"
+          },
+          {
+            "label": "left",
+            "value": "LEFT"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "move-for"
+      },
+      {
+        "id": "DELAY",
+        "alias": "numberInput",
+        "value": 1000
+      },
+      {
+        "alias": "text",
+        "value": "ms"
+      }
+    ]
+  ],
+  "code": "",
+  "python": {
+    "libraries": [
+      "BotbloqSnake"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "snake",
+        "type": "BotbloqSnake"
+      }
+    ],
+    "codeLines": [
+      {
+        "code": "snake.roll(\"{SIDE}\", {DELAY})"
+      }
+    ]
+  }
+}

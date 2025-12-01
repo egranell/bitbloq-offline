@@ -22,15 +22,40 @@
     <div data-ng-view=""></div>
     <script>
     window.$ = window.JQuery = window.jQuery = require('jquery');
-    window.angular = require('angular');
-    window.Q = require('Q');
+    window.Q = require('q');
     </script>
     <!-- bower:js -->
+    <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script src="../bower_components/angular-websocket/angular-websocket.min.js"></script>
     <script src="../bower_components/angular-clipboard/angular-clipboard.js"></script>
     <script src="../bower_components/lodash/lodash.js"></script>
-    <script src="../bower_components/jsplumb/dist/js/jsPlumb-2.0.5.js"></script>
+    <!-- jsPlumb 2.15.6 local - Compatible con código existente -->
+    <script src="libs/jsplumb.min.js"></script>
+    <script>
+    // Debug: Verificar carga de jsPlumb
+    console.log('🔍 jsPlumb check:', {
+        exists: !!window.jsPlumb,
+        version: window.jsPlumb ? window.jsPlumb.version : 'NOT LOADED',
+        getInstance: typeof window.jsPlumb?.getInstance
+    });
+    
+    // Si no se cargó, intentar desde CDN como fallback
+    if (!window.jsPlumb) {
+        console.error('❌ jsPlumb no se cargó desde archivo local, cargando desde CDN...');
+        var script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js';
+        script.onload = function() {
+            console.log('✅ jsPlumb cargado desde CDN:', window.jsPlumb.version);
+        };
+        script.onerror = function() {
+            console.error('❌ ERROR: No se pudo cargar jsPlumb ni desde local ni desde CDN');
+        };
+        document.head.appendChild(script);
+    } else {
+        console.log('✅ jsPlumb cargado correctamente desde archivo local');
+    }
+    </script>
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="../bower_components/angular-translate/angular-translate.js"></script>
     <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
@@ -62,6 +87,7 @@
     <script src="scripts/services/projectApi.js"></script>
     <script src="scripts/services/alerts.js"></script>
     <script src="scripts/services/openWindow.js"></script>
+    <script src="scripts/services/fileDialog.js"></script>
     <script src="scripts/directives/tab.js"></script>
     <script src="scripts/directives/tabset.js"></script>
     <script src="scripts/directives/dropdown.js"></script>

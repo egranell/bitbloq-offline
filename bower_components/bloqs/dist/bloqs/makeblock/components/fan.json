@@ -1,0 +1,57 @@
+{
+  "type": "statement",
+  "name": "mkbfan",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-mbot-color",
+  "content": [
+    [
+      {
+        "id": "SPEED",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-led-turnon",
+            "value": "-150"
+          },
+          {
+            "label": "bloq-led-turnoff",
+            "value": "-1"
+          },
+          {
+            "label": "bloq-reverse",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-the"
+      },
+      {
+        "id": "FAN",
+        "alias": "dynamicDropdown",
+        "options": "mkb_fan"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "code": "{FAN}.setSpeed({SPEED});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"mkbfan\" no preparado para generar código python"
+      }
+    ]
+  }
+}

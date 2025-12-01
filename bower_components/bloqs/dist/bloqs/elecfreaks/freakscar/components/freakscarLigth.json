@@ -1,0 +1,68 @@
+{
+  "type": "output",
+  "name": "freakscarLight",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-light"
+      },
+      {
+        "id": "SIDE",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-light-left",
+            "value": "LEFT"
+          },
+          {
+            "label": "bloq-evolution-light-right",
+            "value": "RIGHT"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-light-evolution"
+      }
+    ]
+  ],
+  "code": "",
+  "arduino": {
+    "includes": [
+      "BitbloqFreaksCar.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "robot",
+        "type": "BitbloqFreaksCar"
+      }
+    ],
+    "setupExtraCode": "robot.setup();",
+    "conditional": {
+      "aliasId": "SIDE",
+      "code": {
+        "LEFT": "robot.readLDRLeft()",
+        "RIGHT": "robot.readLDRRight()"
+      }
+    }
+  },
+  "returnType": {
+    "type": "simple",
+    "value": "int"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"freakscarLight\" no preparado para generar código python"
+      }
+    ]
+  }
+}

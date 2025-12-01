@@ -1,0 +1,76 @@
+{
+  "type": "statement-input",
+  "name": "zowiIfButtons",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-zowi-if-buttons",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-zowi-if-buttons"
+      },
+      {
+        "id": "BUTTON",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "A",
+            "value": "PIN_AButton"
+          },
+          {
+            "label": "B",
+            "value": "PIN_BButton"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-zowi-if-buttons-then-v1"
+      }
+    ]
+  ],
+  "code": "if(digitalRead({BUTTON}) == 1){{STATEMENTS}}",
+  "arduino": {
+    "includes": [
+      "BitbloqZowi.h",
+      "BitbloqUS.h",
+      "BitbloqBatteryReader.h",
+      "BitbloqLedMatrix.h",
+      "Servo.h",
+      "BitbloqOscillator.h",
+      "EEPROM.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "zowi",
+        "type": "Zowi"
+      }
+    ],
+    "setupExtraCode": "zowi.init();",
+    "code": "if(digitalRead({BUTTON}) == 1){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"zowiIfButtons\" no preparado para generar código python"
+      }
+    ]
+  }
+}

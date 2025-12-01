@@ -1,0 +1,57 @@
+{
+  "type": "output",
+  "name": "echidnaReadJoystickXY",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-components-color",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-read-mkb_joystick"
+      },
+      {
+        "id": "OPTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "X",
+            "value": "X"
+          },
+          {
+            "label": "Y",
+            "value": "Y"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-of-joystick"
+      }
+    ]
+  ],
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "conditional": {
+      "aliasId": "OPTION",
+      "code": {
+        "X": "echidna.readJoystickX()",
+        "Y": "echidna.readJoystickY()"
+      }
+    }
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"echidnaReadJoystickXY\" no preparado para generar código python"
+      }
+    ]
+  }
+}

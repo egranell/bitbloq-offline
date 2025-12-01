@@ -1,0 +1,91 @@
+{
+  "type": "statement-input",
+  "name": "evolutionIfLine",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top",
+      "acceptedAliases": [
+        "all",
+        "ifDown"
+      ]
+    },
+    {
+      "type": "connector--root",
+      "accept": "connector--top"
+    }
+  ],
+  "bloqClass": "bloq-evolution-if-line",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-line"
+      },
+      {
+        "id": "LINELEFT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-if-line-white",
+            "value": "1"
+          },
+          {
+            "label": "bloq-evolution-if-line-black",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-line-and"
+      },
+      {
+        "id": "LINERIGHT",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-evolution-if-line-white",
+            "value": "1"
+          },
+          {
+            "label": "bloq-evolution-if-line-black",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-evolution-if-line-then"
+      }
+    ]
+  ],
+  "code": "if(evolution.getLine(LEFT) == {LINELEFT} && evolution.getLine(RIGHT) == {LINERIGHT}){{STATEMENTS}}",
+  "arduino": {
+    "includes": [
+      "BitbloqEvolution.h",
+      "BitbloqUS.h",
+      "Servo.h",
+      "BitbloqOscillator.h"
+    ],
+    "needInstanceOf": [
+      {
+        "name": "evolution",
+        "type": "Evolution"
+      }
+    ],
+    "setupExtraCode": "evolution.init();",
+    "code": "if(evolution.getLine(LEFT) == {LINELEFT} && evolution.getLine(RIGHT) == {LINERIGHT}){{STATEMENTS}}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"evolutionIfLine\" no preparado para generar código python"
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "type": "statement",
+  "name": "continuousServoStartAdvanced-v1",
+  "connectors": [
+    {
+      "type": "connector--top",
+      "accept": "connector--bottom"
+    },
+    {
+      "type": "connector--bottom",
+      "accept": "connector--top"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "hwVariable",
+        "selectVariable"
+      ],
+      "name": "97e34a68-88cb-49e7-aa2a-fb2a9955e2eb"
+    },
+    {
+      "type": "connector--input",
+      "accept": "connector--output",
+      "acceptType": [
+        "all"
+      ],
+      "suggestedBloqs": [
+        "number",
+        "selectVariable"
+      ],
+      "name": "dab981e1-6ac3-4932-8d26-300a43daf5b3"
+    }
+  ],
+  "bloqClass": "bloq-continuous-servo-start-advanced",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-continuous-servo-start-advanced-turn"
+      },
+      {
+        "bloqInputId": "SERVO",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "hwVariable",
+          "selectVariable"
+        ],
+        "name": "97e34a68-88cb-49e7-aa2a-fb2a9955e2eb"
+      },
+      {
+        "alias": "text",
+        "value": "bloq-continuous-servo-start-advanced-direction"
+      },
+      {
+        "bloqInputId": "DIRECTION",
+        "alias": "bloqInput",
+        "acceptType": [
+          "all"
+        ],
+        "suggestedBloqs": [
+          "number",
+          "selectVariable"
+        ],
+        "name": "dab981e1-6ac3-4932-8d26-300a43daf5b3"
+      }
+    ]
+  ],
+  "code": "{SERVO}.write({DIRECTION});",
+  "arduino": {
+    "code": "{SERVO}.write({DIRECTION});"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"continuousServoStartAdvanced-v1\" no preparado para generar código python"
+      }
+    ]
+  }
+}

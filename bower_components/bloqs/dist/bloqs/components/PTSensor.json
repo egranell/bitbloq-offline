@@ -1,0 +1,61 @@
+{
+  "type": "output",
+  "name": "PTSensor",
+  "connectors": [
+    {
+      "type": "connector--output",
+      "accept": "connector--input"
+    }
+  ],
+  "bloqClass": "bloq-PTsensor",
+  "content": [
+    [
+      {
+        "alias": "text",
+        "value": "bloq-PTsensor"
+      },
+      {
+        "id": "FUNCTION",
+        "alias": "staticDropdown",
+        "options": [
+          {
+            "label": "bloq-PTsensor-pressure",
+            "value": "getPressure()"
+          },
+          {
+            "label": "bloq-PTsensor-temperature",
+            "value": "getTemperature()"
+          },
+          {
+            "label": "bloq-PTsensor-altitude",
+            "value": "getAltitude()"
+          }
+        ]
+      },
+      {
+        "alias": "text",
+        "value": "bloq-PTsensor-sensor"
+      },
+      {
+        "id": "PTSENS",
+        "alias": "dynamicDropdown",
+        "options": "barometer"
+      }
+    ]
+  ],
+  "code": "{PTSENS}.{FUNCTION}",
+  "returnType": {
+    "type": "simple",
+    "value": "float"
+  },
+  "arduino": {
+    "code": "{PTSENS}.{FUNCTION}"
+  },
+  "python": {
+    "codeLines": [
+      {
+        "code": "Bloque \"PTSensor\" no preparado para generar código python"
+      }
+    ]
+  }
+}
