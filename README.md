@@ -1,164 +1,332 @@
-# Bitbloq Offline 
+# Bitbloq Offline v2.0.0 🚀
 
-[es_ES]
+[![Node.js](https://img.shields.io/badge/Node.js-20.x-green.svg)](https://nodejs.org/)
+[![Electron](https://img.shields.io/badge/Electron-31.7.5-blue.svg)](https://www.electronjs.org/)
+[![License](https://img.shields.io/badge/License-GPL--3.0-orange.svg)](LICENSE)
 
-ESTE PROYECTO ESTÁ DISCONTINUADO Y NO RECIBIRÁ SOPORTE
+---
 
-Esta es la versión offline oficial del proyecto Bitbloq, una [herramienta de programación visual](https://es.wikipedia.org/wiki/Programaci%C3%B3n_visual) de [Arduino](https://www.arduino.cc/).
+## 📌 Estado del Proyecto
 
-Puedes utilizar la versión online [aquí](http://bitbloq.bq.com).
+> **✨ PROYECTO MODERNIZADO EN 2025**  
+> Esta versión ha sido actualizada con tecnologías modernas (Electron 31, Node.js 20) y
+> está completamente funcional. El proyecto original de BQ fue discontinuado en 2016,
+> pero esta fork modernizada continúa el desarrollo.
 
-En la versión actual soportamos las siguientes placas:
+---
 
- - Arduino UNO
- - Freaduino UNO
- - BQ ZUM
+## 🇪🇸 Español
 
-Y los siguientes robots:
+### Descripción
 
- - ZOWI
+**Bitbloq Offline** es una herramienta de [programación visual](https://es.wikipedia.org/wiki/Programaci%C3%B3n_visual) para [Arduino](https://www.arduino.cc/) basada en bloques. Permite crear programas de forma intuitiva sin necesidad de escribir código, ideal para educación y aprendizaje de programación.
 
-¿Utilizas otra placa o robot y quieres que la añadamos en Bitbloq? Escríbenos a soporte.bitbloq@bq.com e intentaremos hablar con el fabricante para que nos permita introducirlo en Bitbloq. 
-Por supuesto es un proyecto Open Source y también aceptamos contribuciones de cualquier persona siempre que sean correctas.
+### ✨ Características
 
-Actualmente Bitbloq offline funciona en las siguientes plataformas:
+- 🎨 **Programación visual** mediante bloques (similar a Scratch)
+- 🔌 **Compatible** con Arduino UNO, Freaduino UNO, BQ ZUM
+- 🤖 **Soporte** para robot ZOWI
+- 💾 **Modo offline** completo - no requiere conexión a internet
+- ⚡ **Modernizado** con Electron 31 y Node.js 20 (2025)
+- 🐛 **Correcciones** de JSPlumb endpoints y gestión de conexiones
 
- - Linux (Ubuntu 12.04 y superior, Fedora 21, Debian 8)
- - Mac OS X 10.9 o superior
- - Windows 7 y posterior, ambos 32 y 64 (la versión ARM de Windows no está soportada por ahora).
+### 🖥️ Plataformas Soportadas
 
-Puedes encontrar los instaladores de la aplicación aquí:
+- **Linux**: Ubuntu 16.04+, Fedora 30+, Debian 10+
+- **macOS**: 10.13 (High Sierra) o superior
+- **Windows**: Windows 10/11 (64-bit)
 
- - [Linux](https://github.com/bq/bitbloq-offline/releases/download/latest/linux.zip)
- - [Linux 32](https://github.com/bq/bitbloq-offline/releases/download/latest/linux32.zip)
- - [Mac](https://github.com/bq/bitbloq-offline/releases/download/latest/mac.zip)
- - [Windows 32 y 64](https://github.com/bq/bitbloq-offline/releases/download/latest/windows.zip)
+### 📋 Requisitos
 
+- **Node.js**: 18.x o 20.x LTS
+- **npm**: 9.x o superior
+- **Electron**: 31.7.5 (incluido)
 
-Notas:
- 
- - Es una aplicación portable, no requiere instalación ni permisos de administrador para ejecutarse, pero tu placa es posible que requiera drivers, hemos añadido algunos en la carpeta drivers de la aplicación. ¡ Acuérdate de instalarlos !
- 
- - Acuérdate de descomprimir el fichero que te descargas en una carpeta en la que luego el usuario que lo utilice tenga permisos, por ejemplo, en windows no la descomprimas directamente en "c:", o en la carpeta de "c:/Archivos de programa", ejemplos válidos son la carpeta "Documentos" del usuario o en el escritorio.
- 
- - ¿No te detecta la placa y está conectada el ordenador? Revisa [este documento](docs/motherboard_troubleshooting.pdf) y si sigues teniendo incidencias, no dudes en escríbirnos a soporte.bitbloq@bq.com.
+### 🚀 Instalación Rápida
 
-Recuerda que al ser una aplicación offline, no tendrás todas las ventajas ni novedades de la web. Te recomendamos que la uses solo cuando no tienes conexión estable a internet.
+```bash
+# Clonar el repositorio
+git clone https://github.com/egranell/bitbloq-offline.git
+cd bitbloq-offline
 
-![alt tag](docs/onlineVSoffline.jpg) 
+# Instalar dependencias
+npm install
 
-# Bitbloq Offline
-
-[en_GB]
-
-THIS PROJECT IS DISCONTINUED AND WILL NO RECEIVE FURTHER SUPPORT
-
-This is the offline version of the Bitbloq project, a [visual programming tool](https://en.wikipedia.org/wiki/Visual_programming_language) for [Arduino](https://www.arduino.cc/).
-
-You can visit the online version [here](http://bitbloq.bq.com)
-
-The current version supports the following boards:
-
- - Arduino UNO
- - Freaduino UNO
- - BQ ZUM
-
-And the following robots:
-
- - ZOWI
-
-Do you have a board or robot that is not in Bitbloq? Email us to support.bitbloq.en@bq.com, and we will reach the manufacturer to introduce it on Bitbloq.
-Bitbloq is an Open Source project so we will accept contributions adding new boards / robots if they are correct.
-
-In this platforms:
-
- - Linux (Ubuntu 12.04 and later, Fedora 21, Debian 8)
- - Mac OS X 10.9 or greater
- - Windows 7 and later, both 32 and 64 (ARM version os Windows is not suported for now).
-
-You can find binaries here:
-
- - [Linux](https://github.com/bq/bitbloq-offline/releases/download/latest/linux.zip)
- - [Linux 32](https://github.com/bq/bitbloq-offline/releases/download/latest/linux32.zip)
- - [Mac](https://github.com/bq/bitbloq-offline/releases/download/latest/mac.zip)
- - [Windows 32 y 64](https://github.com/bq/bitbloq-offline/releases/download/latest/windows.zip)
-
-## Getting Started ##
-
-Clone the repo:
-
-    git clone https://github.com/bq/bitbloq-offline.git
-
-Get into the directory:
-
-       cd bitbloq-offline/
-
-Install npm and Bower components:
-
-    npm install
-    bower install
-Launch the app:
-
-    electron .
-
-
-## Packaging ##
-Just build for all Operating systems:
-
-    grunt dist
-
-Or depending on the operating system:
-
-
-- Windows:
-
-        grunt build:windows
-- Linux:
-
-        grunt build:linux
-- Mac:
-
-        grunt build:mac
-
-This will generate a `/dist/{os}` folder with the app ready to be launched.
-
-
-## App Structure ##
-```
-app
-├── fonts // App fonts
-├── images // App images
-│   ├── boards // Images for boards
-│   ├── components // Images for components
-│   ├── icons // Icons for svgstore
-│   └── robots // Images for robots
-├── res // Common resources
-│   ├── locales // Language translations
-│   ├── menus // JSON files for generating menus
-│   └── web2board // web2board nested app
-├── scripts // Angular scripts
-│   ├── controllers // Angular controllers
-│   ├── directives // Angular directives
-│   ├── factories // Angular factories
-│   └── services // Angular services
-├── styles // App styles
-│   ├── components // Styles for components
-│   ├── vendor // Vendor styles
-│   └── views // Styles for views
-└── views // All views
-│   ├── components // Views for components
-│   └── view.html // App normal view
-└── main.js // Electron config
+# Ejecutar la aplicación
+npm start
 ```
 
+### 🛠️ Comandos Disponibles
 
+```bash
+npm start              # Ejecutar aplicación
+npm run dev            # Modo desarrollo con inspector
+npm run build:sass     # Compilar estilos SCSS
+npm run watch:sass     # Watch mode para SCSS
+npm run lint           # Linter de código
+```
 
-## Developing ##
+### 📦 Compilar Ejecutables
 
-You can set your own config in `main.js` file.  
+```bash
+# Para todas las plataformas
+grunt dist
 
-Grunt tasks
+# Por plataforma específica
+grunt build:windows    # Windows
+grunt build:linux      # Linux 64-bit
+grunt build:linux32    # Linux 32-bit
+grunt build:mac        # macOS
+grunt build:linuxArm   # Linux ARM
+```
 
-    grunt svgstore // Generates an svg sprite from icons folder.
-    grunt sass // Compiles scss files to a single main.css file.
-    grunt watch // Watches yout changes and reloads the app.
+Los ejecutables se generarán en la carpeta `/dist/{os}/`.
+
+### 🔧 Desarrollo
+
+#### Estructura del Proyecto
+
+```
+bitbloq-offline/
+├── app/                          # Aplicación principal
+│   ├── fonts/                    # Fuentes
+│   ├── images/                   # Imágenes y assets
+│   ├── libs/                     # Librerías (JSPlumb)
+│   ├── res/                      # Recursos (locales, web2board)
+│   ├── scripts/                  # Código AngularJS
+│   │   ├── controllers/         # Controladores
+│   │   ├── directives/          # Directivas
+│   │   ├── factories/           # Factories
+│   │   └── services/            # Servicios
+│   ├── styles/                   # Estilos SCSS
+│   └── views/                    # Templates HTML
+├── main.js                       # Entry point Electron
+├── package.json                  # Dependencias npm
+└── gruntfile.js                  # Configuración build
+```
+
+#### Tareas Grunt
+
+```bash
+grunt svgstore    # Genera sprite SVG desde iconos
+grunt sass        # Compila SCSS a CSS
+grunt watch       # Watch mode con recarga automática
+```
+
+### 📚 Documentación Técnica
+
+- 📖 **[DOCUMENTACION_TECNICA.md](DOCUMENTACION_TECNICA.md)** - Arquitectura y detalles técnicos
+- 🎯 **[PLAN_MEJORA_INTEGRAL.md](PLAN_MEJORA_INTEGRAL.md)** - Roadmap de mejoras y modernización
+- ✅ **[MODERNIZACION_COMPLETADA.md](MODERNIZACION_COMPLETADA.md)** - Resumen de cambios realizados
+- 🔧 **[SOLUCION_FINAL_CODIGO.md](SOLUCION_FINAL_CODIGO.md)** - Soluciones implementadas
+
+### 🐛 Problemas Conocidos y Soluciones
+
+Si la placa no es detectada:
+1. Revisar [motherboard_troubleshooting.pdf](docs/motherboard_troubleshooting.pdf)
+2. Instalar drivers desde la carpeta `drivers/` de la aplicación
+3. Verificar permisos de acceso al puerto serie
+
+### 🤝 Contribuir
+
+Este es un proyecto Open Source. Las contribuciones son bienvenidas:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### 📄 Licencia
+
+Este proyecto está licenciado bajo GPL-3.0 - ver [LICENSE](LICENSE) para detalles.
+
+### 🏆 Créditos
+
+**Proyecto original por BQ (2016):**
+- Diego Segura
+- Laura del Río
+- Fernando del Olmo
+- Tom Calvo
+- Luis Antonio González
+
+**Modernización 2025:**
+- Actualización a Electron 31 y Node.js 20
+- Corrección de JSPlumb endpoints
+- Documentación técnica completa
+- Plan de mejora integral
+
+---
+
+## 🇬🇧 English
+
+### Description
+
+**Bitbloq Offline** is a visual programming tool for Arduino based on blocks. It allows creating programs intuitively without writing code, ideal for education and learning programming.
+
+### ✨ Features
+
+- 🎨 **Visual programming** with blocks (Scratch-like)
+- 🔌 **Compatible** with Arduino UNO, Freaduino UNO, BQ ZUM
+- 🤖 **Support** for ZOWI robot
+- 💾 **Fully offline** - no internet connection required
+- ⚡ **Modernized** with Electron 31 and Node.js 20 (2025)
+- 🐛 **Fixed** JSPlumb endpoints and connection management
+
+### 🖥️ Supported Platforms
+
+- **Linux**: Ubuntu 16.04+, Fedora 30+, Debian 10+
+- **macOS**: 10.13 (High Sierra) or later
+- **Windows**: Windows 10/11 (64-bit)
+
+### 📋 Requirements
+
+- **Node.js**: 18.x or 20.x LTS
+- **npm**: 9.x or higher
+- **Electron**: 31.7.5 (included)
+
+### 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/egranell/bitbloq-offline.git
+cd bitbloq-offline
+
+# Install dependencies
+npm install
+
+# Run the application
+npm start
+```
+
+### 🛠️ Available Commands
+
+```bash
+npm start              # Run application
+npm run dev            # Development mode with inspector
+npm run build:sass     # Compile SCSS styles
+npm run watch:sass     # Watch mode for SCSS
+npm run lint           # Code linter
+```
+
+### 📦 Building Executables
+
+```bash
+# For all platforms
+grunt dist
+
+# For specific platform
+grunt build:windows    # Windows
+grunt build:linux      # Linux 64-bit
+grunt build:linux32    # Linux 32-bit
+grunt build:mac        # macOS
+grunt build:linuxArm   # Linux ARM
+```
+
+Executables will be generated in `/dist/{os}/` folder.
+
+### 🔧 Development
+
+#### Project Structure
+
+```
+bitbloq-offline/
+├── app/                          # Main application
+│   ├── fonts/                    # Fonts
+│   ├── images/                   # Images and assets
+│   ├── libs/                     # Libraries (JSPlumb)
+│   ├── res/                      # Resources (locales, web2board)
+│   ├── scripts/                  # AngularJS code
+│   │   ├── controllers/         # Controllers
+│   │   ├── directives/          # Directives
+│   │   ├── factories/           # Factories
+│   │   └── services/            # Services
+│   ├── styles/                   # SCSS styles
+│   └── views/                    # HTML templates
+├── main.js                       # Electron entry point
+├── package.json                  # npm dependencies
+└── gruntfile.js                  # Build configuration
+```
+
+#### Grunt Tasks
+
+```bash
+grunt svgstore    # Generate SVG sprite from icons
+grunt sass        # Compile SCSS to CSS
+grunt watch       # Watch mode with auto-reload
+```
+
+### 📚 Technical Documentation
+
+- 📖 **[DOCUMENTACION_TECNICA.md](DOCUMENTACION_TECNICA.md)** - Architecture and technical details
+- 🎯 **[PLAN_MEJORA_INTEGRAL.md](PLAN_MEJORA_INTEGRAL.md)** - Improvement roadmap and modernization
+- ✅ **[MODERNIZACION_COMPLETADA.md](MODERNIZACION_COMPLETADA.md)** - Summary of changes made
+- 🔧 **[SOLUCION_FINAL_CODIGO.md](SOLUCION_FINAL_CODIGO.md)** - Implemented solutions
+
+### 🐛 Known Issues and Solutions
+
+If the board is not detected:
+1. Review [motherboard_troubleshooting.pdf](docs/motherboard_troubleshooting.pdf)
+2. Install drivers from application's `drivers/` folder
+3. Verify serial port access permissions
+
+### 🤝 Contributing
+
+This is an Open Source project. Contributions are welcome:
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### 📄 License
+
+This project is licensed under GPL-3.0 - see [LICENSE](LICENSE) for details.
+
+### 🏆 Credits
+
+**Original project by BQ (2016):**
+- Diego Segura
+- Laura del Río
+- Fernando del Olmo
+- Tom Calvo
+- Luis Antonio González
+
+**2025 Modernization:**
+- Updated to Electron 31 and Node.js 20
+- Fixed JSPlumb endpoints
+- Complete technical documentation
+- Comprehensive improvement plan
+
+---
+
+## 🔗 Links
+
+- 🌐 **Original project**: [bitbloq.bq.com](http://bitbloq.bq.com)
+- 📦 **Releases**: [GitHub Releases](https://github.com/egranell/bitbloq-offline/releases)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/egranell/bitbloq-offline/issues)
+- 📖 **Wiki**: [Project Wiki](https://github.com/egranell/bitbloq-offline/wiki)
+
+---
+
+## 📊 Version History
+
+### v2.0.0 (2025) - Modernization Release
+- ✨ Updated to Electron 31.7.5
+- ✨ Updated to Node.js 20.x LTS
+- ✨ Updated all npm dependencies
+- 🐛 Fixed JSPlumb endpoints rendering
+- 🐛 Fixed connection management
+- 📚 Added comprehensive technical documentation
+- 📋 Created improvement roadmap
+
+### v1.2.3 (2016) - Original BQ Release
+- 🎉 Initial release by BQ
+- 🎨 Visual programming with blocks
+- 🔌 Arduino UNO, Freaduino UNO, BQ ZUM support
+- 🤖 ZOWI robot support
+
+---
+
+**Made with ❤️ for education and learning**
